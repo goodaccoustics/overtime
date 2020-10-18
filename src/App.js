@@ -44,68 +44,6 @@ class App extends Component {
             path={'/Faq/'}
             render={(props) => <Faq {...props} />}
           />
-          {/**
-           <Route
-            exact
-            path='/'
-            render={(props) => <About {...props} userObj={this.state.userObj} />}
-          />
-          <Route
-            path='/about'
-            render={(props) => <About {...props} userObj={this.state.userObj} />}
-          />
-          <Route
-            path='/requests'
-            render={(props) => <Requests {...props} userObj={this.state.userObj} />}
-          />
-          <Route
-            path='/dashboard'
-            render={(props) => {
-              if (this.state.isSignedIn) {
-                return <Dashboard {...props} userObj={this.state.userObj} />;
-              } else {
-                return <Redirect to="/signin" />
-              }
-            }
-            }
-          />
-          <Route
-            path='/profile'
-            render={(props) => <Profile {...props} userObj={this.state.userObj} setUserObj={this.setUserObj} />}
-          />
-          <Route
-            path='/signin'
-            render={(props) => <SignIn {...props} userObj={this.state.userObj} setSignedInStatus={this.setSignedInStatus} setUserObj={this.setUserObj} isSignOut={false}/>}
-          />
-          <Route
-            path='/signout'
-            render={(props) => <SignIn {...props} userObj={this.state.userObj} setSignedInStatus={this.setSignedInStatus} setUserObj={this.setUserObj} isSignOut={true}/>}
-          />
-          <Route
-            path='/createshoppinglist'
-            render={(props) => {
-              if (this.state.userObj) {
-                return <CreateShoppingList {...props} userObj={this.state.userObj} />;
-              } else {
-                return <Redirect to="/signin" />
-              }
-            }
-            }
-
-          />
-          <Route
-            path='/comparebidders'
-            render={(props) => {
-              if (this.state.userObj) {
-                return <CompareBidders {...props} userObj={this.state.userObj} />;
-              } else {
-                return <Redirect to="/signin" />
-              }
-            }
-            }
-
-          />
-           **/}
         </div>
         <Footer/>
       </Router>

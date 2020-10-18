@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import AboutCarousel from './AboutCarousel'
+import AboutCarousel from './AboutCarousel';
+import CardsDisplay from './CardsDisplay';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,6 +17,11 @@ class About extends Component {
     return (
       <div>
         <AboutCarousel />
+        <hr/>
+        <div style={{paddingLeft: "20px", paddingRight: "20px"}}>
+          <p>Recommended</p>
+        </div>
+        <CardsDisplay />
       </div>
     );
   }

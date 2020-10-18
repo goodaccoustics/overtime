@@ -17,7 +17,7 @@ class AboutCarousel extends Component {
 
   render() {
     return (
-      <div align="center" style={{padding: "20px", maxHeight:"200px"}} height="200px">
+      <div align="center" style={{padding: "20px"}} >
         <Carousel>
           <Carousel.Item>
             <img
@@ -26,8 +26,8 @@ class AboutCarousel extends Component {
               alt="First slide"
               style={{objectFit: "cover", width:"100%", height:"250px", borderRadius: "8px"}}
             />
-            <Carousel.Caption>
-              <h3>Remote Working Solutions</h3>
+            <Carousel.Caption className={"about-carousel"}>
+              <h3><b>Remote Working Solutions</b></h3>
               <p>Increase your productivity working at home or hotel.</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -38,8 +38,8 @@ class AboutCarousel extends Component {
               alt="Second slide"
               style={{objectFit: "cover", width:"100%", height:"250px", borderRadius: "8px"}}
             />
-            <Carousel.Caption>
-              <h3>Try First, Buy Later</h3>
+            <Carousel.Caption className={"about-carousel"}>
+              <h3><b>Try First, Buy Later</b></h3>
               <p>Before buying, experience first-hand if you would like it.</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -50,8 +50,8 @@ class AboutCarousel extends Component {
               alt="Third slide"
               style={{objectFit: "cover", width:"100%", height:"250px", borderRadius: "8px"}}
             />
-            <Carousel.Caption>
-              <h3>Gadgets for your Events</h3>
+            <Carousel.Caption className={"about-carousel"}>
+              <h3><b>Gadgets for your Events</b></h3>
               <p>Rent a gadget to support your event.</p>
             </Carousel.Caption>
           </Carousel.Item>
