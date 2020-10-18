@@ -26,7 +26,7 @@ class App extends Component {
           <Navigation />
           <Route
             exact
-            path='/About/'
+            path={['/', '/About/']}
             render={(props) => <About {...props} />}
           />
           <Route

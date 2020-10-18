@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import AboutCarousel from './AboutCarousel'
 import '../App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class About extends Component {
@@ -12,7 +14,9 @@ class About extends Component {
 
   render() {
     return (
-      <p>In About</p>
+      <div>
+        <AboutCarousel />
+      </div>
     );
   }
 }
