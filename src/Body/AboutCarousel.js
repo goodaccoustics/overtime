@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import carouselHomeWorking from "../Images/About/home-working.jpg"
 import carouselHomeExperience from "../Images/About/home-experience.jpg"
+import carouselEventGadgets from "../Images/About/event-gadgets.jpg"
 import Carousel from 'react-bootstrap/Carousel'
 
 
@@ -33,19 +34,19 @@ class AboutCarousel extends Component {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={carouselHomeWorking}
+              src={carouselHomeExperience}
               alt="Second slide"
               style={{objectFit: "cover", width:"100%", height:"250px", borderRadius: "8px"}}
             />
             <Carousel.Caption>
               <h3>Try First, Buy Later</h3>
-              <p>Before buying, experience it first-hand if you would like it.</p>
+              <p>Before buying, experience first-hand if you would like it.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src={carouselHomeWorking}
+              src={carouselEventGadgets}
               alt="Third slide"
               style={{objectFit: "cover", width:"100%", height:"250px", borderRadius: "8px"}}
             />
