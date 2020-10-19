@@ -21,7 +21,7 @@ class CardsDisplay extends Component {
       <div align="center" style={{paddingLeft: "20px", paddingRight: "20px"}}>
         <CardDeck>
           {
-            ElectronicItems.map((item, i) =>
+            ElectronicItems.filter(item => !item.disabled).map((item, i) =>
               <Card key={i} className={'card-display'}>
                 <Card.Img variant="top" src={require('../Inventory/Electronics/' + item.imageMainUrl)} />
                 <Card.Body>

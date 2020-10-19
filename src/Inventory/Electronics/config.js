@@ -1,5 +1,20 @@
 export const ElectronicItems = [
   {
+    category: 'Electronics',
+    title: 'SonicGear Pandora Neo 500',
+    subtitle: '',
+    categories: ['Bluetooth', 'Speakers', 'FM Radio'],
+    popularTags: ['Useful', 'Multi-Usage'],
+    styleTags: ['Simple', 'Stylish'],
+    placeTags: ['Picnic', 'Studio'],
+    dailyRental: 1.00,
+    imageMainUrl: '0001.jpg',
+    imageSubUrl: [],
+    officialProductUrl: '',
+    disabled: false
+  },
+  {
+    category: 'Electronics',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],
@@ -12,6 +27,7 @@ export const ElectronicItems = [
     disabled: false
   },
   {
+    category: 'Electronics',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],
@@ -24,6 +40,7 @@ export const ElectronicItems = [
     disabled: false
   },
   {
+    category: 'Electronics',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],
@@ -36,6 +53,7 @@ export const ElectronicItems = [
     disabled: false
   },
   {
+    category: 'Electronics',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],
@@ -48,18 +66,7 @@ export const ElectronicItems = [
     disabled: false
   },
   {
-    title: 'SonicGear Pandora Neo 500',
-    subtitle: '',
-    categories: ['Bluetooth', 'Speakers', 'FM Radio'],
-    popularTags: ['Useful', 'Multi-Usage'],
-    styleTags: ['Simple', 'Stylish'],
-    placeTags: ['Picnic', 'Studio'],
-    dailyRental: 1.00,
-    imageMainUrl: '0001.jpg',
-    imageSubUrl: [],
-    disabled: false
-  },
-  {
+    category: 'Electronics',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],

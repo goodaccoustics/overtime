@@ -13,11 +13,26 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      shoppingCart: []
+    }
+  }
+
+  addToCart = (item) => {
+    if (this.state.shoppingCart.filter(current => current.category === item.category && current.title === item.title).length === 0) {
+      this.setState({
+        shoppingCart: this.state.shoppingCart.concat(item)
+      })
+    }
+  }
+
+  removeFromCart = (item) => {
+
   }
 
   componentDidMount = () =>  {
   }
-
 
   render() {
     return (
