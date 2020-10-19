@@ -31,6 +31,10 @@
 }
 
 .header {
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
   font-family: 'Avenir';
   font-size: smaller;
   background-color: #ffffff;
@@ -48,8 +52,23 @@
   font-weight: bolder;
 }
 
+.card-display {
+  font-family: 'Avenir';
+  box-shadow: 0px 0px 5px 0px #CCCCCC;
+  width: 20rem;
+}
 
-
+.card-display-button {
+  outline: none;
+  box-shadow: 0px 0px 0px 0px #CCCCCC;
+  background-image: linear-gradient(to right, #0082e2, #5589fb, #92cffb);
+  font-weight: bolder;
+  font-size: smaller;
+  border-width: 0px;
+}
+.card-display-button:focus {
+  outline: none !important;
+}
 
 .footer {
   position:fixed;

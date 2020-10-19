@@ -24,6 +24,7 @@ class App extends Component {
       <Router history={history}>
         <div>
           <Navigation />
+          <br /><br /><br />
           <Route
             exact
             path={['/', '/About/']}
@@ -45,6 +46,7 @@ class App extends Component {
             render={(props) => <Faq {...props} />}
           />
         </div>
+        <br /><br /><br />
         <Footer/>
       </Router>
     );
