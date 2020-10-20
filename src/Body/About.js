@@ -21,7 +21,7 @@ class About extends Component {
         <div style={{paddingLeft: "20px", paddingRight: "20px"}}>
           <p>Recommended</p>
         </div>
-        <CardsDisplay />
+        <CardsDisplay addToCart={this.props.addToCart} />
       </div>
     );
   }

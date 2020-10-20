@@ -9,11 +9,12 @@ class Electronics extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.location)
   }
 
   render() {
     return (
-      <p>In Electronics</p>
+      <p>In Electronics with key: {this.props.location.itemKey}</p>
     );
   }
 }

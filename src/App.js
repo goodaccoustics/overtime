@@ -20,6 +20,7 @@ class App extends Component {
   }
 
   addToCart = (item) => {
+    console.log("addToCart", item);
     if (this.state.shoppingCart.filter(current => current.category === item.category && current.title === item.title).length === 0) {
       this.setState({
         shoppingCart: this.state.shoppingCart.concat(item)
@@ -43,17 +44,17 @@ class App extends Component {
           <Route
             exact
             path={['/', '/About/']}
-            render={(props) => <About {...props} />}
+            render={(props) => <About {...props} addToCart={this.addToCart} />}
           />
           <Route
             exact
             path={'/Electronics/'}
-            render={(props) => <Electronics {...props} />}
+            render={(props) => <Electronics {...props} addToCart={this.addToCart} />}
           />
           <Route
             exact
             path={'/Furniture/'}
-            render={(props) => <Furniture {...props} />}
+            render={(props) => <Furniture {...props} addToCart={this.addToCart} />}
           />
           <Route
             exact

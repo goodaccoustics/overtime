@@ -1,6 +1,7 @@
 export const ElectronicItems = [
   {
     category: 'Electronics',
+    key: '0001',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],
@@ -15,6 +16,7 @@ export const ElectronicItems = [
   },
   {
     category: 'Electronics',
+    key: '0002',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],
@@ -28,6 +30,7 @@ export const ElectronicItems = [
   },
   {
     category: 'Electronics',
+    key: '0003',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],
@@ -41,6 +44,7 @@ export const ElectronicItems = [
   },
   {
     category: 'Electronics',
+    key: '0004',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],
@@ -54,6 +58,7 @@ export const ElectronicItems = [
   },
   {
     category: 'Electronics',
+    key: '0005',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],
@@ -67,6 +72,7 @@ export const ElectronicItems = [
   },
   {
     category: 'Electronics',
+    key: '0006',
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categories: ['Bluetooth', 'Speakers', 'FM Radio'],
