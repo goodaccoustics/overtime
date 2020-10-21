@@ -46,6 +46,21 @@
 .header-logo{
   font-family: 'Monoton';
 }
+.header-logo-lg-view{
+  display: inline-block;
+}
+.header-logo-sm-view{
+  display: none;
+}
+@media screen and (max-width: 500px) {
+  .header-logo-lg-view {
+    display: none;
+  }
+  .header-logo-sm-view {
+    display: inline-block;
+  }
+}
+
 
 .about-carousel {
   font-family: 'Avenir';

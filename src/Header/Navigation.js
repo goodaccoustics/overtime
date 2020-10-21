@@ -17,7 +17,10 @@ class Navigation extends Component {
     return (
       <div className={"header"}>
         <Navbar bg="white" expand="lg" style={{display: "flex"}}>
-          <Navbar.Brand className={"header-logo"}>The Good Concierge</Navbar.Brand>
+          <Navbar.Brand className={"header-logo"}>
+            <span className={"header-logo-lg-view"}>The Good Concierge</span>
+            <span className={"header-logo-sm-view"}>TGC</span>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
