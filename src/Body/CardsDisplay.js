@@ -22,11 +22,11 @@ class CardsDisplay extends Component {
 
   render() {
     return (
-      <div align="center" style={{paddingLeft: "20px", paddingRight: "20px"}}>
-        <CardDeck>
+      <div style={{paddingLeft: "20px", paddingRight: "20px"}}>
+        <CardDeck align={"center"} style={{justifyContent:'center'}}>
           {
             InventoryItems(this.props.category).map((item, i) =>
-              <Card key={i} className={'card-display'}  style={{minWidth: '15rem', maxWidth:'15rem'}}>
+              <Card key={i} className={'card-display'}  style={{minWidth: '15rem', maxWidth:'15rem', marginBottom: '20px'}}>
                 <Link to={{
                   pathname: "/" + item.category,
                   itemKey: item.key
@@ -35,7 +35,7 @@ class CardsDisplay extends Component {
                 </Link>
 
                 <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
+                  <Card.Title align={'left'}>{item.title}</Card.Title>
                   <Card.Text>
                     <span style={{fontWeight:'bold'}}>${item.dailyRental}</span><span style={{fontSize: '2px'}}>/day~</span>
                   </Card.Text>

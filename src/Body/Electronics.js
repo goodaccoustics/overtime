@@ -1,20 +1,72 @@
 import React, {Component} from 'react';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
+import Badge from 'react-bootstrap/Badge'
 import { InventoryItems } from '../Inventory/Inventory'
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CardsDisplay from "./CardsDisplay";
 
-
 class Electronics extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      tagTabCategories: ["Category","Popular","Style","Place"],
+      tagTab: "Category",
+      tagsToDisplay: [],
+      tagSelected: ""
+    }
   }
 
-  componentDidMount() {
-    console.log(this.props.location)
+  componentWillMount() {
+    //console.log(this.props.location);
+
+    this.setState({
+      tagsToDisplay: this.getTags(this.state.tagTab)
+    });
+    console.log("tagsToDisplay", this.state.tagsToDisplay);
+
   }
+
+  onTagTabClick = (category) => {
+    //console.log("onTagTabClick", category);
+    let tags = this.getTags(category);
+    //console.log("tagsFound", tags);
+    this.setState({
+      tagTab: category,
+      tagsToDisplay: tags
+    });
+
+  }
+
+  getTags = (categoryType) => {
+    const items = InventoryItems("Electronics");
+    //console.log("item", items);
+    let searchBy = '';
+    switch (categoryType) {
+      case 'Category':
+        searchBy = 'categoryTags';
+        break;
+      case 'Popular':
+        searchBy = 'popularTags';
+        break;
+      case 'Style':
+        searchBy = 'styleTags';
+        break;
+      case 'Place':
+        searchBy = 'placeTags';
+        break;
+    }
+    let tags = [];
+    items.map(item => {
+      item[searchBy].map(tag => {
+        if (!tags.includes(tag)) {
+          tags = tags.concat(tag);
+        }
+      })
+    });
+    return tags;
+  }
+
 
   render() {
     return (
@@ -24,23 +76,25 @@ class Electronics extends Component {
         :
         // Show Main Page
         <div>
-          <div>
-            <p>Tags</p>
-            <Tabs defaultActiveKey="home" transition={false} className={'tab-tags'}>
-              <Tab eventKey="home" title="Home1">
-                Home
-              </Tab>
-              <Tab eventKey="profile" title="Profile">
-                Profile
-              </Tab>
-              <Tab eventKey="contact" title="Contact">
-                Contact
-              </Tab>
-            </Tabs>
+          <div style={{display:'flex', paddingLeft: '20px', paddingRight: '20px', paddingTop: '20px'}}>
+            {
+              this.state.tagTabCategories.map(category =>
+              <div
+                className={category === this.state.tagTab? "tag-tab-selected":"tag-tab-unselected"}
+                onClick={() => this.onTagTabClick(category)}
+              >
+                <span>{category}</span>
+              </div>
+            )}
           </div>
-          <div>
-            <CardsDisplay category={"Electronics"} addToCart={this.props.addToCart}  />
+          <div style={{display:'flex', paddingLeft:'20px', paddingRight:'20px', paddingBottom: '25px'}}>
+            {
+              this.state.tagsToDisplay.map(tag =>
+                <Badge variant="light" style={{margin: '5px'}}>{tag}</Badge>
+              )
+            }
           </div>
+          <CardsDisplay category={"Electronics"} addToCart={this.props.addToCart}  />
         </div>
 
     );

@@ -84,9 +84,27 @@
   outline: none !important;
 }
 
-.tag-tabs ul > li > a {
-  background-color: #ff3837;
-  color: white;
+
+.tag-tab-unselected {
+  font-family: 'Avenir';
+  font-size: medium;
+  font-weight: bolder;
+  color: #4e555b;
+  margin: 5px;
+}
+.tag-tab-unselected:hover {
+ cursor: pointer;
+}
+
+.tag-tab-selected {
+  font-family: 'Avenir';
+  font-size: medium;
+  font-weight: bolder;
+  color: #0082e2;
+  margin: 5px;
+}
+.tag-tab-selected:hover {
+  cursor: pointer;
 }
 
 .footer {
