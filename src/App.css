@@ -107,6 +107,15 @@
   cursor: pointer;
 }
 
+.hashTag {
+  background-color: #e5e5e5;
+  margin: 5px;
+  padding: 5px;
+}
+.hashTag:hover {
+  cursor: pointer;
+}
+
 .footer {
   position:fixed;
   left:0;

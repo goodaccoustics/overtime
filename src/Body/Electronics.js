@@ -35,7 +35,13 @@ class Electronics extends Component {
       tagTab: category,
       tagsToDisplay: tags
     });
+  }
 
+  onHashTagClick = (hashTag) => {
+    //console.log("hashTag", hashTag);
+    this.setState({
+      tagSelected: hashTag
+    });
   }
 
   getTags = (categoryType) => {
@@ -80,6 +86,7 @@ class Electronics extends Component {
             {
               this.state.tagTabCategories.map(category =>
               <div
+                key={category}
                 className={category === this.state.tagTab? "tag-tab-selected":"tag-tab-unselected"}
                 onClick={() => this.onTagTabClick(category)}
               >
@@ -90,11 +97,13 @@ class Electronics extends Component {
           <div style={{display:'flex', paddingLeft:'20px', paddingRight:'20px', paddingBottom: '25px'}}>
             {
               this.state.tagsToDisplay.map(tag =>
-                <Badge variant="light" style={{margin: '5px'}}>{tag}</Badge>
+                <Badge key={tag} variant="light" className={'hashTag'} onClick={() => this.onHashTagClick(tag)}>
+                  {'#' + tag}
+                </Badge>
               )
             }
           </div>
-          <CardsDisplay category={"Electronics"} addToCart={this.props.addToCart}  />
+          <CardsDisplay category={"Electronics"} tag={this.state.tagSelected} addToCart={this.props.addToCart}  />
         </div>
 
     );
