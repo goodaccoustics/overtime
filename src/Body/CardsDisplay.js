@@ -26,7 +26,7 @@ class CardsDisplay extends Component {
         <CardDeck>
           {
             InventoryItems(this.props.category).map((item, i) =>
-              <Card key={i} className={'card-display'} >
+              <Card key={i} className={'card-display'}  style={{minWidth: '15rem', maxWidth:'15rem'}}>
                 <Link to={{
                   pathname: "/" + item.category,
                   itemKey: item.key

@@ -26,7 +26,7 @@ class Electronics extends Component {
         <div>
           <div>
             <p>Tags</p>
-            <Tabs defaultActiveKey="home" transition={false} id={'tab-tags'}>
+            <Tabs defaultActiveKey="home" transition={false} className={'tab-tags'}>
               <Tab eventKey="home" title="Home1">
                 Home
               </Tab>
