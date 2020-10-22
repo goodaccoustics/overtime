@@ -61,7 +61,6 @@
   }
 }
 
-
 .about-carousel {
   font-family: 'Avenir';
   font-weight: bolder;
@@ -83,6 +82,12 @@
 }
 .card-display-button:focus {
   outline: none !important;
+}
+
+
+#tab-tags .nav-link.active {
+  color: red !important;
+  background-color: yellow !important;
 }
 
 .footer {

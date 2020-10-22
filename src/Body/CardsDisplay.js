@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import {ElectronicItems} from "../Inventory/Electronics/config.js";
+import { InventoryItems } from "../Inventory/Inventory";
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button'
@@ -12,22 +12,20 @@ class CardsDisplay extends Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
   }
 
   goToPage = (item) => {
     console.log("goToPage", './' + item.category + "/" + item.key);
-
     this.props.history.push('./' + item.category);
   }
-
 
   render() {
     return (
       <div align="center" style={{paddingLeft: "20px", paddingRight: "20px"}}>
         <CardDeck>
           {
-            ElectronicItems.filter(item => !item.disabled).map((item, i) =>
+            InventoryItems(this.props.category).map((item, i) =>
               <Card key={i} className={'card-display'} >
                 <Link to={{
                   pathname: "/" + item.category,
