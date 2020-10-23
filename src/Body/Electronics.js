@@ -96,7 +96,9 @@ class Electronics extends Component {
           <div style={{display:'flex', paddingLeft:'20px', paddingRight:'20px', paddingBottom: '25px'}}>
             {
               this.state.tagsToDisplay.map(tag =>
-                <Badge key={tag} variant="light" className={'hashTag'} onClick={() => this.onHashTagClick(tag)}>
+                <Badge key={tag} variant="light" className={'hashTag'}
+                       style={this.state.tagSelected === tag? {backgroundColor: '#92cffb'} : {backgroundColor: '#e3e3e3'} }
+                       onClick={() => this.onHashTagClick(tag)}>
                   {'#' + tag}
                 </Badge>
               )
