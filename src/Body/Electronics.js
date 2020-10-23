@@ -13,13 +13,12 @@ class Electronics extends Component {
       tagTabCategories: ["Category","Popular","Style","Place"],
       tagTab: "Category",
       tagsToDisplay: [],
-      tagSelected: ""
+      tagSelected: null
     }
   }
 
   componentWillMount() {
     //console.log(this.props.location);
-
     this.setState({
       tagsToDisplay: this.getTags(this.state.tagTab)
     });
@@ -103,7 +102,7 @@ class Electronics extends Component {
               )
             }
           </div>
-          <CardsDisplay category={"Electronics"} tag={this.state.tagSelected} addToCart={this.props.addToCart}  />
+          <CardsDisplay category={"Electronics"} hashTag={this.state.tagSelected} addToCart={this.props.addToCart}  />
         </div>
 
     );

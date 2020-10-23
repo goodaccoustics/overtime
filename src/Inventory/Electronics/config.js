@@ -76,7 +76,7 @@ export const ElectronicItems = [
     title: 'SonicGear Pandora Neo 500',
     subtitle: '',
     categoryTags: ['Bluetooth', 'Speakers', 'FM Radio'],
-    popularTags: ['Useful', 'Multi-Usage'],
+    popularTags: ['Useful', 'Multi-Usage', 'Compact'],
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
     dailyRental: 1.00,

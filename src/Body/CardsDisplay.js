@@ -25,7 +25,7 @@ class CardsDisplay extends Component {
       <div style={{paddingLeft: "20px", paddingRight: "20px"}}>
         <CardDeck align={"center"} style={{justifyContent:'center'}}>
           {
-            InventoryItems(this.props.category).map((item, i) =>
+            InventoryItems(this.props.category, this.props.hashTag).map((item, i) =>
               <Card key={i} className={'card-display'}  style={{minWidth: '15rem', maxWidth:'15rem', marginBottom: '20px'}}>
                 <Link to={{
                   pathname: "/" + item.category,
