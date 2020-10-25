@@ -6,6 +6,7 @@ import About from "./Body/About";
 import Electronics from "./Body/Electronics";
 import Furniture from "./Body/Furniture";
 import Faq from "./Body/Faq";
+import ShoppingCart from "./Body/ShoppingCart";
 import Footer from "./Footer/Footer";
 import './App.css';
 
@@ -21,7 +22,7 @@ class App extends Component {
 
   addToCart = (item) => {
     console.log("addToCart", item);
-    if (this.state.shoppingCart.filter(current => current.category === item.category && current.title === item.title).length === 0) {
+    if (this.state.shoppingCart.filter(current => current.category === item.category && current.key === item.key).length === 0) {
       this.setState({
         shoppingCart: this.state.shoppingCart.concat(item)
       })
@@ -32,6 +33,12 @@ class App extends Component {
 
   }
 
+  setCart = (cart) => {
+    this.setState({
+      shoppingCart: cart
+    })
+  }
+
   componentDidMount = () =>  {
   }
 
@@ -39,7 +46,7 @@ class App extends Component {
     return (
       <Router history={history}>
         <div>
-          <Navigation shoppingCart={this.state.shoppingCart}/>
+          <Navigation shoppingCart={this.state.shoppingCart} setCart={this.setCart}/>
           <br /><br /><br />
           <Route
             exact
@@ -59,7 +66,12 @@ class App extends Component {
           <Route
             exact
             path={'/Faq/'}
-            render={(props) => <Faq {...props} />}
+            render={(props) => <Faq {...props} setCart={this.setCart} />}
+          />
+          <Route
+            exact
+            path={'/ShoppingCart/'}
+            render={(props) => <ShoppingCart {...props} shoppingCart={this.state.shoppingCart} addToCart={this.addToCart} />}
           />
         </div>
         <br /><br /><br />
