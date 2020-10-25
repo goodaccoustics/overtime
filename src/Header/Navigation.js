@@ -23,7 +23,7 @@ class Navigation extends Component {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
+            <Nav className={'justify-content-end'} style={{width: '100%'}}>
               <Nav.Link href="/About/">About</Nav.Link>
               <Nav.Link href="/Electronics/">Electronics</Nav.Link>
               <Nav.Link href="/Furniture/">Furniture</Nav.Link>

@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <Router history={history}>
         <div>
-          <Navigation />
+          <Navigation shoppingCart={this.state.shoppingCart}/>
           <br /><br /><br />
           <Route
             exact
