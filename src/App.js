@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route,  Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route,  Redirect, Link } from 'react-router-dom';
 import { history } from "./History";
 import Navigation from "./Header/Navigation";
 import About from "./Body/About";
@@ -61,17 +61,17 @@ class App extends Component {
           <Route
             exact
             path={'/Furniture/'}
-            render={(props) => <Furniture {...props} addToCart={this.addToCart} />}
+            render={(props) => <Furniture {...props} addToCart={this.addToCart}/>}
           />
           <Route
             exact
             path={'/Faq/'}
-            render={(props) => <Faq {...props} setCart={this.setCart} />}
+            render={(props) => <Faq {...props} />}
           />
           <Route
             exact
             path={'/ShoppingCart/'}
-            render={(props) => <ShoppingCart {...props} shoppingCart={this.state.shoppingCart} addToCart={this.addToCart} />}
+            render={(props) => <ShoppingCart {...props} addToCart={this.addToCart} />}
           />
         </div>
         <br /><br /><br />

@@ -12,7 +12,7 @@ class ShoppingCart extends Component {
 
   render() {
     return (
-      <p>In Shopping</p>
+      <p>In Shopping Cart TEST</p>
     );
   }
 }

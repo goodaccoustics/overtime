@@ -120,6 +120,10 @@
   margin-right: 5px
 }
 
+.navigation-badge-link {
+  font-size: xx-small;
+}
+
 .footer {
   position:fixed;
   left:0;
