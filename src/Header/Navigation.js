@@ -40,7 +40,7 @@ class Navigation extends Component {
                     </Badge>
                   </MaterialUiLink>
                    **/}
-                  <Nav.Link as={Link} to="/ShoppingCart/" className={'navigation-badge-link'}>
+                  <Nav.Link as={Link} to="/ShoppingCart/" style={{padding: '1px'}} className={'navigation-badge-link'}>
                     <Badge badgeContent={this.props.shoppingCart.length} color="secondary">
                       <ShoppingCartTwoToneIcon />
                     </Badge>
