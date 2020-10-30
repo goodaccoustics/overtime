@@ -29,14 +29,12 @@ class App extends Component {
     }
   }
 
-  removeFromCart = (item) => {
-
+  itemInCart = (item) => {
+    return this.state.shoppingCart.filter(current => current.category === item.category && current.key === item.key).length !== 0;
   }
 
-  setCart = (cart) => {
-    this.setState({
-      shoppingCart: cart
-    })
+  removeFromCart = (item) => {
+
   }
 
   componentDidMount = () =>  {
@@ -46,22 +44,22 @@ class App extends Component {
     return (
       <Router history={history}>
         <div>
-          <Navigation shoppingCart={this.state.shoppingCart} setCart={this.setCart}/>
+          <Navigation shoppingCart={this.state.shoppingCart}/>
           <br /><br /><br />
           <Route
             exact
             path={['/', '/About/']}
-            render={(props) => <About {...props} addToCart={this.addToCart} />}
+            render={(props) => <About {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
           />
           <Route
             exact
             path={'/Electronics/'}
-            render={(props) => <Electronics {...props} addToCart={this.addToCart} />}
+            render={(props) => <Electronics {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
           />
           <Route
             exact
             path={'/Furniture/'}
-            render={(props) => <Furniture {...props} addToCart={this.addToCart}/>}
+            render={(props) => <Furniture {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
           />
           <Route
             exact
@@ -71,7 +69,7 @@ class App extends Component {
           <Route
             exact
             path={'/ShoppingCart/'}
-            render={(props) => <ShoppingCart {...props} addToCart={this.addToCart} />}
+            render={(props) => <ShoppingCart {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart}  />}
           />
         </div>
         <br /><br /><br />

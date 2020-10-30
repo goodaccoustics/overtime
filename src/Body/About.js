@@ -22,7 +22,7 @@ class About extends Component {
           <p>Recommended</p>
         </div>
         <div>
-          <CardsDisplay category={"All"} addToCart={this.props.addToCart} />
+          <CardsDisplay category={"All"} addToCart={this.props.addToCart}  itemInCart={this.props.itemInCart}  />
         </div>
 
       </div>

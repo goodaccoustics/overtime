@@ -84,6 +84,17 @@
   outline: none !important;
 }
 
+.card-display-negative-button {
+  outline: none;
+  box-shadow: 0px 0px 0px 0px #CCCCCC;
+  background-image: linear-gradient(to right, #e2470d, #fb9978, #fbd3b6);
+  font-weight: bolder;
+  font-size: smaller;
+  border-width: 0px;
+}
+.card-display-negative-button:focus {
+  outline: none !important;
+}
 
 .tag-tab-unselected {
   font-family: 'Avenir';

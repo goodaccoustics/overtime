@@ -4,6 +4,7 @@ import { InventoryItems } from '../Inventory/Inventory'
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CardsDisplay from "./CardsDisplay";
+import ShoppingCart from "../App";
 
 class Electronics extends Component {
   constructor(props) {
@@ -104,7 +105,7 @@ class Electronics extends Component {
               )
             }
           </div>
-          <CardsDisplay category={"Electronics"} hashTag={this.state.tagSelected} addToCart={this.props.addToCart}  />
+          <CardsDisplay category={"Electronics"} hashTag={this.state.tagSelected} addToCart={this.props.addToCart}  removeFromCart={this.removeFromCart} itemInCart={this.props.itemInCart}  />
         </div>
 
     );

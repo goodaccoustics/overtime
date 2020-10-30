@@ -40,9 +40,16 @@ class CardsDisplay extends Component {
                     <span style={{fontWeight:'bold'}}>${item.dailyRental}</span><span style={{fontSize: '2px'}}>/day~</span>
                   </Card.Text>
                   <Card.Text>
-                    <Button className={'card-display-button'} onClick={() => this.props.addToCart(item)}>
-                      Add
-                    </Button>
+                    {
+                      this.props.itemInCart(item) ?
+                        <Button className={'card-display-negative-button'} onClick={() => this.props.removeFromCart(item)}>
+                          Remove
+                        </Button>
+                        :
+                        <Button className={'card-display-button'} onClick={() => this.props.addToCart(item)}>
+                          Add
+                        </Button>
+                    }
                   </Card.Text>
                 </Card.Body>
               </Card>
