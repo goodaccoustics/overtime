@@ -34,7 +34,9 @@ class App extends Component {
   }
 
   removeFromCart = (item) => {
-
+    this.setState({
+      shoppingCart: this.state.shoppingCart.filter(current => !(current.category === item.category && current.key === item.key))
+    })
   }
 
   componentDidMount = () =>  {

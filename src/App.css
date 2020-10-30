@@ -96,6 +96,20 @@
   outline: none !important;
 }
 
+.about-card-Category {
+  display: flex;
+  font-family: 'Avenir';
+  font-size: large;
+  font-weight: bolder;
+  color: #4e555b;
+  justify-content: center;
+  vertical-align: middle;
+}
+.about-card-Category:hover {
+  cursor: pointer;
+  color: #007bff;
+}
+
 .tag-tab-unselected {
   font-family: 'Avenir';
   font-size: medium;

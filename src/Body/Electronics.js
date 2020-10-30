@@ -105,7 +105,7 @@ class Electronics extends Component {
               )
             }
           </div>
-          <CardsDisplay category={"Electronics"} hashTag={this.state.tagSelected} addToCart={this.props.addToCart}  removeFromCart={this.removeFromCart} itemInCart={this.props.itemInCart}  />
+          <CardsDisplay category={"Electronics"} hashTag={this.state.tagSelected} addToCart={this.props.addToCart}  removeFromCart={this.props.removeFromCart} itemInCart={this.props.itemInCart}  />
         </div>
 
     );

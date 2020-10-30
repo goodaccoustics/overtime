@@ -13,8 +13,6 @@ class AboutCarousel extends Component {
   componentDidMount() {
   }
 
-
-
   render() {
     return (
       <div align="center" style={{padding: "20px"}} >
