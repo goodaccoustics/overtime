@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import Badge from 'react-bootstrap/Badge'
-import { InventoryItems } from '../Inventory/Inventory'
+import Badge from 'react-bootstrap/Badge';
+import ProductDescription from './ProductDescription';
+import { InventoryItems } from '../Inventory/Inventory';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CardsDisplay from "./CardsDisplay";
-import ShoppingCart from "../App";
 
-class Electronics extends Component {
+class CategoryPage extends Component {
   constructor(props) {
     super(props);
 
@@ -28,27 +28,28 @@ class Electronics extends Component {
   }
 
   onTagTabClick = (category) => {
-    //console.log("onTagTabClick", category);
+    console.log("onTagTabClick", category);
     let tags = this.getTags(category);
-    //console.log("tagsFound", tags);
+    console.log("tagsFound", tags);
     this.setState({
       tagTab: category,
-      tagsToDisplay: tags
+      tagsToDisplay: tags,
+      tagSelected: null
     });
   }
 
   onHashTagClick = (hashTag) => {
-    //console.log("hashTag", hashTag);
+    console.log("hashTag", hashTag);
     this.setState({
       tagSelected: hashTag
     });
   }
 
-  getTags = (categoryType) => {
-    const items = InventoryItems("Electronics");
+  getTags = (hashCategoryType) => {
+    const items = InventoryItems(this.props.categoryType);
     //console.log("item", items);
     let searchBy = '';
-    switch (categoryType) {
+    switch (hashCategoryType) {
       case 'Category':
         searchBy = 'categoryTags';
         break;
@@ -78,7 +79,7 @@ class Electronics extends Component {
     return (
       this.props.location.itemKey ?
         // Show Item Page
-        <p>In Electronics with key: {this.props.location.itemKey}</p>
+        <ProductDescription categoryType={this.props.categoryType} itemKey={this.props.location.itemKey}/>
         :
         // Show Main Page
         <div>
@@ -105,11 +106,11 @@ class Electronics extends Component {
               )
             }
           </div>
-          <CardsDisplay category={"Electronics"} hashTag={this.state.tagSelected} addToCart={this.props.addToCart}  removeFromCart={this.props.removeFromCart} itemInCart={this.props.itemInCart}  />
+          <CardsDisplay category={this.props.categoryType} hashTag={this.state.tagSelected} addToCart={this.props.addToCart}  removeFromCart={this.props.removeFromCart} itemInCart={this.props.itemInCart}  />
         </div>
 
     );
   }
 }
 
-export default Electronics;
+export default CategoryPage;

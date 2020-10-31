@@ -55,7 +55,6 @@ class CardsDisplay extends Component {
               </Card>
             )
           }
-
         </CardDeck>
       </div>
     );

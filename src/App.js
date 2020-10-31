@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Route,  Redirect, Link } from 'react-router-do
 import { history } from "./History";
 import Navigation from "./Header/Navigation";
 import About from "./Body/About";
-import Electronics from "./Body/Electronics";
-import Furniture from "./Body/Furniture";
+import CategoryPage from "./Body/CategoryPage";
 import Faq from "./Body/Faq";
 import ShoppingCart from "./Body/ShoppingCart";
 import Footer from "./Footer/Footer";
@@ -56,12 +55,12 @@ class App extends Component {
           <Route
             exact
             path={'/Electronics/'}
-            render={(props) => <Electronics {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
+            render={(props) => <CategoryPage {...props} categoryType={'Electronics'} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
           />
           <Route
             exact
             path={'/Furniture/'}
-            render={(props) => <Furniture {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
+            render={(props) => <CategoryPage {...props} categoryType={'Furniture'} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
           />
           <Route
             exact
