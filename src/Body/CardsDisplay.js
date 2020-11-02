@@ -31,7 +31,7 @@ class CardsDisplay extends Component {
                   pathname: "/" + item.category,
                   itemKey: item.key
                 }} >
-                  <Card.Img variant="top" src={require('../Inventory/Electronics/' + item.imageMainUrl)} />
+                  <Card.Img variant="top" src={require('../Inventory/Electronics/' + item.imagesUrl[0].imageUrl)} />
                 </Link>
 
                 <Card.Body>

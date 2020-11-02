@@ -149,6 +149,18 @@
   font-size: xx-small;
 }
 
+.pd-title {
+  font-size: xx-large;
+  font-weight: bolder;
+}
+.pd-caption {
+  font-size: smaller;
+}
+
+
+
+
+
 .footer {
   position:fixed;
   left:0;

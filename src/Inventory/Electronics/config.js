@@ -9,8 +9,15 @@ export const ElectronicItems = [
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
     dailyRental: 1.00,
-    imageMainUrl: '0001.jpg',
-    imageSubUrl: [],
+    imagesUrl: [
+      {imageUrl: '0001.jpg', caption: 'AAA'},
+      {imageUrl: '0001.jpg', caption: 'BBB'},
+      {imageUrl: '0001.jpg', caption: 'CCC'},
+      {imageUrl: '0001.jpg', caption: 'DDD'},
+      {imageUrl: '0001.jpg', caption: 'EEE'},
+      {imageUrl: '0001.jpg', caption: 'FFF'},
+      {imageUrl: '0001.jpg', caption: 'GGG'},
+      ],
     officialProductUrl: '',
     disabled: false
   },
@@ -24,8 +31,13 @@ export const ElectronicItems = [
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
     dailyRental: 1.00,
-    imageMainUrl: '0001.jpg',
-    imageSubUrl: [],
+    imagesUrl: [
+      {imageUrl: '0001.jpg', caption: 'AAA'},
+      {imageUrl: '0001.jpg', caption: 'BBB'},
+      {imageUrl: '0001.jpg', caption: 'CCC'},
+      {imageUrl: '0001.jpg', caption: 'DDD'},
+      {imageUrl: '0001.jpg', caption: 'EEE'},
+    ],
     disabled: false
   },
   {
@@ -38,8 +50,13 @@ export const ElectronicItems = [
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
     dailyRental: 1.00,
-    imageMainUrl: '0001.jpg',
-    imageSubUrl: [],
+    imagesUrl: [
+      {imageUrl: '0001.jpg', caption: 'AAA'},
+      {imageUrl: '0001.jpg', caption: 'BBB'},
+      {imageUrl: '0001.jpg', caption: 'CCC'},
+      {imageUrl: '0001.jpg', caption: 'DDD'},
+      {imageUrl: '0001.jpg', caption: 'EEE'},
+    ],
     disabled: false
   },
   {
@@ -52,8 +69,13 @@ export const ElectronicItems = [
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
     dailyRental: 1.00,
-    imageMainUrl: '0001.jpg',
-    imageSubUrl: [],
+    imagesUrl: [
+      {imageUrl: '0001.jpg', caption: 'AAA'},
+      {imageUrl: '0001.jpg', caption: 'BBB'},
+      {imageUrl: '0001.jpg', caption: 'CCC'},
+      {imageUrl: '0001.jpg', caption: 'DDD'},
+      {imageUrl: '0001.jpg', caption: 'EEE'},
+    ],
     disabled: false
   },
   {
@@ -66,8 +88,13 @@ export const ElectronicItems = [
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
     dailyRental: 1.00,
-    imageMainUrl: '0001.jpg',
-    imageSubUrl: [],
+    imagesUrl: [
+      {imageUrl: '0001.jpg', caption: 'AAA'},
+      {imageUrl: '0001.jpg', caption: 'BBB'},
+      {imageUrl: '0001.jpg', caption: 'CCC'},
+      {imageUrl: '0001.jpg', caption: 'DDD'},
+      {imageUrl: '0001.jpg', caption: 'EEE'},
+    ],
     disabled: false
   },
   {
@@ -80,8 +107,13 @@ export const ElectronicItems = [
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
     dailyRental: 1.00,
-    imageMainUrl: '0001.jpg',
-    imageSubUrl: [],
+    imagesUrl: [
+      {imageUrl: '0001.jpg', caption: 'AAA'},
+      {imageUrl: '0001.jpg', caption: 'BBB'},
+      {imageUrl: '0001.jpg', caption: 'CCC'},
+      {imageUrl: '0001.jpg', caption: 'DDD'},
+      {imageUrl: '0001.jpg', caption: 'EEE'},
+    ],
     disabled: false
   },
 ];

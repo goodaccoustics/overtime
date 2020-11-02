@@ -28,18 +28,13 @@ class Navigation extends Component {
       <div className={"header"}>
         <Navbar bg="white" expand="lg" style={{display: "flex"}}>
           <Navbar.Brand className={"header-logo"} style={{display: 'flex'}}>
+
             <span className={"header-logo-lg-view"}>The Good Concierge</span>
             <span className={"header-logo-sm-view"}>TGC</span>
+
             {
               this.props.shoppingCart && this.props.shoppingCart.length > 0 ?
                 <span style={{marginLeft: '5px'}}>
-                  {/**
-                  <MaterialUiLink as={Link} to="/ShoppingCart/">
-                    <Badge badgeContent={this.props.shoppingCart.length} color="secondary">
-                      <ShoppingCartTwoToneIcon />
-                    </Badge>
-                  </MaterialUiLink>
-                   **/}
                   <Nav.Link as={Link} to="/ShoppingCart/" style={{padding: '1px'}} className={'navigation-badge-link'}>
                     <Badge badgeContent={this.props.shoppingCart.length} color="secondary">
                       <ShoppingCartTwoToneIcon />
