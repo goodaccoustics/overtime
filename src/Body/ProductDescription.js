@@ -39,7 +39,8 @@ class ProductDescription extends Component {
 
     return (
 
-      <div style={{display: 'inline-block', padding: '20px'}}>
+      <div style={{display: 'flex', flexWrap: 'wrap', padding: '20px', justifyContent: 'center'}}>
+
         <div>
           <span className={'pd-title'}>{this.state.item.title}</span>
           <img
@@ -48,16 +49,30 @@ class ProductDescription extends Component {
             style={{minWidth: '15rem', maxWidth: '40rem', marginBottom: '2px'}}
           />
           <span className={'pd-caption'}>{this.state.mainImage.caption}</span>
-          <CardDeck>
+          <CardDeck style={{display: 'flex', flexWrap: 'wrap', paddingLeft: '10px'}}>
             {
               this.state.subImages.map((item, i) =>
-                <Card key={i} style={{width:'4rem', margin:'5px'}}>
+                <Card key={i} style={{minWidth:'5rem', maxWidth:'5rem', margin:'5px'}}>
                   <Card.Img src={require('../Inventory/' + this.props.categoryType + '/' + item.imageUrl)} />
                 </Card>
               )
             }
           </CardDeck>
+        </div>
 
+        <div>
+          <Card style={{ width: '20rem' }}>
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </Card.Text>
+              <Card.Link href="#">Card Link</Card.Link>
+              <Card.Link href="#">Another Link</Card.Link>
+            </Card.Body>
+          </Card>
         </div>
       </div>
     );
