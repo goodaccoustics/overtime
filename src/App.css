@@ -157,9 +157,11 @@
   font-size: smaller;
 }
 
-
-
-
+.pd-cart-pane {
+  font-family: 'Avenir';
+  max-width: 30rem;
+  border-width: medium;
+}
 
 .footer {
   position:fixed;

@@ -60,8 +60,8 @@ class ProductDescription extends Component {
           </CardDeck>
         </div>
 
-        <div>
-          <Card style={{ width: '20rem' }}>
+        <div style={{ margin: '5px', backgroundColor: '#fcfcfc', padding:'5px'}}>
+          <Card className={'pd-cart-pane'} style={{borderWidth:0, backgroundColor:'#fcfcfc'}} >
             <Card.Body>
               <Card.Title>Card Title</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
