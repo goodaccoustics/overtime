@@ -14,6 +14,7 @@ class ProductDescription extends Component {
     super(props);
 
     this.state = {
+      item: null,
       mainImage: null,
       subImages: []
     }
@@ -69,8 +70,25 @@ class ProductDescription extends Component {
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+              <Card.Text align={'center'}>
+                {
+                  this.props.itemInCart(this.state.item) ?
+                    <Button className={'card-display-negative-button'}
+                            onClick={() => this.props.removeFromCart(this.state.item)}
+                            style={{width:'200px'}}
+
+                    >
+                      Remove
+                    </Button>
+                    :
+                    <Button className={'card-display-button'}
+                            onClick={() => this.props.addToCart(this.state.item)}
+                            style={{width:'200px'}}
+                    >
+                      Add
+                    </Button>
+                }
+              </Card.Text>
             </Card.Body>
           </Card>
         </div>

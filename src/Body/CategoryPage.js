@@ -79,7 +79,12 @@ class CategoryPage extends Component {
     return (
       this.props.location.itemKey ?
         // Show Item Page
-        <ProductDescription categoryType={this.props.categoryType} itemKey={this.props.location.itemKey}/>
+        <ProductDescription categoryType={this.props.categoryType}
+                            itemKey={this.props.location.itemKey}
+                            addToCart={this.props.addToCart}
+                            removeFromCart={this.props.removeFromCart}
+                            itemInCart={this.props.itemInCart}
+        />
         :
         // Show Main Page
         <div>
