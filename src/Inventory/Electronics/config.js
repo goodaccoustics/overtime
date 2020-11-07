@@ -10,13 +10,7 @@ export const ElectronicItems = [
     placeTags: ['Picnic', 'Studio'],
     dailyRental: 1.00,
     imagesUrl: [
-      {imageUrl: '0001.jpg', caption: 'AAA'},
-      {imageUrl: '0001.jpg', caption: 'BBB'},
-      {imageUrl: '0001.jpg', caption: 'CCC'},
-      {imageUrl: '0001.jpg', caption: 'DDD'},
-      {imageUrl: '0001.jpg', caption: 'EEE'},
-      {imageUrl: '0001.jpg', caption: 'FFF'},
-      {imageUrl: '0001.jpg', caption: 'GGG'},
+      {imageUrl: '0001.jpg', caption: 'AAA'}
       ],
     officialProductUrl: '',
     disabled: false
@@ -24,19 +18,17 @@ export const ElectronicItems = [
   {
     category: 'Electronics',
     key: '0002',
-    title: 'SonicGear Pandora Neo 500',
+    title: 'TPLink 300Mbps WiFi Range Extender',
     subtitle: '',
-    categoryTags: ['Bluetooth', 'Speakers', 'FM Radio'],
-    popularTags: ['Useful', 'Multi-Usage'],
+    categoryTags: ['Wifi', 'Wifi Range Extenders'],
+    popularTags: [],
     styleTags: ['Simple', 'Stylish'],
-    placeTags: ['Picnic', 'Studio'],
+    placeTags: ['Home'],
     dailyRental: 1.00,
     imagesUrl: [
-      {imageUrl: '0001.jpg', caption: 'AAA'},
-      {imageUrl: '0001.jpg', caption: 'BBB'},
-      {imageUrl: '0001.jpg', caption: 'CCC'},
-      {imageUrl: '0001.jpg', caption: 'DDD'},
-      {imageUrl: '0001.jpg', caption: 'EEE'},
+      {imageUrl: '0002.jpg', caption: 'AAA'},
+      {imageUrl: '0002A.jpg', caption: 'BBB'},
+      {imageUrl: '0002B.jpg', caption: 'CCC'}
     ],
     disabled: false
   },
