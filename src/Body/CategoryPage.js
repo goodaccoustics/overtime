@@ -62,6 +62,8 @@ class CategoryPage extends Component {
       case 'Place':
         searchBy = 'placeTags';
         break;
+      default:
+        searchBy = 'categoryTags';
     }
     let tags = [];
     items.map(item => {

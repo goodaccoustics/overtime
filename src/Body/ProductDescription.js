@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
-import Badge from 'react-bootstrap/Badge'
-import { InventoryItems } from '../Inventory/Inventory'
+import { InventoryItems } from '../Inventory/Inventory';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button'
-import {Link} from "react-router-dom";
-import Carousel from 'react-bootstrap/Carousel';
+import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card";
 import CardDeck from 'react-bootstrap/CardDeck';
 
@@ -49,6 +46,7 @@ class ProductDescription extends Component {
         <div>
           <span className={'pd-title'}>{this.state.item.title}</span>
           <img
+            alt={this.state.mainImage.imageUrl}
             className="d-block w-100"
             src={require('../Inventory/Electronics/' + this.state.mainImage.imageUrl)}
             style={{minWidth: '15rem', maxWidth: '40rem', marginBottom: '2px'}}

@@ -7,16 +7,12 @@ import DevicesOther from '@material-ui/icons/DevicesOther';
 import SingleBed from '@material-ui/icons/SingleBed';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ShoppingCartTwoToneIcon from "../Header/Navigation";
 import {Link} from "react-router-dom";
 
 
 class About extends Component {
   constructor(props) {
     super(props);
-  }
-
-  componentDidMount() {
   }
 
   render() {

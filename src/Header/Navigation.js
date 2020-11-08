@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import ShoppingCartTwoToneIcon from '@material-ui/icons/ShoppingCartTwoTone';
 import Badge from '@material-ui/core/Badge';
-import { default as MaterialUiLink } from '@material-ui/core/Link';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 class Navigation extends Component {
