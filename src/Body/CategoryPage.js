@@ -90,7 +90,7 @@ class CategoryPage extends Component {
         :
         // Show Main Page
         <div>
-          <div style={{display:'flex', paddingLeft: '20px', paddingRight: '20px', paddingTop: '20px'}}>
+          <div style={{display:'flex', flexWrap: 'wrap', paddingLeft: '20px', paddingRight: '20px', paddingTop: '20px'}}>
             {
               this.state.tagTabCategories.map(category =>
               <div
@@ -102,7 +102,7 @@ class CategoryPage extends Component {
               </div>
             )}
           </div>
-          <div style={{display:'flex', paddingLeft:'20px', paddingRight:'20px', paddingBottom: '25px'}}>
+          <div style={{display:'flex', flexWrap: 'wrap', paddingLeft:'20px', paddingRight:'20px', paddingBottom: '25px'}}>
             {
               this.state.tagsToDisplay.map(tag =>
                 <Badge key={tag} variant="light" className={'hashTag'}
