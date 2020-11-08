@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b4c8657a-c4fe-4c2c-bc35-4a0646454ed4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory/Electronics/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory/Electronics/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Body/CardsDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Body/CardsDisplay.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Body/ProductDescription.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Body/ProductDescription.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Body/ProductDescription.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+            <state relative-caret-position="409">
+              <caret line="62" column="17" lean-forward="true" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -43,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Body/CardsDisplay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="52" selection-end-column="30" />
+            <state relative-caret-position="173">
+              <caret line="29" column="68" selection-start-line="29" selection-start-column="68" selection-end-line="29" selection-end-column="68" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -94,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Inventory/Electronics/config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
+            <state relative-caret-position="259">
               <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
             </state>
           </provider>
@@ -171,11 +172,11 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/Inventory/Inventory.js" />
         <option value="$PROJECT_DIR$/src/Header/Navigation.js" />
-        <option value="$PROJECT_DIR$/src/Body/CardsDisplay.js" />
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/Body/CategoryPage.js" />
-        <option value="$PROJECT_DIR$/src/Body/ProductDescription.js" />
         <option value="$PROJECT_DIR$/src/Inventory/Electronics/config.js" />
+        <option value="$PROJECT_DIR$/src/Body/CardsDisplay.js" />
+        <option value="$PROJECT_DIR$/src/Body/ProductDescription.js" />
       </list>
     </option>
   </component>
@@ -332,12 +333,13 @@
       <workItem from="1604627180332" duration="1166000" />
       <workItem from="1604635591561" duration="290000" />
       <workItem from="1604666783362" duration="159000" />
-      <workItem from="1604769467710" duration="618000" />
+      <workItem from="1604769467710" duration="680000" />
+      <workItem from="1604814609823" duration="1318000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82423000" />
+    <option name="totallyTimeSpent" value="83803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="27" y="23" width="1362" height="804" extended-state="0" />
@@ -504,16 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Body/CardsDisplay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="52" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Body/AboutCarousel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -568,20 +560,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Body/ProductDescription.js">
+    <entry file="file://$PROJECT_DIR$/src/Inventory/Electronics/config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+        <state relative-caret-position="259">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Body/CardsDisplay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="29" column="68" selection-start-line="29" selection-start-column="68" selection-end-line="29" selection-end-column="68" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Inventory/Electronics/config.js">
+    <entry file="file://$PROJECT_DIR$/src/Body/ProductDescription.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="409">
+          <caret line="62" column="17" lean-forward="true" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

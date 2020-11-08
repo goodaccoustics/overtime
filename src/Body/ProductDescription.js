@@ -34,9 +34,13 @@ class ProductDescription extends Component {
     });
   }
 
+  setMainImage = (item) => {
+    this.setState({
+      mainImage: item
+    })
+  }
+
   render() {
-
-
 
     return (
 
@@ -53,7 +57,10 @@ class ProductDescription extends Component {
           <CardDeck style={{display: 'flex', flexWrap: 'wrap', paddingLeft: '10px'}}>
             {
               this.state.subImages.map((item, i) =>
-                <Card key={i} style={{minWidth:'5rem', maxWidth:'5rem', margin:'5px'}}>
+                <Card
+                  key={i} style={{minWidth:'5rem', maxWidth:'5rem', margin:'5px'}}
+                  onClick={() => this.setMainImage(item) }
+                >
                   <Card.Img src={require('../Inventory/' + this.props.categoryType + '/' + item.imageUrl)} />
                 </Card>
               )
@@ -76,7 +83,6 @@ class ProductDescription extends Component {
                     <Button className={'card-display-negative-button'}
                             onClick={() => this.props.removeFromCart(this.state.item)}
                             style={{width:'200px'}}
-
                     >
                       Remove
                     </Button>

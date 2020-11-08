@@ -27,12 +27,16 @@ class CardsDisplay extends Component {
           {
             InventoryItems(this.props.category, this.props.hashTag).map((item, i) =>
               <Card key={i} className={'card-display'}  style={{minWidth: '15rem', maxWidth:'15rem', marginBottom: '20px'}}>
-                <Link to={{
-                  pathname: "/" + item.category,
-                  itemKey: item.key
-                }} >
-                  <Card.Img variant="top" src={require('../Inventory/Electronics/' + item.imagesUrl[0].imageUrl)} />
-                </Link>
+                <Card.Body style={{minHeight: '15rem', padding: '0px'}}>
+                  <Link
+                    to={{
+                      pathname: "/" + item.category,
+                      itemKey: item.key
+                    }} >
+                    <Card.Img variant="top" src={require('../Inventory/Electronics/' + item.imagesUrl[0].imageUrl)} />
+                  </Link>
+                </Card.Body>
+
 
                 <Card.Body>
                   <Card.Title align={'left'}>{item.title}</Card.Title>
