@@ -35,19 +35,15 @@ export const ElectronicItems = [
   {
     category: 'Electronics',
     key: '0003',
-    title: 'SonicGear Pandora Neo 500',
+    title: 'Sony ZS-PS50 CD Boombox',
     subtitle: '',
-    categoryTags: ['Bluetooth', 'Speakers', 'FM Radio'],
+    categoryTags: ['Compact Disc', 'FM Radio'],
     popularTags: ['Useful', 'Multi-Usage'],
     styleTags: ['Simple', 'Stylish'],
-    placeTags: ['Picnic', 'Studio'],
-    dailyRental: 1.00,
+    placeTags: ['Studio', 'Outdoors'],
+    dailyRental: 2.00,
     imagesUrl: [
-      {imageUrl: '0001.jpg', caption: 'AAA'},
-      {imageUrl: '0001.jpg', caption: 'BBB'},
-      {imageUrl: '0001.jpg', caption: 'CCC'},
-      {imageUrl: '0001.jpg', caption: 'DDD'},
-      {imageUrl: '0001.jpg', caption: 'EEE'},
+      {imageUrl: '0003.jpg', caption: 'AAA'}
     ],
     disabled: false
   },
