@@ -27,7 +27,7 @@ class CardsDisplay extends Component {
           {
             InventoryItems(this.props.category, this.props.hashTag).map((item, i) =>
               <Card key={i} className={'card-display'}  style={{minWidth: '15rem', maxWidth:'15rem', marginBottom: '20px'}}>
-                <Card.Body style={{minHeight: '15rem', padding: '0px'}}>
+                <Card.Body style={{minHeight: '15rem', padding: '10px'}}>
                   <Link
                     to={{
                       pathname: "/" + item.category,
