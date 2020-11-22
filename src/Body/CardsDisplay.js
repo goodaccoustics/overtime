@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { InventoryItems } from "../Inventory/Inventory";
+import PriceDisplay from "./PriceDisplay";
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button'
@@ -37,11 +38,10 @@ class CardsDisplay extends Component {
                   </Link>
                 </Card.Body>
 
-
                 <Card.Body>
                   <Card.Title align={'left'}>{item.title}</Card.Title>
                   <Card.Text>
-                    <span style={{fontWeight:'bold'}}>${item.dailyRental}</span><span style={{fontSize: '2px'}}>/day~</span>
+                    <PriceDisplay priceSettings={item.priceSettings}/>
                   </Card.Text>
                   <Card.Text>
                     {

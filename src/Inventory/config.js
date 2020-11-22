@@ -1,4 +1,4 @@
-export const ElectronicItems = [
+export const Items = [
   {
     category: 'Electronics',
     key: '0001',
@@ -8,7 +8,13 @@ export const ElectronicItems = [
     popularTags: ['Useful', 'Multi-Usage'],
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
-    dailyRental: 1.00,
+    priceSettings: {
+      type: 'dailyRental',
+      currencySymbol: '$',
+      currency: 'SGD',
+      price: 1.00,
+      newPrice: null
+    },
     imagesUrl: [
       {imageUrl: '0001.jpg', caption: 'AAA'}
       ],
@@ -24,7 +30,13 @@ export const ElectronicItems = [
     popularTags: [],
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Home'],
-    dailyRental: 1.00,
+    priceSettings: {
+      type: 'dailyRental',
+      currencySymbol: '$',
+      currency: 'SGD',
+      price: 1.00,
+      newPrice: null
+    },
     imagesUrl: [
       {imageUrl: '0002.jpg', caption: 'AAA'},
       {imageUrl: '0002A.jpg', caption: 'BBB'},
@@ -41,7 +53,13 @@ export const ElectronicItems = [
     popularTags: ['Useful', 'Multi-Usage'],
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Studio', 'Outdoors'],
-    dailyRental: 2.00,
+    priceSettings: {
+      type: 'dailyRental',
+      currencySymbol: '$',
+      currency: 'SGD',
+      price: 2.00,
+      newPrice: null
+    },
     imagesUrl: [
       {imageUrl: '0003.jpg', caption: 'AAA'}
     ],
@@ -56,7 +74,13 @@ export const ElectronicItems = [
     popularTags: ['Useful', 'Multi-Usage'],
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
-    dailyRental: 1.00,
+    priceSettings: {
+      type: 'dailyRental',
+      currencySymbol: '$',
+      currency: 'SGD',
+      price: 1.00,
+      newPrice: null
+    },
     imagesUrl: [
       {imageUrl: '0001.jpg', caption: 'AAA'},
       {imageUrl: '0001.jpg', caption: 'BBB'},
@@ -75,7 +99,13 @@ export const ElectronicItems = [
     popularTags: ['Useful', 'Multi-Usage'],
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
-    dailyRental: 1.00,
+    priceSettings: {
+      type: 'dailyRental',
+      currencySymbol: '$',
+      currency: 'SGD',
+      price: 1.00,
+      newPrice: null
+    },
     imagesUrl: [
       {imageUrl: '0001.jpg', caption: 'AAA'},
       {imageUrl: '0001.jpg', caption: 'BBB'},
@@ -94,7 +124,13 @@ export const ElectronicItems = [
     popularTags: ['Useful', 'Multi-Usage', 'Compact'],
     styleTags: ['Simple', 'Stylish'],
     placeTags: ['Picnic', 'Studio'],
-    dailyRental: 1.00,
+    priceSettings: {
+      type: 'dailyRental',
+      currencySymbol: '$',
+      currency: 'SGD',
+      price: 1.00,
+      newPrice: null
+    },
     imagesUrl: [
       {imageUrl: '0001.jpg', caption: 'AAA'},
       {imageUrl: '0001.jpg', caption: 'BBB'},
