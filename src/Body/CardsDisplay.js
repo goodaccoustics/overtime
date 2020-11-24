@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import { Image } from 'cloudinary-react';
 import { InventoryItems } from "../Inventory/Inventory";
 import PriceDisplay from "./PriceDisplay";
 import Card from 'react-bootstrap/Card';
@@ -34,7 +35,12 @@ class CardsDisplay extends Component {
                       pathname: "/" + item.category,
                       itemKey: item.key
                     }} >
-                    <Card.Img variant="top" src={require('../Inventory/Electronics/' + item.imagesUrl[0].imageUrl)} />
+
+                    {/**
+                     <Card.Img variant="top" src={require('../Inventory/Electronics/' + item.imagesUrl[0].imageUrl)} />
+                     **/}
+                    <Image cloudName="goodaccoustics" publicId={item.imagesUrl[0].imageUrl} width="200" crop="scale" />
+
                   </Link>
                 </Card.Body>
 

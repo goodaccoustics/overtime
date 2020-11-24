@@ -16,7 +16,7 @@ export const Items = [
       newPrice: null
     },
     imagesUrl: [
-      {imageUrl: '0001.jpg', caption: 'AAA'}
+      {imageUrl: '0001', caption: 'AAA'}
       ],
     officialProductUrl: '',
     disabled: false
@@ -38,9 +38,9 @@ export const Items = [
       newPrice: null
     },
     imagesUrl: [
-      {imageUrl: '0002.jpg', caption: 'AAA'},
-      {imageUrl: '0002A.jpg', caption: 'BBB'},
-      {imageUrl: '0002B.jpg', caption: 'CCC'}
+      {imageUrl: '0002', caption: 'AAA'},
+      {imageUrl: '0002A', caption: 'BBB'},
+      {imageUrl: '0002B', caption: 'CCC'}
     ],
     disabled: false
   },
@@ -61,7 +61,7 @@ export const Items = [
       newPrice: null
     },
     imagesUrl: [
-      {imageUrl: '0003.jpg', caption: 'AAA'}
+      {imageUrl: '0003', caption: 'AAA'}
     ],
     disabled: false
   },
@@ -82,11 +82,11 @@ export const Items = [
       newPrice: null
     },
     imagesUrl: [
-      {imageUrl: '0001.jpg', caption: 'AAA'},
-      {imageUrl: '0001.jpg', caption: 'BBB'},
-      {imageUrl: '0001.jpg', caption: 'CCC'},
-      {imageUrl: '0001.jpg', caption: 'DDD'},
-      {imageUrl: '0001.jpg', caption: 'EEE'},
+      {imageUrl: '0001', caption: 'AAA'},
+      {imageUrl: '0001', caption: 'BBB'},
+      {imageUrl: '0001', caption: 'CCC'},
+      {imageUrl: '0001', caption: 'DDD'},
+      {imageUrl: '0001', caption: 'EEE'},
     ],
     disabled: false
   },
@@ -107,11 +107,11 @@ export const Items = [
       newPrice: null
     },
     imagesUrl: [
-      {imageUrl: '0001.jpg', caption: 'AAA'},
-      {imageUrl: '0001.jpg', caption: 'BBB'},
-      {imageUrl: '0001.jpg', caption: 'CCC'},
-      {imageUrl: '0001.jpg', caption: 'DDD'},
-      {imageUrl: '0001.jpg', caption: 'EEE'},
+      {imageUrl: '0001', caption: 'AAA'},
+      {imageUrl: '0001', caption: 'BBB'},
+      {imageUrl: '0001', caption: 'CCC'},
+      {imageUrl: '0001', caption: 'DDD'},
+      {imageUrl: '0001', caption: 'EEE'},
     ],
     disabled: false
   },
@@ -132,11 +132,11 @@ export const Items = [
       newPrice: null
     },
     imagesUrl: [
-      {imageUrl: '0001.jpg', caption: 'AAA'},
-      {imageUrl: '0001.jpg', caption: 'BBB'},
-      {imageUrl: '0001.jpg', caption: 'CCC'},
-      {imageUrl: '0001.jpg', caption: 'DDD'},
-      {imageUrl: '0001.jpg', caption: 'EEE'},
+      {imageUrl: '0001', caption: 'AAA'},
+      {imageUrl: '0001', caption: 'BBB'},
+      {imageUrl: '0001', caption: 'CCC'},
+      {imageUrl: '0001', caption: 'DDD'},
+      {imageUrl: '0001', caption: 'EEE'},
     ],
     disabled: false
   },

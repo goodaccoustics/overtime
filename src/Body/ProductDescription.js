@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Image } from 'cloudinary-react';
 import { InventoryItems } from '../Inventory/Inventory';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -44,22 +45,35 @@ class ProductDescription extends Component {
       <div style={{display: 'flex', flexWrap: 'wrap', padding: '20px', justifyContent: 'center'}}>
 
         <div>
-          <span className={'pd-title'}>{this.state.item.title}</span>
-          <img
-            alt={this.state.mainImage.imageUrl}
-            className="d-block w-100"
-            src={require('../Inventory/Electronics/' + this.state.mainImage.imageUrl)}
-            style={{minWidth: '15rem', maxWidth: '40rem', marginBottom: '2px'}}
+          <div className={'pd-title'}>{this.state.item.title}</div>
+
+          {/**
+           <img
+           alt={this.state.mainImage.imageUrl}
+           className="d-block w-100"
+           src={require('../Inventory/Electronics/' + this.state.mainImage.imageUrl)}
+           style={{minWidth: '15rem', maxWidth: '40rem', marginBottom: '2px'}}
+           />
+           **/}
+          <Image cloudName="goodaccoustics" publicId={this.state.mainImage.imageUrl}
+                 className="d-block w-100"
+                 style={{minWidth: '15rem', maxWidth: '40rem', marginBottom: '2px'}}
           />
-          <span className={'pd-caption'}>{this.state.mainImage.caption}</span>
+          <div className={'pd-caption'}>{this.state.mainImage.caption}</div>
           <CardDeck style={{display: 'flex', flexWrap: 'wrap', paddingLeft: '10px'}}>
             {
               this.state.subImages.map((item, i) =>
                 <Card
-                  key={i} style={{minWidth:'5rem', maxWidth:'5rem', margin:'5px'}}
+                  key={i}
+                  style={{minWidth:'5rem', maxWidth:'5rem', margin:'5px'}}
                   onClick={() => this.setMainImage(item) }
                 >
-                  <Card.Img src={require('../Inventory/' + this.props.categoryType + '/' + item.imageUrl)} />
+                  {/**
+                   <Card.Img src={require('../Inventory/' + this.props.categoryType + '/' + item.imageUrl)} />
+                   **/}
+                  <Image cloudName="goodaccoustics" publicId={item.imageUrl}
+                         style={{minWidth:'4rem', maxWidth:'4rem'}}
+                  />
                 </Card>
               )
             }
