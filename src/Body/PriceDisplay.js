@@ -34,6 +34,26 @@ class PriceDisplay extends Component {
             </span>
           </div>
         );
+      default: //default case is sell
+        return (
+          <div>
+            {
+              newPrice ?
+                <div>
+                  <div style={{fontWeight:'bold', color: '#cccccc', textDecoration: 'line-through'}}>
+                    {currencySymbol + price}
+                  </div>
+                  <div style={{fontWeight:'bold'}}>
+                    {currencySymbol + price}
+                  </div>
+                </div>
+                :
+                <span style={{fontWeight:'bold'}}>
+                  {currencySymbol + price}
+                </span>
+            }
+          </div>
+        );
         break;
     }
   }

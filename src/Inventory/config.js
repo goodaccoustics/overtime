@@ -1,5 +1,27 @@
 export const Items = [
   {
+    category: 'Fashion',
+    key: '0001',
+    title: 'Universal Studios Christmas 2020 Theme Adult Mask',
+    subtitle: '',
+    categoryTags: ['Mask'],
+    popularTags: ['Christmas2020',],
+    styleTags: ['Reusable', 'Stylish'],
+    placeTags: ['Picnic', 'Outdoors'],
+    priceSettings: {
+      type: 'sell',
+      currencySymbol: '$',
+      currency: 'SGD',
+      price: 10.00,
+      newPrice: 5.00
+    },
+    imagesUrl: [
+      {imageUrl: 'uss-christmas2020-mask-adult', caption: 'Adult Face Mask'}
+    ],
+    officialProductUrl: '',
+    disabled: false
+  },
+  {
     category: 'Electronics',
     key: '0001',
     title: 'SonicGear Pandora Neo 500',

@@ -17,6 +17,7 @@ class About extends Component {
       <div>
         <AboutCarousel />
         <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+          <AboutCategory category="Tickets" />
           <AboutCategory category="Fashion" />
           <AboutCategory category="Drinks" />
           <AboutCategory category="Electronics" />

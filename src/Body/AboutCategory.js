@@ -10,6 +10,7 @@ import LocalBarIcon from '@material-ui/icons/LocalBar';
 import StyleIcon from '@material-ui/icons/Style';
 import EventIcon from '@material-ui/icons/Event';
 import RoomServiceIcon from '@material-ui/icons/RoomService';
+import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
 
 class AboutCategory extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class AboutCategory extends Component {
               <Card.Text>
                 <div className={'about-card-Category'}>
 
+                  <ConfirmationNumberIcon style={{display: this.props.category === "Tickets" ? 'flex' : 'none'}}/>
                   <DevicesOther style={{display: this.props.category === "Electronics" ? 'flex' : 'none'}}/>
                   <SingleBed style={{display: this.props.category === "Furniture" ? 'flex' : 'none'}}/>
                   <LocalBarIcon style={{display: this.props.category === "Drinks" ? 'flex' : 'none'}}/>

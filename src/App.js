@@ -54,6 +54,11 @@ class App extends Component {
           />
           <Route
             exact
+            path={'/Fashion/'}
+            render={(props) => <CategoryPage {...props} categoryType={'Fashion'} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
+          />
+          <Route
+            exact
             path={'/Electronics/'}
             render={(props) => <CategoryPage {...props} categoryType={'Electronics'} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
           />

@@ -50,7 +50,7 @@ class CardsDisplay extends Component {
                     <PriceDisplay priceSettings={item.priceSettings}/>
                   </Card.Text>
                   <Card.Text>
-                    {
+                    {/**
                       this.props.itemInCart(item) ?
                         <Button className={'card-display-negative-button'} onClick={() => this.props.removeFromCart(item)}>
                           Remove
@@ -59,7 +59,7 @@ class CardsDisplay extends Component {
                         <Button className={'card-display-button'} onClick={() => this.props.addToCart(item)}>
                           Add
                         </Button>
-                    }
+                    **/}
                   </Card.Text>
                 </Card.Body>
               </Card>
