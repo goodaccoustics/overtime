@@ -65,14 +65,14 @@ class ProductDescription extends Component {
               this.state.subImages.map((item, i) =>
                 <Card
                   key={i}
-                  style={{minWidth:'5rem', maxWidth:'5rem', margin:'5px'}}
+                  style={{minWidth:'6rem', maxWidth:'6rem', margin:'5px'}}
                   onClick={() => this.setMainImage(item) }
                 >
                   {/**
                    <Card.Img src={require('../Inventory/' + this.props.categoryType + '/' + item.imageUrl)} />
                    **/}
                   <Image cloudName="goodaccoustics" publicId={item.imageUrl}
-                         style={{minWidth:'4rem', maxWidth:'4rem'}}
+                         style={{minWidth:'5rem', maxWidth:'5rem', margin: 'auto'}}
                   />
                 </Card>
               )
