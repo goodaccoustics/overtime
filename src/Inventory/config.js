@@ -15,10 +15,14 @@ export const Items = [
       price: 10.00,
       newPrice: 5.00
     },
+    productSelectors: {
+      colors:[],
+      sizes:[]
+    },
     imagesUrl: [
       {imageUrl: 'uss-christmas2020-mask-adult', caption: 'Adult Face Mask'}
     ],
-    officialProductUrl: '',
+    officialProductUrl: null,
     disabled: false
   },
   {
@@ -36,6 +40,10 @@ export const Items = [
       currency: 'SGD',
       price: 1.00,
       newPrice: null
+    },
+    productSelectors: {
+      colors:[],
+      sizes:[]
     },
     imagesUrl: [
       {imageUrl: '0001', caption: 'AAA'}
@@ -59,11 +67,16 @@ export const Items = [
       price: 1.00,
       newPrice: null
     },
+    productSelectors: {
+      colors:[],
+      sizes:[]
+    },
     imagesUrl: [
       {imageUrl: '0002', caption: 'AAA'},
       {imageUrl: '0002A', caption: 'BBB'},
       {imageUrl: '0002B', caption: 'CCC'}
     ],
+    officialProductUrl: null,
     disabled: false
   },
   {
@@ -82,9 +95,14 @@ export const Items = [
       price: 2.00,
       newPrice: null
     },
+    productSelectors: {
+      colors:[],
+      sizes:[]
+    },
     imagesUrl: [
       {imageUrl: '0003', caption: 'AAA'}
     ],
+    officialProductUrl: null,
     disabled: false
   },
   {
@@ -103,30 +121,9 @@ export const Items = [
       price: 1.00,
       newPrice: null
     },
-    imagesUrl: [
-      {imageUrl: '0001', caption: 'AAA'},
-      {imageUrl: '0001', caption: 'BBB'},
-      {imageUrl: '0001', caption: 'CCC'},
-      {imageUrl: '0001', caption: 'DDD'},
-      {imageUrl: '0001', caption: 'EEE'},
-    ],
-    disabled: false
-  },
-  {
-    category: 'Electronics',
-    key: '0005',
-    title: 'SonicGear Pandora Neo 500',
-    subtitle: '',
-    categoryTags: ['Bluetooth', 'Speakers', 'FM Radio'],
-    popularTags: ['Useful', 'Multi-Usage'],
-    styleTags: ['Simple', 'Stylish'],
-    placeTags: ['Picnic', 'Studio'],
-    priceSettings: {
-      type: 'dailyRental',
-      currencySymbol: '$',
-      currency: 'SGD',
-      price: 1.00,
-      newPrice: null
+    productSelectors: {
+      colors:[],
+      sizes:[]
     },
     imagesUrl: [
       {imageUrl: '0001', caption: 'AAA'},
@@ -135,31 +132,7 @@ export const Items = [
       {imageUrl: '0001', caption: 'DDD'},
       {imageUrl: '0001', caption: 'EEE'},
     ],
-    disabled: false
-  },
-  {
-    category: 'Electronics',
-    key: '0006',
-    title: 'SonicGear Pandora Neo 500',
-    subtitle: '',
-    categoryTags: ['Bluetooth', 'Speakers', 'FM Radio'],
-    popularTags: ['Useful', 'Multi-Usage', 'Compact'],
-    styleTags: ['Simple', 'Stylish'],
-    placeTags: ['Picnic', 'Studio'],
-    priceSettings: {
-      type: 'dailyRental',
-      currencySymbol: '$',
-      currency: 'SGD',
-      price: 1.00,
-      newPrice: null
-    },
-    imagesUrl: [
-      {imageUrl: '0001', caption: 'AAA'},
-      {imageUrl: '0001', caption: 'BBB'},
-      {imageUrl: '0001', caption: 'CCC'},
-      {imageUrl: '0001', caption: 'DDD'},
-      {imageUrl: '0001', caption: 'EEE'},
-    ],
+    officialProductUrl: null,
     disabled: false
   },
 ];

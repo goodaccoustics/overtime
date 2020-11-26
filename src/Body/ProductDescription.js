@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card";
 import CardDeck from 'react-bootstrap/CardDeck';
+import { CLOUDINARY_CLOUDNAME } from '../Utilities/constants';
 
 class ProductDescription extends Component {
   constructor(props) {
@@ -55,7 +56,7 @@ class ProductDescription extends Component {
            style={{minWidth: '15rem', maxWidth: '40rem', marginBottom: '2px'}}
            />
            **/}
-          <Image cloudName="goodaccoustics" publicId={this.state.mainImage.imageUrl}
+          <Image cloudName={CLOUDINARY_CLOUDNAME} publicId={this.state.mainImage.imageUrl}
                  className="d-block w-100"
                  style={{minWidth: '15rem', maxWidth: '40rem', marginBottom: '2px'}}
           />
@@ -71,7 +72,7 @@ class ProductDescription extends Component {
                   {/**
                    <Card.Img src={require('../Inventory/' + this.props.categoryType + '/' + item.imageUrl)} />
                    **/}
-                  <Image cloudName="goodaccoustics" publicId={item.imageUrl}
+                  <Image cloudName={CLOUDINARY_CLOUDNAME} publicId={item.imageUrl}
                          style={{minWidth:'5rem', maxWidth:'5rem', margin: 'auto'}}
                   />
                 </Card>
@@ -80,7 +81,7 @@ class ProductDescription extends Component {
           </CardDeck>
         </div>
 
-        <div style={{ margin: '5px', backgroundColor: '#fcfcfc', padding:'5px'}}>
+        <div style={{ margin: '10px', backgroundColor: '#fcfcfc', padding:'5px'}}>
           <Card className={'pd-cart-pane'} style={{borderWidth:0, backgroundColor:'#fcfcfc'}} >
             <Card.Body>
               <Card.Title>Card Title</Card.Title>

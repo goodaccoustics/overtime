@@ -152,6 +152,7 @@
 .pd-title {
   font-size: xx-large;
   font-weight: bolder;
+  max-width: 40rem;
 }
 .pd-caption {
   font-size: smaller;

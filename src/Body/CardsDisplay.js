@@ -5,7 +5,7 @@ import { InventoryItems } from "../Inventory/Inventory";
 import PriceDisplay from "./PriceDisplay";
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
-import Button from 'react-bootstrap/Button'
+import { CLOUDINARY_CLOUDNAME } from '../Utilities/constants';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,7 +39,7 @@ class CardsDisplay extends Component {
                     {/**
                      <Card.Img variant="top" src={require('../Inventory/Electronics/' + item.imagesUrl[0].imageUrl)} />
                      **/}
-                    <Image cloudName="goodaccoustics" publicId={item.imagesUrl[0].imageUrl} width="200" crop="scale" />
+                    <Image cloudName={CLOUDINARY_CLOUDNAME} publicId={item.imagesUrl[0].imageUrl} width="200" crop="scale" />
 
                   </Link>
                 </Card.Body>

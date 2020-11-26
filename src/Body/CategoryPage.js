@@ -92,13 +92,13 @@ class CategoryPage extends Component {
         <div>
           <div style={{display:'flex', flexWrap: 'wrap', paddingLeft: '20px', paddingRight: '20px', paddingTop: '20px'}}>
             {
-              this.state.tagTabCategories.map(category =>
+              this.state.tagTabCategories.map(x =>
               <div
-                key={category}
-                className={category === this.state.tagTab? "tag-tab-selected":"tag-tab-unselected"}
-                onClick={() => this.onTagTabClick(category)}
+                key={x}
+                className={x === this.state.tagTab? "tag-tab-selected":"tag-tab-unselected"}
+                onClick={() => this.onTagTabClick(x)}
               >
-                <span>{category}</span>
+                <span>{x}</span>
               </div>
             )}
           </div>
