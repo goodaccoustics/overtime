@@ -67,9 +67,20 @@ export const Items = [
       price: 1.00,
       newPrice: null
     },
+    productDescription: null,
     productSelectors: {
-      colors:[],
-      sizes:[]
+      quantity: {
+        selectors: [],
+        selected: null
+      },
+      colors:{
+        selectors: [],
+        selected: null
+      },
+      sizes:{
+        selectors: [],
+        selected: null
+      },
     },
     imagesUrl: [
       {imageUrl: '0002', caption: 'AAA'},
