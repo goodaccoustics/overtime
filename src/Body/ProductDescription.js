@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card";
 import CardDeck from 'react-bootstrap/CardDeck';
 import { CLOUDINARY_CLOUDNAME } from '../Utilities/constants';
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 
 class ProductDescription extends Component {
   constructor(props) {
@@ -84,13 +85,31 @@ class ProductDescription extends Component {
         <div style={{ margin: '10px', backgroundColor: '#fcfcfc', padding:'5px'}}>
           <Card className={'pd-cart-pane'} style={{borderWidth:0, backgroundColor:'#fcfcfc'}} >
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+              {/**
+               <Card.Title>Card Title</Card.Title>
+               **/}
+              {
+                this.state.item.productFeatures && this.state.item.productFeatures.length > 0 ?
+                  <div style={{marginBottom: '20px'}}>
+                    <Card.Subtitle className="mb-2 text-muted">Product Features</Card.Subtitle>
+                    <Card.Text style={{display:"flex",flexWrap:"wrap"}}>
+                      {
+                        this.state.item.productFeatures.map(x =>
+                          <div className={'pd-product-features'}>
+                            <RadioButtonUncheckedIcon style={{fontSize: 10, marginRight: '2px', marginBottom: '4px'}} color="primary" />{x}
+                          </div>)
+                      }
+                    </Card.Text>
+                  </div>
+                  :
+                  ""
+              }
+
+              <Card.Subtitle className="mb-2 text-muted">More Info</Card.Subtitle>
               <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                Visit Product Website
               </Card.Text>
-              <Card.Text align={'center'}>
+              <Card.Text align={'center'} className={'pd-buy-card'}>
                 {
                   this.props.itemInCart(this.state.item) ?
                     <Button className={'card-display-negative-button'}

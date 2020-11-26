@@ -15,9 +15,20 @@ export const Items = [
       price: 10.00,
       newPrice: 5.00
     },
+    productFeatures: ['Polyester/Cotton Knitted', 'Non-Medical', 'Anti-dust', 'Anti-fog', 'Anti-spray', 'Anti-germ', 'Washable', 'Adjustable', 'Heat Resisting 100C'],
     productSelectors: {
-      colors:[],
-      sizes:[]
+      quantity: {
+        selectors: [],
+        selected: null
+      },
+      colors:{
+        selectors: [],
+        selected: null
+      },
+      sizes:{
+        selectors: [],
+        selected: null
+      },
     },
     imagesUrl: [
       {imageUrl: 'uss-christmas2020-mask-adult', caption: 'Adult Face Mask'}
@@ -42,8 +53,18 @@ export const Items = [
       newPrice: null
     },
     productSelectors: {
-      colors:[],
-      sizes:[]
+      quantity: {
+        selectors: [],
+        selected: null
+      },
+      colors:{
+        selectors: [],
+        selected: null
+      },
+      sizes:{
+        selectors: [],
+        selected: null
+      },
     },
     imagesUrl: [
       {imageUrl: '0001', caption: 'AAA'}

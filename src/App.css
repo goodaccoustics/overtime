@@ -164,6 +164,20 @@
   border-width: medium;
 }
 
+.pd-product-features {
+  background-color: #ffffff;
+  padding: 5px;
+  vertical-align: middle;
+  margin: 5px;
+}
+
+.pd-buy-card {
+  margin-top: 5px;
+  background-color: #ffffff;
+  padding: 10px;
+  box-shadow: 0px 1px 5px 0 #e2e2e2;
+}
+
 .footer {
   position:fixed;
   left:0;
