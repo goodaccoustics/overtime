@@ -6,8 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card";
 import CardDeck from 'react-bootstrap/CardDeck';
-import { CLOUDINARY_CLOUDNAME } from '../Utilities/constants';
+import { CLOUDINARY_CLOUDNAME, CHAT_NUMBER } from '../Utilities/constants';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import ChatWidget from "./ChatWidget";
+
 
 class ProductDescription extends Component {
   constructor(props) {
@@ -125,11 +127,13 @@ class ProductDescription extends Component {
                     >
                       Add
                     </Button>
+
                 }
               </Card.Text>
             </Card.Body>
           </Card>
         </div>
+        <ChatWidget number={CHAT_NUMBER} itemTitle={this.state.item.title}/>
       </div>
     );
   }
