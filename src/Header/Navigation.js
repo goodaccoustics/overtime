@@ -62,7 +62,6 @@ class Navigation extends Component {
             <Nav className={'justify-content-end'} style={{width: '100%'}}>
               <Nav.Link eventKey="1" className={'navigation-link'} as={Link} to="/About/"><HomeIcon /></Nav.Link>
               <Nav.Link eventKey="2" className={'navigation-link'} as={Link} to="/SignIn/"><VpnKeyIcon /></Nav.Link>
-              <Nav.Link eventKey="3" className={'navigation-link'} as={Link} to="/Info/"><InfoIcon /></Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
