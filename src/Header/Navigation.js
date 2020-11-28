@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import ShoppingCartTwoToneIcon from '@material-ui/icons/ShoppingCartTwoTone';
+import HomeIcon from '@material-ui/icons/Home';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import PersonIcon from '@material-ui/icons/Person';
 import Badge from '@material-ui/core/Badge';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,16 +27,15 @@ class Navigation extends Component {
   render() {
     return (
       <div className={"header"}>
-        <Navbar bg="white" expand="lg" style={{display: "flex"}}>
-          <Navbar.Brand className={"header-logo"} style={{display: 'flex'}}>
+        <Navbar collapseOnSelect="true" bg="white" expand="lg" style={{display: "flex"}}>
 
+          <Navbar.Brand className={"header-logo"} style={{display: 'flex'}}>
             <span className={"header-logo-lg-view"}>The Good Concierge</span>
             <span className={"header-logo-sm-view"}>TGC</span>
-
             {
               this.props.shoppingCart && this.props.shoppingCart.length > 0 ?
                 <span style={{marginLeft: '5px'}}>
-                  <Nav.Link as={Link} to="/ShoppingCart/" style={{padding: '1px'}} className={'navigation-badge-link'}>
+                  <Nav.Link eventKey="0" as={Link} to="/ShoppingCart/" style={{padding: '1px'}} className={'navigation-badge-link'}>
                     <Badge badgeContent={this.props.shoppingCart.length} color="secondary">
                       <ShoppingCartTwoToneIcon />
                     </Badge>
@@ -43,13 +45,22 @@ class Navigation extends Component {
             }
           </Navbar.Brand>
 
+          {/**
+           <Navbar.Toggle aria-controls="basic-navbar-nav" />
+           <Navbar.Collapse id="basic-navbar-nav">
+           <Nav className={'justify-content-end'} style={{width: '100%'}}>
+           <Nav.Link className={'navigation-link'} as={Link} to="/About/">About</Nav.Link>
+           <Nav.Link className={'navigation-link'} as={Link} to="/Electronics/">Electronics</Nav.Link>
+           <Nav.Link className={'navigation-link'} as={Link} to="/Furniture/">Furniture</Nav.Link>
+           <Nav.Link className={'navigation-link'} as={Link} to="/Faq/">FAQ</Nav.Link>
+           </Nav>
+           </Navbar.Collapse>
+           **/}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className={'justify-content-end'} style={{width: '100%'}}>
-              <Nav.Link className={'navigation-link'} as={Link} to="/About/">About</Nav.Link>
-              <Nav.Link className={'navigation-link'} as={Link} to="/Electronics/">Electronics</Nav.Link>
-              <Nav.Link className={'navigation-link'} as={Link} to="/Furniture/">Furniture</Nav.Link>
-              <Nav.Link className={'navigation-link'} as={Link} to="/Faq/">FAQ</Nav.Link>
+              <Nav.Link eventKey="1" className={'navigation-link'} as={Link} to="/About/"><HomeIcon /></Nav.Link>
+              <Nav.Link eventKey="2" className={'navigation-link'} as={Link} to="/SignIn/"><VpnKeyIcon /></Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

@@ -15,7 +15,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      shoppingCart: []
+      shoppingCart: [],
+      user: null
     }
   }
 
