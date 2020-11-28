@@ -6,6 +6,7 @@ import ShoppingCartTwoToneIcon from '@material-ui/icons/ShoppingCartTwoTone';
 import HomeIcon from '@material-ui/icons/Home';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import PersonIcon from '@material-ui/icons/Person';
+import InfoIcon from '@material-ui/icons/Info';
 import Badge from '@material-ui/core/Badge';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -61,6 +62,7 @@ class Navigation extends Component {
             <Nav className={'justify-content-end'} style={{width: '100%'}}>
               <Nav.Link eventKey="1" className={'navigation-link'} as={Link} to="/About/"><HomeIcon /></Nav.Link>
               <Nav.Link eventKey="2" className={'navigation-link'} as={Link} to="/SignIn/"><VpnKeyIcon /></Nav.Link>
+              <Nav.Link eventKey="3" className={'navigation-link'} as={Link} to="/Info/"><InfoIcon /></Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
