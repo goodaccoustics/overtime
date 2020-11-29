@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import firebase from 'firebase';
 import { history } from "./History";
 import Navigation from "./Header/Navigation";
 import About from "./Body/About";
+import Profile from "./Body/Profile";
 import CategoryPage from "./Body/CategoryPage";
 import Faq from "./Body/Faq";
 import ShoppingCart from "./Body/ShoppingCart";
@@ -25,6 +26,7 @@ class App extends Component {
   login = () => {
     FIREBASE_AUTH().signInWithPopup(FIREBASE_PROVIDER)
       .then(({ user }) => {
+        console.log("user", user)
         this.setState(
           {
             user: user
@@ -61,6 +63,13 @@ class App extends Component {
   }
 
   componentDidMount = () =>  {
+    FIREBASE_AUTH().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          user: user
+        })
+      }
+    });
   }
 
   render() {
@@ -73,6 +82,17 @@ class App extends Component {
             exact
             path={['/', '/About/']}
             render={(props) => <About {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
+          />
+          <Route
+            exact
+            path={['/', '/Profile/']}
+            render={(props) => {
+              if (this.state.user) {
+                return <Profile {...props} user={this.state.user} />;
+              } else {
+                return <Redirect to="/About/" />;
+              }
+            }}
           />
           <Route
             exact

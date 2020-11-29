@@ -66,6 +66,12 @@
   font-weight: bolder;
 }
 
+.profile-tabs {
+  font-family: 'Avenir';
+  color: #0082e2;
+  margin: 5px;
+}
+
 .card-display {
   font-family: 'Avenir';
   box-shadow: 0px 0px 5px 0px #CCCCCC;
