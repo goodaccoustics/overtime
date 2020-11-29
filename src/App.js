@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import firebase from 'firebase';
 import { history } from "./History";
 import Navigation from "./Header/Navigation";
 import About from "./Body/About";
@@ -8,6 +9,7 @@ import Faq from "./Body/Faq";
 import ShoppingCart from "./Body/ShoppingCart";
 import Footer from "./Footer/Footer";
 import './App.css';
+import { FIREBASE_PROVIDER, FIREBASE_AUTH } from './Utilities/constants';
 
 class App extends Component {
 
@@ -19,6 +21,25 @@ class App extends Component {
       user: null
     }
   }
+
+  login = () => {
+    FIREBASE_AUTH().signInWithPopup(FIREBASE_PROVIDER)
+      .then(({ user }) => {
+        this.setState(
+          {
+            user: user
+          })
+      })
+  };
+
+  logout = () => {
+    FIREBASE_AUTH().signOut().then(() => {
+      this.setState(
+        {
+          user: null
+        })
+    })
+  };
 
   addToCart = (item) => {
     console.log("addToCart", item);
@@ -46,7 +67,7 @@ class App extends Component {
     return (
       <Router history={history}>
         <div>
-          <Navigation shoppingCart={this.state.shoppingCart}/>
+          <Navigation login={this.login} user={this.state.user} shoppingCart={this.state.shoppingCart}/>
           <br /><br /><br />
           <Route
             exact
