@@ -35,7 +35,7 @@ class Faq extends Component {
         <Form.Label column sm={3} className={'profile-form-label'}>
           {this.props.label}
         </Form.Label>
-        <Col sm={8} style={{margin: 'auto'}}>
+        <Col sm={8} >
           {
             !this.state.isEditMode ?
               this.props.value ?
@@ -50,9 +50,9 @@ class Faq extends Component {
           <div onClick={() => this.toggleEditMode()}>
             {
               !this.state.isEditMode ?
-                <EditIcon />
+                <EditIcon fontSize={"small"} />
                 :
-                <SaveIcon />
+                <SaveIcon fontSize={"small"} />
             }
           </div>
         </Col>
