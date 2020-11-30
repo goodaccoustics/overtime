@@ -14,9 +14,8 @@ class ProfileOtherUserInfo extends Component {
     super(props);
 
     this.state = {
-      enabled: false
+      changed: false
     }
-
   }
 
   componentDidMount() {
@@ -30,14 +29,22 @@ class ProfileOtherUserInfo extends Component {
             <Form.Label column sm={3} className={'profile-form-label'}>
               Location
             </Form.Label>
-            <Col sm={9}>
-              <Form.Control as="select" custom>
-                {
-                  COUNTRIES.map(x =>
-                    <option>{x.name}</option>
-                  )
-                }
-              </Form.Control>
+            <Col sm={9} style={{margin: 'auto'}}>
+              {
+                this.props.userState === 'display' ?
+                  this.props.user.userLocation ?
+                    <span>{this.props.user.userLocation}</span>
+                    :
+                    <span>None</span>
+                  :
+                  <Form.Control as="select" custom>
+                    {
+                      COUNTRIES.map(x =>
+                        <option>{x.name}</option>
+                      )
+                    }
+                  </Form.Control>
+              }
             </Col>
           </Form.Group>
 
@@ -45,11 +52,21 @@ class ProfileOtherUserInfo extends Component {
             <Form.Label column sm={3} className={'profile-form-label'}>
               WhatsApp
             </Form.Label>
-            <Col sm={9}>
-              <Form.Control type="text" placeholder="Full number with country code" />
-              <Form.Text id="userWhatsappHelp" muted>
-                Fill in the country code and mobile number without '+' at the front and no spaces.
-              </Form.Text>
+            <Col sm={9} style={{margin: 'auto'}}>
+              {
+                this.props.userState === 'display' ?
+                  this.props.user.allowDirectChat ?
+                    <span>{this.props.user.allowDirectChat}</span>
+                    :
+                    <span>None</span>
+                  :
+                  <div>
+                    <Form.Control type="text" placeholder="Full number with country code" />
+                    <Form.Text id="userWhatsappHelp" muted>
+                      Fill in the country code and mobile number without '+' at the front and no spaces.
+                    </Form.Text>
+                  </div>
+              }
             </Col>
           </Form.Group>
 
@@ -57,11 +74,18 @@ class ProfileOtherUserInfo extends Component {
             <Form.Label column sm={3} className={'profile-form-label'}>
               Delivery Policy
             </Form.Label>
-            <Col sm={9}>
-              <Form.Control type="text" placeholder="Fill in your Delivery Modes and Fees" />
+            <Col sm={9} style={{margin: 'auto'}}>
+              {
+                this.props.userState === 'display' ?
+                  this.props.user.allowDirectChat ?
+                    <span>{this.props.user.allowDirectChat}</span>
+                    :
+                    <span>None</span>
+                  :
+                  <Form.Control type="text" placeholder="Fill in your Delivery Modes and Fees" />
+              }
             </Col>
           </Form.Group>
-
         </Form>
       </div>
     );

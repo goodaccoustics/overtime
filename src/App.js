@@ -11,6 +11,7 @@ import ShoppingCart from "./Body/ShoppingCart";
 import Footer from "./Footer/Footer";
 import './App.css';
 import { FIREBASE_PROVIDER, FIREBASE_AUTH } from './Utilities/constants';
+import { USER_TEMPLATE } from "./Utilities/templates";
 
 class App extends Component {
 
@@ -27,9 +28,19 @@ class App extends Component {
     FIREBASE_AUTH().signInWithPopup(FIREBASE_PROVIDER)
       .then(({ user }) => {
         console.log("user", user)
+
+        // Find if user already exists
+
+
+        // If not, create new user
+        let newUser = USER_TEMPLATE;
+        newUser.displayName = user.displayName;
+        newUser.email = user.email;
+        newUser.photoURL = user.photoURL;
+
         this.setState(
           {
-            user: user
+            user: newUser
           })
       })
   };
