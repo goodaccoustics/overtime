@@ -27,10 +27,10 @@ class ProfileOtherUserInfo extends Component {
       <div>
         <Form>
           <Form.Group as={Row} controlId="userLocation">
-            <Form.Label column sm={2}>
+            <Form.Label column sm={3} className={'profile-form-label'}>
               Location
             </Form.Label>
-            <Col sm={10}>
+            <Col sm={9}>
               <Form.Control as="select" custom>
                 {
                   COUNTRIES.map(x =>
@@ -42,10 +42,10 @@ class ProfileOtherUserInfo extends Component {
           </Form.Group>
 
           <Form.Group as={Row} controlId="userWhatsapp">
-            <Form.Label column sm={2}>
+            <Form.Label column sm={3} className={'profile-form-label'}>
               WhatsApp
             </Form.Label>
-            <Col sm={10}>
+            <Col sm={9}>
               <Form.Control type="text" placeholder="Full number with country code" />
               <Form.Text id="userWhatsappHelp" muted>
                 Fill in the country code and mobile number without '+' at the front and no spaces.
@@ -54,10 +54,10 @@ class ProfileOtherUserInfo extends Component {
           </Form.Group>
 
           <Form.Group as={Row} controlId="userDeliveryPolicy">
-            <Form.Label column sm={2}>
+            <Form.Label column sm={3} className={'profile-form-label'}>
               Delivery Policy
             </Form.Label>
-            <Col sm={10}>
+            <Col sm={9}>
               <Form.Control type="text" placeholder="Fill in your Delivery Modes and Fees" />
             </Col>
           </Form.Group>
