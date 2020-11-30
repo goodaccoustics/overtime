@@ -6,6 +6,7 @@ import { default as BootStrapImage } from 'react-bootstrap/Image';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab'
 import { HideEmail } from '../Utilities/common';
+import ProfileOtherUserInfo from './ProfileOtherUserInfo';
 
 
 class Profile extends Component {
@@ -14,6 +15,7 @@ class Profile extends Component {
 
     this.state = {
       user: null,
+      userState: 'display', //display or edit
       inventory: null,
 
       selectedTab: "Inventory",
@@ -41,7 +43,7 @@ class Profile extends Component {
 
     return (
 
-      <div style={{padding: '20px', justifyContent: 'center'}}>
+      <div style={{margin: 'auto', padding: '20px', justifyContent: 'center', maxWidth: '50rem'}}>
 
         <div style={{display: 'flex', backgroundColor: '#fcfcfc', padding:'5px'}}>
 
@@ -51,6 +53,10 @@ class Profile extends Component {
             <div>{ HideEmail(this.state.user.email) }</div>
           </div>
 
+        </div>
+
+        <div style={{ marginTop: '10px', backgroundColor: '#fcfcfc', padding:'5px'}}>
+          <ProfileOtherUserInfo user={this.state.user} userState={this.state.userState}/>
         </div>
 
         <div style={{ marginTop: '10px', backgroundColor: '#fcfcfc', padding:'5px'}}>

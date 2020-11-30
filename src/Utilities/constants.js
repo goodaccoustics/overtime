@@ -17,3 +17,31 @@ export const FIREBASE_PROVIDER = new firebase.auth.FacebookAuthProvider();
 
 export const CLOUDINARY_CLOUDNAME = 'goodaccoustics';
 export const CHAT_NUMBER = '85252243837';
+
+export const COUNTRIES = [
+  {
+    name: 'Singapore',
+    currency: 'SGD',
+    symbol: '$',
+    countryCode: '65'
+  },
+  {
+    name: 'Hong Kong',
+    currency: 'HKD',
+    symbol: '$',
+    countryCode: '852'
+
+  },
+  {
+    name: 'Japan',
+    currency: 'JPY',
+    symbol: '¥',
+    countryCode: '81'
+  },
+  {
+    name: 'China',
+    currency: 'CNY',
+    symbol: '¥',
+    countryCode: '86'
+  }
+]
