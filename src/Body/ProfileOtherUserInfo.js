@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { COUNTRIES } from "../Utilities/constants";
+import FormField from "./FormField";
 
 
 class ProfileOtherUserInfo extends Component {
@@ -25,67 +26,9 @@ class ProfileOtherUserInfo extends Component {
     return (
       <div>
         <Form>
-          <Form.Group as={Row} controlId="userLocation">
-            <Form.Label column sm={3} className={'profile-form-label'}>
-              Location
-            </Form.Label>
-            <Col sm={9} style={{margin: 'auto'}}>
-              {
-                this.props.userState === 'display' ?
-                  this.props.user.userLocation ?
-                    <span>{this.props.user.userLocation}</span>
-                    :
-                    <span>None</span>
-                  :
-                  <Form.Control as="select" custom>
-                    {
-                      COUNTRIES.map(x =>
-                        <option>{x.name}</option>
-                      )
-                    }
-                  </Form.Control>
-              }
-            </Col>
-          </Form.Group>
-
-          <Form.Group as={Row} controlId="userWhatsapp">
-            <Form.Label column sm={3} className={'profile-form-label'}>
-              WhatsApp
-            </Form.Label>
-            <Col sm={9} style={{margin: 'auto'}}>
-              {
-                this.props.userState === 'display' ?
-                  this.props.user.allowDirectChat ?
-                    <span>{this.props.user.allowDirectChat}</span>
-                    :
-                    <span>None</span>
-                  :
-                  <div>
-                    <Form.Control type="text" placeholder="Full number with country code" />
-                    <Form.Text id="userWhatsappHelp" muted>
-                      Fill in the country code and mobile number without '+' at the front and no spaces.
-                    </Form.Text>
-                  </div>
-              }
-            </Col>
-          </Form.Group>
-
-          <Form.Group as={Row} controlId="userDeliveryPolicy">
-            <Form.Label column sm={3} className={'profile-form-label'}>
-              Delivery Policy
-            </Form.Label>
-            <Col sm={9} style={{margin: 'auto'}}>
-              {
-                this.props.userState === 'display' ?
-                  this.props.user.allowDirectChat ?
-                    <span>{this.props.user.allowDirectChat}</span>
-                    :
-                    <span>None</span>
-                  :
-                  <Form.Control type="text" placeholder="Fill in your Delivery Modes and Fees" />
-              }
-            </Col>
-          </Form.Group>
+          <FormField type={"select"} options={COUNTRIES.map(x => x.name)} id={"userLocation"} label={"Location"} value={""} placeholder={""}/>
+          <FormField type={"text"} id={"chatId"} label={"WhatsApp"} value={""} placeholder={""}/>
+          <FormField type={"text"} id={"deliveryPolicy"} label={"Delivery Policy"} value={""} placeholder={""}/>
         </Form>
       </div>
     );

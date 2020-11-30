@@ -15,7 +15,7 @@ class Profile extends Component {
 
     this.state = {
       user: null,
-      userState: 'display', //display or edit
+      userState: 'edit', //display or edit
       inventory: null,
 
       selectedTab: "Inventory",
