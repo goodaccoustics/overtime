@@ -10,7 +10,7 @@ import Faq from "./Body/Faq";
 import ShoppingCart from "./Body/ShoppingCart";
 import Footer from "./Footer/Footer";
 import './App.css';
-import { FIREBASE_PROVIDER, FIREBASE_AUTH } from './Utilities/constants';
+import { FIREBASE_PROVIDER, FIREBASE_AUTH, FIREBASE_DB } from './Utilities/constants';
 import { USER_TEMPLATE } from "./Utilities/templates";
 
 class App extends Component {
@@ -29,18 +29,36 @@ class App extends Component {
       .then(({ user }) => {
         console.log("user", user)
 
-        // Find if user already exists
+        let userObj = null;
 
+        let usersRef = FIREBASE_DB.collection('users');
 
-        // If not, create new user
-        let newUser = USER_TEMPLATE;
-        newUser.displayName = user.displayName;
-        newUser.email = user.email;
-        newUser.photoURL = user.photoURL;
+        let userQuery = usersRef.where('email', '==', user.email).get()
+          .then(snapshot => {
+            if (snapshot.empty) {
+              userObj = USER_TEMPLATE;
+            }
+            else if (snapshot.empty) {
+              //console.log('Matching user found, will update user.');
+              snapshot.forEach(doc => {
+                userObj = doc;
+              });
+            }
+
+            userObj.displayName = user.displayName;
+            userObj.email = user.email;
+            userObj.photoURL = user.photoURL;
+
+            let setUser = usersRef.doc(userObj.email).set(userObj);
+          })
+          .catch(err => {
+            console.log('Error getting user', err);
+            userObj = null;
+          });
 
         this.setState(
           {
-            user: newUser
+            user: userObj
           })
       })
   };
@@ -99,7 +117,7 @@ class App extends Component {
             path={['/', '/Profile/']}
             render={(props) => {
               if (this.state.user) {
-                return <Profile {...props} user={this.state.user} />;
+                return <Profile {...props} user={this.state.user} logout={this.logout} />;
               } else {
                 return <Redirect to="/About/" />;
               }

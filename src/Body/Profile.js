@@ -4,7 +4,8 @@ import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { default as BootStrapImage } from 'react-bootstrap/Image';
 import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab'
+import Tab from 'react-bootstrap/Tab';
+import Button from 'react-bootstrap/Button';
 import { HideEmail } from '../Utilities/common';
 import ProfileOtherUserInfo from './ProfileOtherUserInfo';
 
@@ -86,7 +87,10 @@ class Profile extends Component {
                 ""
             }
           </Tabs>
+        </div>
 
+        <div style={{ marginTop: '10px', backgroundColor: '#fcfcfc', padding:'5px'}} align="center">
+          <Button variant="danger" onClick={() => this.props.logout()}>Sign Out</Button>
         </div>
 
       </div>
