@@ -71,7 +71,7 @@ class Faq extends Component {
         <Form.Control as="select" custom>
           {
             this.props.options.map(x =>
-              <option>{x}</option>
+              <option key={x}>{x}</option>
             )
           }
         </Form.Control>
