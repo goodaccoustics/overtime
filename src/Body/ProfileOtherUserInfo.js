@@ -25,11 +25,9 @@ class ProfileOtherUserInfo extends Component {
   render() {
     return (
       <div>
-        <Form>
-          <FormField type={"select"} options={COUNTRIES.map(x => x.name)} id={"userLocation"} label={"Location"} value={""} placeholder={""}/>
-          <FormField type={"text"} id={"chatId"} label={"WhatsApp"} value={""} placeholder={""}/>
-          <FormField type={"text"} id={"deliveryPolicy"} label={"Delivery Policy"} value={""} placeholder={""}/>
-        </Form>
+        <FormField type={"select"} options={COUNTRIES.map(x => x.name)} id={"userLocation"} label={"Location"} value={""} placeholder={""}/>
+        <FormField type={"text"} id={"chatId"} label={"WhatsApp"} value={""} placeholder={""}/>
+        <FormField type={"text"} id={"deliveryPolicy"} label={"Delivery Policy"} value={""} placeholder={""}/>
       </div>
     );
   }

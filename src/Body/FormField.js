@@ -31,33 +31,32 @@ class Faq extends Component {
 
   render() {
     return (
-      <Form.Group as={Row} controlId={this.props.id}>
-        <Form.Label column sm={3} className={'profile-form-label'}>
-          {this.props.label}
-        </Form.Label>
-        <Col sm={8} >
-          {
-            !this.state.isEditMode ?
-              this.props.value ?
-                <span>{this.props.value}</span>
-                :
-                <span>None</span>
-              :
-              this.renderFormControl()
-          }
-        </Col>
-        <Col sm={1} style={{margin: 'auto'}}>
-          <div onClick={() => this.toggleEditMode()}>
+      <Form>
+        <Form.Group as={Row} controlId={this.props.id} style={{display: 'flex'}}>
+          <Form.Label column sm={3} className={'profile-form-label'}>
+            {this.props.label}
+          </Form.Label>
+          <Col sm={8} style={{display: 'flex', justifyContent: 'space-between'}} >
             {
               !this.state.isEditMode ?
-                <EditIcon fontSize={"small"} />
+                this.props.value ?
+                  <span>{this.props.value}</span>
+                  :
+                  <span>None</span>
                 :
-                <SaveIcon fontSize={"small"} />
+                this.renderFormControl()
             }
-          </div>
-        </Col>
-      </Form.Group>
-
+            <div onClick={() => this.toggleEditMode()}>
+              {
+                !this.state.isEditMode ?
+                  <EditIcon fontSize={"small"} />
+                  :
+                  <SaveIcon fontSize={"small"} />
+              }
+            </div>
+          </Col>
+        </Form.Group>
+      </Form>
     );
   }
 
