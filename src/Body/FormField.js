@@ -46,7 +46,7 @@ class Faq extends Component {
                 :
                 this.renderFormControl()
             }
-            <div onClick={() => this.toggleEditMode()}>
+            <div onClick={() => this.toggleEditMode()} style={{padding: '5px'}}>
               {
                 !this.state.isEditMode ?
                   <EditIcon fontSize={"small"} />
