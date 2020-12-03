@@ -24,42 +24,42 @@ class App extends Component {
     }
   }
 
-  login = () => {
-    FIREBASE_AUTH().signInWithPopup(FIREBASE_PROVIDER)
-      .then(({ user }) => {
-        console.log("user", user)
+  setProfileUser = (user) => {
+    let userObj = null;
+    let usersRef = FIREBASE_DB.collection('users');
 
-        let userObj = null;
-
-        let usersRef = FIREBASE_DB.collection('users');
-
-        let userQuery = usersRef.where('email', '==', user.email).get()
-          .then(snapshot => {
-            if (snapshot.empty) {
-              userObj = USER_TEMPLATE;
-            }
-            else if (snapshot.empty) {
-              //console.log('Matching user found, will update user.');
-              snapshot.forEach(doc => {
-                userObj = doc;
-              });
-            }
-
-            userObj.displayName = user.displayName;
-            userObj.email = user.email;
-            userObj.photoURL = user.photoURL;
-
-            let setUser = usersRef.doc(userObj.email).set(userObj);
-          })
-          .catch(err => {
-            console.log('Error getting user', err);
-            userObj = null;
+    let userQuery = usersRef.where('email', '==', user.email).get()
+      .then(snapshot => {
+        if (snapshot.empty) {
+          userObj = USER_TEMPLATE;
+        }
+        else if (!snapshot.empty) {
+          snapshot.forEach(doc => {
+            userObj = doc.data();
           });
+        }
+
+        userObj.displayName = user.displayName;
+        userObj.email = user.email;
+        userObj.photoURL = user.photoURL;
 
         this.setState(
           {
             user: userObj
-          })
+          }
+        );
+      })
+      .catch(err => {
+        console.log('Error getting user', err);
+      });
+
+  };
+
+  login = () => {
+    FIREBASE_AUTH().signInWithPopup(FIREBASE_PROVIDER)
+      .then(({ user }) => {
+        console.log("user", user)
+        this.setProfileUser(user);
       })
   };
 
@@ -71,6 +71,14 @@ class App extends Component {
         })
     })
   };
+
+  saveUserInfo = (key, value) => {
+    let editedUserObj = this.state.user;
+    editedUserObj[key] = value;
+    this.setState({
+      user: editedUserObj
+    });
+  }
 
   addToCart = (item) => {
     console.log("addToCart", item);
@@ -94,10 +102,13 @@ class App extends Component {
   componentDidMount = () =>  {
     FIREBASE_AUTH().onAuthStateChanged(user => {
       if (user) {
-        this.setState({
-          user: user
-        })
+        this.setProfileUser(user);
       }
+      else {
+        this.setState({
+          user: null
+        })  ;
+      };
     });
   }
 
@@ -117,7 +128,7 @@ class App extends Component {
             path={['/', '/Profile/']}
             render={(props) => {
               if (this.state.user) {
-                return <Profile {...props} user={this.state.user} logout={this.logout} />;
+                return <Profile {...props} user={this.state.user} logout={this.logout} saveUserInfo={this.saveUserInfo} />;
               } else {
                 return <Redirect to="/About/" />;
               }

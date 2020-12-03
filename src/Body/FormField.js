@@ -23,9 +23,15 @@ class Faq extends Component {
   componentDidMount() {
   }
 
-  toggleEditMode = () => {
+  goToEditMode = () => {
     this.setState ({
-      isEditMode: !this.state.isEditMode
+      isEditMode: true
+    });
+  }
+
+  goToSaveMode = () => {
+    this.setState ({
+      isEditMode: false
     });
   }
 
@@ -46,14 +52,16 @@ class Faq extends Component {
                 :
                 this.renderFormControl()
             }
-            <div onClick={() => this.toggleEditMode()} style={{padding: '5px'}}>
-              {
-                !this.state.isEditMode ?
+            {
+              !this.state.isEditMode ?
+                <div onClick={() => this.goToEditMode()} style={{padding: '5px'}}>
                   <EditIcon fontSize={"small"} />
-                  :
+                </div>
+                :
+                <div onClick={() => this.goToSaveMode()} style={{padding: '5px'}}>
                   <SaveIcon fontSize={"small"} />
-              }
-            </div>
+                </div>
+            }
           </Col>
         </Form.Group>
       </Form>

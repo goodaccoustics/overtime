@@ -15,8 +15,6 @@ class Profile extends Component {
     super(props);
 
     this.state = {
-      user: null,
-      userState: 'edit', //display or edit
       inventory: null,
 
       selectedTab: "Inventory",
@@ -26,12 +24,7 @@ class Profile extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props.location);
-
-    this.setState({
-      user: this.props.user
-    });
-
+    console.log(this.props.user);
   }
 
   onTabSelect = (key) => {
@@ -42,22 +35,27 @@ class Profile extends Component {
 
   render() {
 
+    let {
+      user,
+      saveUserInfo
+    } = this.props
+
     return (
 
       <div style={{margin: 'auto', padding: '20px', justifyContent: 'center', maxWidth: '50rem'}}>
 
         <div style={{display: 'flex', backgroundColor: '#fcfcfc', padding:'5px'}}>
 
-          <BootStrapImage src={this.state.user.photoURL} roundedCircle />
+          <BootStrapImage src={user.photoURL} roundedCircle />
           <div style={{marginLeft: '1rem'}}>
-            <div>{ this.state.user.displayName }</div>
-            <div>{ HideEmail(this.state.user.email) }</div>
+            <div>{ user.displayName }</div>
+            <div>{ HideEmail(user.email) }</div>
           </div>
 
         </div>
 
         <div style={{ marginTop: '10px', backgroundColor: '#fcfcfc', padding:'5px'}}>
-          <ProfileOtherUserInfo user={this.state.user} userState={this.state.userState}/>
+          <ProfileOtherUserInfo user={user} saveUserInfo={saveUserInfo}/>
         </div>
 
         <div style={{ marginTop: '10px', backgroundColor: '#fcfcfc', padding:'5px'}}>

@@ -3,7 +3,7 @@ export let USER_TEMPLATE = {
   email: null,
   photoURL: null,
   userLocation: "Singapore",
-  deliveryPolicy: "",
+  deliveryPolicy: null,
   allowDirectChat: {
     enabled: false,
     type: null,
