@@ -78,6 +78,14 @@
   font-size: 1rem;
 }
 
+.profile-form-display {
+  font-family: 'Avenir';
+  marginLeft: 10px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
 
 .card-display {
   font-family: 'Avenir';

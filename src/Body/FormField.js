@@ -53,7 +53,7 @@ class Faq extends Component {
           <Form.Label column sm={3} className={'profile-form-label'}>
             {this.props.label}
           </Form.Label>
-          <Col sm={7} style={{display: 'flex', justifyContent: 'space-between', padding: '5px'}} >
+          <Col sm={8} className={'profile-form-display'}>
             {
               !this.state.isEditMode ?
                 this.renderFormDisplay()
@@ -67,8 +67,8 @@ class Faq extends Component {
                 </div>
                 :
                 <div style={{display: 'flex', flexWrap: 'nowrap', padding: '5px'}} >
-                  <SaveIcon fontSize={"small"} onClick={() => this.toggleToEditMode(false)} />
-                  <SettingsBackupRestoreIcon fontSize={"small"} onClick={() => this.toggleToEditMode(true)}  style={{marginLeft: '5px'}} />
+                  <SaveIcon onClick={() => this.toggleToEditMode(false)} />
+                  <SettingsBackupRestoreIcon onClick={() => this.toggleToEditMode(true)}  style={{marginLeft: '5px'}} />
                 </div>
             }
           </Col>

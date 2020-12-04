@@ -75,7 +75,7 @@ class Profile extends Component {
 
 
             </Tab>
-            <Tab eventKey="Add" title="Add">
+            <Tab eventKey="Add" title="Add" style={{margin: 'auto'}}>
               <ProfileAddInventory saveItemInfo={saveItemInfo} />
             </Tab>
             {
