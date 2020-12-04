@@ -15,7 +15,8 @@ class Faq extends Component {
     super(props);
 
     this.state = {
-      isEditMode: false
+      isEditMode: false,
+      value: this.props.value
     }
 
   }
@@ -23,17 +24,26 @@ class Faq extends Component {
   componentDidMount() {
   }
 
-  goToEditMode = () => {
+  toggleToEditMode = () => {
+
+    if (this.state.isEditMode) {
+      if (this.state.value) {
+        this.props.saveObject(this.props.id, this.state.value);
+      }
+    }
+
     this.setState ({
-      isEditMode: true
+      isEditMode: !this.state.isEditMode
     });
   }
 
-  goToSaveMode = () => {
-    this.setState ({
-      isEditMode: false
+  onChange = (e) => {
+    //console.log(this.props.id, e.target.value);
+    this.setState({
+      value: e.target.value
     });
   }
+
 
   render() {
     return (
@@ -52,16 +62,14 @@ class Faq extends Component {
                 :
                 this.renderFormControl()
             }
+            <div onClick={() => this.toggleToEditMode()} style={{padding: '5px'}}>
             {
               !this.state.isEditMode ?
-                <div onClick={() => this.goToEditMode()} style={{padding: '5px'}}>
-                  <EditIcon fontSize={"small"} />
-                </div>
+                <EditIcon fontSize={"small"} />
                 :
-                <div onClick={() => this.goToSaveMode()} style={{padding: '5px'}}>
-                  <SaveIcon fontSize={"small"} />
-                </div>
+                <SaveIcon fontSize={"small"} />
             }
+            </div>
           </Col>
         </Form.Group>
       </Form>
@@ -71,12 +79,12 @@ class Faq extends Component {
   renderFormControl() {
     if (this.props.type === "text") {
       return (
-        <Form.Control type="text" placeholder={this.props.placeholder} />
+        <Form.Control type="text" placeholder={this.props.placeholder} onChange={this.onChange}/>
       )
     }
     if (this.props.type === "select") {
       return (
-        <Form.Control as="select" custom>
+        <Form.Control as="select"  onChange={this.onChange} custom>
           {
             this.props.options.map(x =>
               <option key={x}>{x}</option>

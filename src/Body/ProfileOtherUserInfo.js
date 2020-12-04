@@ -32,9 +32,9 @@ class ProfileOtherUserInfo extends Component {
 
     return (
       <div>
-        <FormField type={"select"} options={COUNTRIES.map(x => x.name)} id={"userLocation"} label={"Location"} value={user.userLocation} placeholder={""} saveObj={saveUserInfo}/>
-        <FormField type={"text"} id={"chatId"} label={"WhatsApp"} value={user.allowDirectChat.id} placeholder={""} saveObj={saveUserInfo}/>
-        <FormField type={"text"} id={"deliveryPolicy"} label={"Delivery Policy"} value={user.deliveryPolicy} placeholder={""} saveObj={saveUserInfo}/>
+        <FormField type={"select"} options={COUNTRIES.map(x => x.name)} id={"userLocation"} label={"Location"} value={user.userLocation} placeholder={""} saveObject={saveUserInfo}/>
+        <FormField type={"text"} id={"chatId"} label={"WhatsApp"} value={user.allowDirectChat.id} placeholder={""} saveObject={saveUserInfo}/>
+        <FormField type={"text"} id={"deliveryPolicy"} label={"Delivery Policy"} value={user.deliveryPolicy} placeholder={""} saveObject={saveUserInfo}/>
       </div>
     );
   }

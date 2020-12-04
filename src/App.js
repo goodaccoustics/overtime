@@ -43,6 +43,8 @@ class App extends Component {
         userObj.email = user.email;
         userObj.photoURL = user.photoURL;
 
+        let setUser = usersRef.doc(user.email).set(userObj);
+
         this.setState(
           {
             user: userObj
@@ -75,9 +77,13 @@ class App extends Component {
   saveUserInfo = (key, value) => {
     let editedUserObj = this.state.user;
     editedUserObj[key] = value;
+
     this.setState({
       user: editedUserObj
     });
+
+    let usersRef = FIREBASE_DB.collection('users');
+    let setUser = usersRef.doc(editedUserObj.email).set(editedUserObj);
   }
 
   addToCart = (item) => {
