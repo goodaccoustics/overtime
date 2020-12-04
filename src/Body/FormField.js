@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import EditIcon from '@material-ui/icons/Edit';
 import SaveIcon from '@material-ui/icons/Save';
+import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
 import '../App.css';
 import {COUNTRIES} from "../Utilities/constants";
 
@@ -24,9 +25,9 @@ class Faq extends Component {
   componentDidMount() {
   }
 
-  toggleToEditMode = () => {
+  toggleToEditMode = (reset) => {
 
-    if (this.state.isEditMode) {
+    if (this.state.isEditMode && !reset) {
       if (this.state.value) {
         this.props.saveObject(this.props.id, this.state.value);
       }
@@ -62,14 +63,17 @@ class Faq extends Component {
                 :
                 this.renderFormControl()
             }
-            <div onClick={() => this.toggleToEditMode()} style={{padding: '5px'}}>
             {
               !this.state.isEditMode ?
-                <EditIcon fontSize={"small"} />
+                <div onClick={() => this.toggleToEditMode(true)} style={{padding: '5px'}}>
+                  <EditIcon fontSize={"small"} />
+                </div>
                 :
-                <SaveIcon fontSize={"small"} />
+                <div style={{display: 'flex'}}>
+                  <SaveIcon fontSize={"small"} onClick={() => this.toggleToEditMode(true)} />
+                  <SettingsBackupRestoreIcon fontSize={"small"} onClick={() => this.toggleToEditMode(false)}  style={{marginLeft: '5px'}} />
+                </div>
             }
-            </div>
           </Col>
         </Form.Group>
       </Form>

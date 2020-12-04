@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4c8657a-c4fe-4c2c-bc35-4a0646454ed4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Body/FormField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Body/FormField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Body/ProfileOtherUserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Body/ProfileOtherUserInfo.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,7 +57,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Body/ProfileOtherUserInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
+            <state relative-caret-position="278">
               <caret line="36" column="126" selection-start-line="36" selection-start-column="126" selection-end-line="36" selection-end-column="126" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
@@ -72,8 +69,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Body/FormField.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+            <state relative-caret-position="-209">
+              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -380,16 +377,15 @@
       <workItem from="1606870850573" duration="380000" />
       <workItem from="1606923695793" duration="836000" />
       <workItem from="1607032797515" duration="4682000" />
-      <workItem from="1607043426587" duration="1956000" />
+      <workItem from="1607043426587" duration="3313000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143522000" />
+    <option name="totallyTimeSpent" value="144879000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="26" y="23" width="1362" height="804" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21625653" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -681,16 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Body/ProfileOtherUserInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="36" column="126" selection-start-line="36" selection-start-column="126" selection-end-line="36" selection-end-column="126" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Body/Profile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -711,10 +697,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Body/ProfileOtherUserInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="36" column="126" selection-start-line="36" selection-start-column="126" selection-end-line="36" selection-end-column="126" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Body/FormField.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+        <state relative-caret-position="-209">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
