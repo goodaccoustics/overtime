@@ -88,6 +88,10 @@ class App extends Component {
     let setUser = usersRef.doc(editedUserObj.email).set(editedUserObj);
   }
 
+  saveItemInfo = (itemObj) => {
+    console.log("in saveItemInfo", itemObj);
+  }
+
   addToCart = (item) => {
     console.log("addToCart", item);
     if (this.state.shoppingCart.filter(current => current.category === item.category && current.key === item.key).length === 0) {
@@ -136,7 +140,7 @@ class App extends Component {
             path={['/', '/Profile/']}
             render={(props) => {
               if (this.state.user) {
-                return <Profile {...props} user={this.state.user} logout={this.logout} saveUserInfo={this.saveUserInfo} />;
+                return <Profile {...props} user={this.state.user} logout={this.logout} saveUserInfo={this.saveUserInfo} saveItemInfo={this.saveItemInfo()} />;
               } else {
                 return <Redirect to="/About/" />;
               }

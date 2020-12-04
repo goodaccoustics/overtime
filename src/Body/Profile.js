@@ -38,7 +38,8 @@ class Profile extends Component {
 
     let {
       user,
-      saveUserInfo
+      saveUserInfo,
+      saveItemInfo
     } = this.props
 
     return (
@@ -75,7 +76,7 @@ class Profile extends Component {
 
             </Tab>
             <Tab eventKey="Add" title="Add">
-              <ProfileAddInventory />
+              <ProfileAddInventory saveItemInfo={saveItemInfo} />
             </Tab>
             {
               this.state.editItem?
