@@ -32,6 +32,7 @@ class App extends Component {
       .then(snapshot => {
         if (snapshot.empty) {
           userObj = USER_TEMPLATE;
+          userObj.joinedOn = new Date();
         }
         else if (!snapshot.empty) {
           snapshot.forEach(doc => {
@@ -42,6 +43,7 @@ class App extends Component {
         userObj.displayName = user.displayName;
         userObj.email = user.email;
         userObj.photoURL = user.photoURL;
+        userObj.lastLogin = new Date();
 
         let setUser = usersRef.doc(user.email).set(userObj);
 

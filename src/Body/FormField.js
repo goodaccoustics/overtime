@@ -53,13 +53,10 @@ class Faq extends Component {
           <Form.Label column sm={3} className={'profile-form-label'}>
             {this.props.label}
           </Form.Label>
-          <Col sm={8} style={{display: 'flex', justifyContent: 'space-between'}} >
+          <Col sm={7} style={{display: 'flex', justifyContent: 'space-between', padding: '5px'}} >
             {
               !this.state.isEditMode ?
-                this.props.value ?
-                  <span>{this.props.value}</span>
-                  :
-                  <span>None</span>
+                this.renderFormDisplay()
                 :
                 this.renderFormControl()
             }
@@ -69,9 +66,9 @@ class Faq extends Component {
                   <EditIcon fontSize={"small"} />
                 </div>
                 :
-                <div style={{display: 'flex'}}>
-                  <SaveIcon fontSize={"small"} onClick={() => this.toggleToEditMode(true)} />
-                  <SettingsBackupRestoreIcon fontSize={"small"} onClick={() => this.toggleToEditMode(false)}  style={{marginLeft: '5px'}} />
+                <div style={{display: 'flex', flexWrap: 'nowrap', padding: '5px'}} >
+                  <SaveIcon fontSize={"small"} onClick={() => this.toggleToEditMode(false)} />
+                  <SettingsBackupRestoreIcon fontSize={"small"} onClick={() => this.toggleToEditMode(true)}  style={{marginLeft: '5px'}} />
                 </div>
             }
           </Col>
@@ -83,18 +80,37 @@ class Faq extends Component {
   renderFormControl() {
     if (this.props.type === "text") {
       return (
-        <Form.Control type="text" placeholder={this.props.placeholder} onChange={this.onChange}/>
+        <Form.Control type="text" value={this.props.value} placeholder={this.props.placeholder} onChange={this.onChange} />
       )
     }
     if (this.props.type === "select") {
       return (
-        <Form.Control as="select"  onChange={this.onChange} custom>
+        <Form.Control as="select" defaultValue={this.props.value} onChange={this.onChange} custom>
           {
             this.props.options.map(x =>
               <option key={x}>{x}</option>
             )
           }
         </Form.Control>
+      )
+    }
+  }
+
+  renderFormDisplay() {
+    if (this.props.type === "text") {
+      return (
+        this.props.value ?
+          <span>{this.props.value}</span>
+          :
+          <span>None</span>
+      )
+    }
+    if (this.props.type === "select") {
+      return (
+        this.props.value ?
+          <span>{this.props.value}</span>
+          :
+          <span>None</span>
       )
     }
   }

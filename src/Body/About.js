@@ -5,6 +5,7 @@ import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from "react-router-dom";
 import AboutCategory from "./AboutCategory";
+import { CATEGORIES } from "../Utilities/templates";
 
 
 class About extends Component {
@@ -17,13 +18,11 @@ class About extends Component {
       <div>
         <AboutCarousel />
         <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
-          <AboutCategory category="Tickets" />
-          <AboutCategory category="Fashion" />
-          <AboutCategory category="Drinks" />
-          <AboutCategory category="Electronics" />
-          <AboutCategory category="Furniture" />
-          <AboutCategory category="Events" />
-          <AboutCategory category="Services" />
+          {
+            CATEGORIES.map(x =>
+              <AboutCategory category={x} />
+            )
+          }
         </div>
         <hr/>
         <div style={{paddingLeft: "20px", paddingRight: "20px"}}>

@@ -17,6 +17,7 @@ export const FIREBASE_PROVIDER = new firebase.auth.FacebookAuthProvider();
 export const FIREBASE_DB = firebase.firestore();
 
 export const CLOUDINARY_CLOUDNAME = 'goodaccoustics';
+
 export const CHAT_NUMBER = '85252243837';
 
 export const COUNTRIES = [

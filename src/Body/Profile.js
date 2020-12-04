@@ -8,6 +8,7 @@ import Tab from 'react-bootstrap/Tab';
 import Button from 'react-bootstrap/Button';
 import { HideEmail } from '../Utilities/common';
 import ProfileOtherUserInfo from './ProfileOtherUserInfo';
+import ProfileAddInventory from './ProfileAddInventory';
 
 
 class Profile extends Component {
@@ -74,7 +75,7 @@ class Profile extends Component {
 
             </Tab>
             <Tab eventKey="Add" title="Add">
-
+              <ProfileAddInventory />
             </Tab>
             {
               this.state.editItem?

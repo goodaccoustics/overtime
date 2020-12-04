@@ -46,17 +46,6 @@ class Navigation extends Component {
             }
           </Navbar.Brand>
 
-          {/**
-           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-           <Navbar.Collapse id="basic-navbar-nav">
-           <Nav className={'justify-content-end'} style={{width: '100%'}}>
-           <Nav.Link className={'navigation-link'} as={Link} to="/About/">About</Nav.Link>
-           <Nav.Link className={'navigation-link'} as={Link} to="/Electronics/">Electronics</Nav.Link>
-           <Nav.Link className={'navigation-link'} as={Link} to="/Furniture/">Furniture</Nav.Link>
-           <Nav.Link className={'navigation-link'} as={Link} to="/Faq/">FAQ</Nav.Link>
-           </Nav>
-           </Navbar.Collapse>
-           **/}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className={'justify-content-end'} style={{width: '100%'}}>
