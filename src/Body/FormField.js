@@ -51,7 +51,12 @@ class Faq extends Component {
       <Form>
         <Form.Group as={Row} controlId={this.props.id} style={{display: 'flex'}}>
           <Form.Label column sm={3} className={'profile-form-label'}>
-            {this.props.label}
+            {
+              this.props.required?
+                <b>{this.props.label}</b>
+                :
+                <>{this.props.label}</>
+            }
           </Form.Label>
           <Col sm={8} className={'profile-form-display'}>
             {
