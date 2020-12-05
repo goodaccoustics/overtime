@@ -36,7 +36,7 @@ class Faq extends Component {
     } = this.state;
 
     return (
-      <div style={{marginTop:'10px'}}>
+      <div style={{marginTop:'1rem'}}>
         <FormField type={"select"} options={CATEGORIES.map(x => x)} id={"category"} label={"Category"} value={item.category} placeholder={""} saveObject={this.updateItem}/>
         {
           item.category?

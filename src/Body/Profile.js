@@ -44,7 +44,7 @@ class Profile extends Component {
 
     return (
 
-      <div style={{margin: 'auto', padding: '20px', justifyContent: 'center', maxWidth: '50rem'}}>
+      <div style={{margin: 'auto', padding: '1rem', justifyContent: 'center', maxWidth: '50rem'}}>
 
         <div style={{display: 'flex', backgroundColor: '#fcfcfc', padding:'5px'}}>
 
@@ -56,11 +56,11 @@ class Profile extends Component {
 
         </div>
 
-        <div style={{ marginTop: '10px', backgroundColor: '#fcfcfc', padding:'5px'}}>
+        <div style={{ marginTop: '10px', backgroundColor: '#fcfcfc', padding:'1rem'}}>
           <ProfileOtherUserInfo user={user} saveUserInfo={saveUserInfo}/>
         </div>
 
-        <div style={{ marginTop: '10px', backgroundColor: '#fcfcfc', padding:'5px'}}>
+        <div style={{ marginTop: '10px', backgroundColor: '#fcfcfc', padding:'1rem'}}>
 
           <Tabs activeKey={this.state.selectedTab} className={'profile-tabs'} onSelect={this.onTabSelect}>
             <Tab eventKey="Inventory" title="Inventory" style={{margin: 'auto'}}>
