@@ -86,6 +86,7 @@ class Faq extends Component {
     if (this.props.type === "select") {
       return (
         <Form.Control as="select" defaultValue={this.props.value} onChange={this.onChange} custom>
+          <option key={'None'}>{'None'}</option>
           {
             this.props.options.map(x =>
               <option key={x}>{x}</option>

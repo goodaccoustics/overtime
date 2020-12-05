@@ -23,10 +23,10 @@ export let USER_TEMPLATE = {
 
 export let ITEM_TEMPLATE = {
   userEmail: null,
-  category: null,
   key: null,
+  category: null,
   title: null,
-  subtitle: null,
+  subTitle: null,
   categoryTags: [],
   popularTags: [],
   styleTags: [],
