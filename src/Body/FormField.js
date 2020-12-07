@@ -61,7 +61,9 @@ class Faq extends Component {
           <Col sm={8} className={'profile-form-display'}>
             {
               !this.state.isEditMode ?
-                this.renderFormDisplay()
+                <div onClick={() => this.toggleToEditMode(true)} >
+                  {this.renderFormDisplay()}
+                </div>
                 :
                 this.renderFormControl()
             }
@@ -85,7 +87,7 @@ class Faq extends Component {
   renderFormControl() {
     if (this.props.type === "text") {
       return (
-        <Form.Control type="text" value={this.props.value} placeholder={this.props.placeholder} onChange={this.onChange} />
+        <Form.Control type="text" defaultValue={this.props.value} placeholder={this.props.placeholder} onChange={this.onChange} />
       )
     }
     if (this.props.type === "select") {
@@ -98,6 +100,11 @@ class Faq extends Component {
             )
           }
         </Form.Control>
+      )
+    }
+    if (this.props.type === "tags") {
+      return (
+        <Form.Control type="text" defaultValue={this.props.value} placeholder={this.props.placeholder} onChange={this.onChange} />
       )
     }
   }
@@ -115,6 +122,16 @@ class Faq extends Component {
       return (
         this.props.value ?
           <span>{this.props.value}</span>
+          :
+          <span>None</span>
+      )
+    }
+    if (this.props.type === "tags") {
+      return (
+        this.props.value && this.props.value.length > 0 ?
+          <div style={{display:'flex', flexWrap:'wrap', justifyContent: '' }}>
+            <div class={'tag-tab-unselected'}>{'#' + this.props.value}</div>
+          </div>
           :
           <span>None</span>
       )

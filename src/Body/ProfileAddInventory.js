@@ -41,8 +41,19 @@ class Faq extends Component {
         {
           item.category?
             <div>
-              <FormField type={"text"} id={"title"} label={"Title"} value={item.title} placeholder={""} saveObject={this.updateItem}/>
+              <FormField type={"text"} id={"title"} label={"Title"} value={item.title} placeholder={""} saveObject={this.updateItem} required/>
               <FormField type={"text"} id={"subTitle"} label={"SubTitle"} value={item.subTitle} placeholder={""} saveObject={this.updateItem}/>
+            </div>
+            :
+            ""
+        }
+        {
+          item.title?
+            <div>
+              <FormField type={"text"} id={"categoryTags"} label={"Category Tags"} value={item.categoryTags} placeholder={""} saveObject={this.updateItem} required/>
+              <FormField type={"text"} id={"popularTags"} label={"Popular Tags"} value={item.popularTags} placeholder={""} saveObject={this.updateItem}/>
+              <FormField type={"text"} id={"styleTags"} label={"Style Tags"} value={item.styleTags} placeholder={""} saveObject={this.updateItem}/>
+              <FormField type={"text"} id={"placeTags"} label={"Place Tags"} value={item.placeTags} placeholder={""} saveObject={this.updateItem}/>
             </div>
             :
             ""
