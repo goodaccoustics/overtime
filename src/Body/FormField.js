@@ -9,6 +9,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
 import '../App.css';
 import {COUNTRIES} from "../Utilities/constants";
+import Badge from 'react-bootstrap/Badge';
 
 
 class Faq extends Component {
@@ -130,7 +131,15 @@ class Faq extends Component {
       return (
         this.props.value && this.props.value.length > 0 ?
           <div style={{display:'flex', flexWrap:'wrap', justifyContent: '' }}>
-            <div class={'tag-tab-unselected'}>{'#' + this.props.value}</div>
+            {
+              this.props.value.map(tag =>
+                <Badge key={tag} variant="light" className={'hashTag'}
+                       style={{backgroundColor: '#e3e3e3'}}
+                >
+                  {'#' + tag}
+                </Badge>
+              )
+            }
           </div>
           :
           <span>None</span>
