@@ -12,7 +12,7 @@ import {COUNTRIES} from "../Utilities/constants";
 import Badge from 'react-bootstrap/Badge';
 
 
-class Faq extends Component {
+class FormField extends Component {
   constructor(props) {
     super(props);
 
@@ -25,6 +25,21 @@ class Faq extends Component {
 
   componentDidMount() {
   }
+
+  removeMeFromArray = (value) => {
+    console.log("hello world!")
+
+    let editedArray = this.state.value;
+    console.log("hello world!", editedArray)
+
+    editedArray = editedArray.filter(x => x!==value);
+    this.setState({
+      value: editedArray
+    });
+
+    console.log("hello world!", editedArray);
+  }
+
 
   toggleToEditMode = (reset) => {
 
@@ -105,7 +120,25 @@ class Faq extends Component {
     }
     if (this.props.type === "tags") {
       return (
-        <Form.Control type="text" defaultValue={this.props.value} placeholder={this.props.placeholder} onChange={this.onChange} />
+        <div>
+          <div style={{display: 'flex'}}>
+            {
+              this.state.value && this.state.value.length > 0?
+                this.state.value.map(tag =>
+                  <Badge key={tag} variant="light" className={'hashTag'}
+                         style={{backgroundColor: '#92cffb'}}
+                         onClick={() => this.removeMeFromArray(tag)}
+                  >
+                    {'#' + tag + "  X"}
+                  </Badge>
+                )
+                :
+                <div>None</div>
+            }
+          </div>
+          <Form.Control type="text" defaultValue={""} placeholder={this.props.placeholder} onChange={this.onChange} />
+        </div>
+
       )
     }
   }
@@ -132,7 +165,7 @@ class Faq extends Component {
         this.props.value && this.props.value.length > 0 ?
           <div style={{display:'flex', flexWrap:'wrap', justifyContent: '' }}>
             {
-              this.props.value.map(tag =>
+              this.state.value.map(tag =>
                 <Badge key={tag} variant="light" className={'hashTag'}
                        style={{backgroundColor: '#e3e3e3'}}
                 >
@@ -148,4 +181,4 @@ class Faq extends Component {
   }
 }
 
-export default Faq;
+export default FormField;
