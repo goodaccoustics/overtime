@@ -61,6 +61,20 @@ class FormField extends Component {
     });
   }
 
+  onChangeForArray = (e) => {
+    let input = e.target.value.trimLeft();
+    if (input.indexOf(' ') > 0) {
+      let existingTags = this.state.value;
+      let newTag = input.substring(0, input.indexOf(' ')).trim().toLowerCase();
+      if (!existingTags.includes(newTag)) {
+        existingTags.push(input.substring(0, input.indexOf(' ')).trim());
+      }
+      this.setState({
+        value: existingTags
+      });
+      this.inputText.value = "";
+    }
+  }
 
   render() {
     return (
@@ -121,7 +135,7 @@ class FormField extends Component {
     if (this.props.type === "tags") {
       return (
         <div>
-          <div style={{display: 'flex'}}>
+          <div style={{display: 'flex', flexWrap: 'wrap'}}>
             {
               this.state.value && this.state.value.length > 0?
                 this.state.value.map(tag =>
@@ -136,7 +150,9 @@ class FormField extends Component {
                 <div>None</div>
             }
           </div>
-          <Form.Control type="text" defaultValue={""} placeholder={this.props.placeholder} onChange={this.onChange} />
+          <Form.Control
+            ref={input => this.inputText = input}
+            type="text" defaultValue={""} placeholder={this.props.placeholder} onChange={this.onChangeForArray} />
         </div>
 
       )
@@ -163,7 +179,7 @@ class FormField extends Component {
     if (this.props.type === "tags") {
       return (
         this.props.value && this.props.value.length > 0 ?
-          <div style={{display:'flex', flexWrap:'wrap', justifyContent: '' }}>
+          <div style={{display:'flex', flexWrap:'wrap'}}>
             {
               this.state.value.map(tag =>
                 <Badge key={tag} variant="light" className={'hashTag'}
