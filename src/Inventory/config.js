@@ -15,6 +15,7 @@ export const Items = [
       price: 10.00,
       newPrice: 5.00
     },
+    productDescription: null,
     productFeatures: ['Polyester/Cotton Knitted', 'Non-Medical', 'Anti-dust', 'Anti-fog', 'Anti-spray', 'Anti-germ', 'Washable', 'Adjustable', 'Heat Resisting 100C'],
     productSelectors: {
       quantity: {
@@ -52,6 +53,7 @@ export const Items = [
       price: 1.00,
       newPrice: null
     },
+    productDescription: null,
     productSelectors: {
       quantity: {
         selectors: [],
@@ -127,6 +129,7 @@ export const Items = [
       price: 2.00,
       newPrice: null
     },
+    productDescription: null,
     productSelectors: {
       colors:[],
       sizes:[]
