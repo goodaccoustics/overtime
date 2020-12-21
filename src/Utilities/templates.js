@@ -27,7 +27,7 @@ export let ITEM_TEMPLATE = {
   category: null,
   title: null,
   subTitle: null,
-  categoryTags: ['aaa','bbb','ccc'],
+  categoryTags: [],
   popularTags: [],
   styleTags: [],
   placeTags: [],

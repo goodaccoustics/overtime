@@ -10,6 +10,7 @@ import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore'
 import '../App.css';
 import {COUNTRIES} from "../Utilities/constants";
 import Badge from 'react-bootstrap/Badge';
+import RadioButtonUncheckedIcon from "./ProductDescription";
 
 
 class FormField extends Component {
@@ -157,6 +158,32 @@ class FormField extends Component {
 
       )
     }
+    if (this.props.type === "bullets") {
+      return (
+        <div>
+          <div>
+            {
+              this.state.value && this.state.value.length > 0?
+                this.state.value.map(feature =>
+                  <div>
+                    <RadioButtonUncheckedIcon
+                      style={{fontSize: 10, marginRight: '2px', marginBottom: '4px', backgroundColor: '#92cffb'}}
+                      color="primary"
+                      onClick={() => this.removeMeFromArray(feature)}
+                    />{feature + " X"}
+                  </div>
+                )
+                :
+                <div>None</div>
+            }
+          </div>
+          <Form.Control
+            ref={input => this.inputText = input}
+            type="text" defaultValue={""} placeholder={this.props.placeholder} onChange={this.onChangeForArray} />
+        </div>
+
+      )
+    }
   }
 
   renderFormDisplay() {
@@ -187,6 +214,26 @@ class FormField extends Component {
                 >
                   {'#' + tag}
                 </Badge>
+              )
+            }
+          </div>
+          :
+          <span>None</span>
+      )
+    }
+    if (this.props.type === "bullets") {
+      return (
+        this.props.value && this.props.value.length > 0 ?
+          <div>
+            {
+              this.state.value.map(feature =>
+                <div>
+                  <RadioButtonUncheckedIcon
+                    style={{fontSize: 10, marginRight: '2px', marginBottom: '4px', backgroundColor: '#e3e3e3'}}
+                    color="primary"
+                  />{feature}
+                </div>
+
               )
             }
           </div>

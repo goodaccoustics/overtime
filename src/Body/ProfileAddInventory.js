@@ -60,6 +60,15 @@ class Faq extends Component {
             :
             ""
         }
+        {
+          item.categoryTags && item.categoryTags.length > 1?
+            <div>
+              <FormField type={"bullets"} id={"productFeatures"} label={"Product Features"} value={item.productFeatures} placeholder={"max 50 char per point"} saveObject={this.updateItem} required/>
+              <FormField type={"text"} id={"productDescription"} label={"Product Description"} value={item.productDescription} placeholder={""} saveObject={this.updateItem} required/>
+            </div>
+            :
+            ""
+        }
       </div>
     );
   }
