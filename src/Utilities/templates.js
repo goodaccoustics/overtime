@@ -2,13 +2,28 @@ import AboutCategory from "../Body/About";
 import React from "react";
 
 export const CATEGORIES = [
-  'Fashion',
-  'Drinks',
-  'Electronics',
-  'Furniture',
+  'Print Service',
+  'Scan Service',
+  'Handyman',
+  'Cleaning',
+  'Computer',
+  'Lunchbox',
+  'Dinnerbox',
+  'Insurance',
+  'Finance',
+  'Groupbuys',
+  'Tuition',
   'Events',
-  'Services'
+
 ]
+
+/**
+ 'Fashion',
+ 'Drinks',
+ 'Electronics',
+ 'Furniture',
+ 'Services'
+ */
 
 export let USER_TEMPLATE = {
   displayName: null,
