@@ -4,6 +4,9 @@ import React from "react";
 export const CATEGORIES = [
   'Print Service',
   'Scan Service',
+  'Baby Sitting',
+  'Pet Sitting',
+  'Pet Grooming',
   'Handyman',
   'Cleaning',
   'Computer',
@@ -11,10 +14,11 @@ export const CATEGORIES = [
   'Dinnerbox',
   'Insurance',
   'Finance',
-  'Groupbuys',
+  'Group Buys',
   'Tuition',
-  'Events',
-
+  'Swim Lessons',
+  'Car Wash',
+  'Activity Partners'
 ]
 
 /**
@@ -29,6 +33,7 @@ export let USER_TEMPLATE = {
   displayName: null,
   email: null,
   photoURL: null,
+  geoLocation: null,
   userLocation: "Singapore",
   deliveryPolicy: null,
   whatsapp: null,

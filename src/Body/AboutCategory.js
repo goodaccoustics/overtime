@@ -24,7 +24,7 @@ class AboutCategory extends Component {
 
     return (
       <div>
-        <Nav.Link as={Link} to={"/" + this.props.category + "/"} style={{padding: '1px'}}>
+        <Nav.Link as={Link} to={"/" + this.props.category + "/"} style={{padding: '1px', whiteSpace: 'nowrap'}}>
           <Card style={{ width: '10rem' }}>
             <Card.Body>
               <Card.Text>

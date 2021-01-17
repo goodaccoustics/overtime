@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner'
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import EditIcon from '@material-ui/icons/Edit';
 import SaveIcon from '@material-ui/icons/Save';
+import AddLocationIcon from '@material-ui/icons/AddLocation'
 import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
 import '../App.css';
 import {COUNTRIES} from "../Utilities/constants";
@@ -19,12 +23,19 @@ class FormField extends Component {
 
     this.state = {
       isEditMode: false,
-      value: this.props.value
+      value: this.props.value,
+
+      geoLoading: false,
+      geoModal: false
+
     }
 
   }
 
   componentDidMount() {
+    if (this.props.id === 'geoLocation') {
+      this.LoadGeoLocationScript();
+    }
   }
 
   removeMeFromArray = (value) => {
@@ -77,45 +88,106 @@ class FormField extends Component {
     }
   }
 
+  FindLocation = () => {
+    this.setState({
+      geoLoading:true
+    });
+    navigator.geolocation.getCurrentPosition(this.FindLocationSuccess)
+  }
+
+  FindLocationSuccess = (location) => {
+    console.log(location);
+    this.setState(
+      {
+        geoLoading:false,
+        value: location.coords.latitude.toFixed(8) + "," + location.coords.longitude.toFixed(8)
+      }
+    )
+  }
+
+  ShowGeoModal = () => {
+    this.setState({
+      geoModal: !this.state.geoModal
+    })
+  }
+
+  LoadGeoLocationScript = () => {
+
+  }
+
   render() {
     return (
-      <Form>
-        <Form.Group as={Row} controlId={this.props.id} style={{display: 'flex'}}>
-          <Form.Label column sm={3} className={'profile-form-label'}>
-            {
-              this.props.required?
-                <b>{this.props.label}</b>
-                :
-                <>{this.props.label}</>
-            }
-          </Form.Label>
-          <Col sm={8} className={'profile-form-display'}>
-            {
-              !this.state.isEditMode ?
-                <div onClick={() => this.toggleToEditMode(true)} >
-                  {this.renderFormDisplay()}
-                </div>
-                :
-                this.renderFormControl()
-            }
-            {
-              !this.state.isEditMode ?
-                <div onClick={() => this.toggleToEditMode(true)} style={{padding: '5px'}}>
-                  <EditIcon fontSize={"small"} />
-                </div>
-                :
-                <div style={{display: 'flex', flexWrap: 'nowrap', padding: '5px'}} >
-                  <SaveIcon onClick={() => this.toggleToEditMode(false)} />
-                  <SettingsBackupRestoreIcon onClick={() => this.toggleToEditMode(true)}  style={{marginLeft: '5px'}} />
-                </div>
-            }
-          </Col>
-        </Form.Group>
-      </Form>
+      <div>
+        <Form>
+          <Form.Group as={Row} controlId={this.props.id} style={{display: 'flex'}}>
+            <Form.Label column sm={3} className={'profile-form-label'}>
+              {
+                this.props.required?
+                  <b>{this.props.label}</b>
+                  :
+                  <>{this.props.label}</>
+              }
+            </Form.Label>
+            <Col sm={8} className={'profile-form-display'}>
+              {
+                !this.state.isEditMode ?
+                  <div onClick={() => this.props.disallowClickEdit? null : this.toggleToEditMode(true)} >
+                    {this.renderFormDisplay()}
+                  </div>
+                  :
+                  this.renderFormControl()
+              }
+              {
+                !this.state.isEditMode ?
+                  <div onClick={() => this.toggleToEditMode(true)} style={{padding: '5px'}}>
+                    <EditIcon fontSize={"small"} />
+                  </div>
+                  :
+                  <div style={{display: 'flex', flexWrap: 'nowrap', padding: '5px'}} >
+                    <SaveIcon onClick={() => this.toggleToEditMode(false)} />
+                    <SettingsBackupRestoreIcon onClick={() => this.toggleToEditMode(true)}  style={{marginLeft: '5px'}} />
+                  </div>
+              }
+            </Col>
+          </Form.Group>
+        </Form>
+        <Modal show={this.state.geoModal} onHide={this.ShowGeoModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Your Location</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.ShowGeoModal}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
     );
   }
 
   renderFormControl() {
+    if (this.props.type === "geoLocation") {
+      if (navigator.geolocation) {
+        return (
+          <div>
+            <span onClick={() => this.ShowGeoModal() }>{this.state.value}</span>
+            {
+              !this.state.geoLoading?
+                <Button variant="link" onClick={() => this.FindLocation()} style={{fontSize: '4px'}}>Detect</Button>
+                :
+                <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true"
+                         style={{marginLeft: '8px'}}
+                />
+            }
+          </div>
+        );
+      } else {
+        return (
+          <span>This app requries geolocation. Please enable.</span>
+        );
+      }
+    }
     if (this.props.type === "text") {
       return (
         <Form.Control type="text" defaultValue={this.props.value} placeholder={this.props.placeholder} onChange={this.onChange} />
@@ -187,6 +259,14 @@ class FormField extends Component {
   }
 
   renderFormDisplay() {
+    if (this.props.type === "geoLocation") {
+      return (
+        this.props.value ?
+          <span onClick={() => this.ShowGeoModal()}>{this.props.value}</span>
+          :
+          <span>None</span>
+      )
+    }
     if (this.props.type === "text") {
       return (
         this.props.value ?
