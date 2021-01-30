@@ -12,10 +12,12 @@ import SaveIcon from '@material-ui/icons/Save';
 import AddLocationIcon from '@material-ui/icons/AddLocation'
 import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
 import '../App.css';
-import {COUNTRIES} from "../Utilities/constants";
+import {COUNTRIES, GOOGLE_API_KEY} from "../Utilities/constants";
 import Badge from 'react-bootstrap/Badge';
 import RadioButtonUncheckedIcon from "./ProductDescription";
+import GoogleMapReact from 'google-map-react';
 
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class FormField extends Component {
   constructor(props) {
@@ -26,7 +28,13 @@ class FormField extends Component {
       value: this.props.value,
 
       geoLoading: false,
-      geoModal: false
+      geoModal: false,
+      //geoLocation : {
+      //  lat: 0,
+      //  lng: 0,
+      //}
+      geoLocation: [0, 0]
+
 
     }
 
@@ -106,8 +114,14 @@ class FormField extends Component {
   }
 
   ShowGeoModal = () => {
+    console.log("ShowGeoModal: " + this.state.value);
     this.setState({
-      geoModal: !this.state.geoModal
+      geoModal: !this.state.geoModal,
+      //geoLocation : {
+      //  lat: this.state.value.split(",")[0],
+      //  lng: this.state.value.split(",")[1],
+      //}
+      geoLocation: [this.state.value.split(",")[0], this.state.value.split(",")[1]]
     })
   }
 
@@ -155,7 +169,21 @@ class FormField extends Component {
           <Modal.Header closeButton>
             <Modal.Title>Your Location</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body>
+            <div style={{ height: '50vh', width: '100%' }}>
+              <GoogleMapReact
+                bootstrapURLKeys={{ key: GOOGLE_API_KEY}}
+                center={this.state.geoLocation}
+                defaultZoom={100}
+              >
+                <AnyReactComponent
+                  lat={this.state.geoLocation[0]}
+                  lng={this.state.geoLocation[1]}
+                  text="My Marker"
+                />
+              </GoogleMapReact>
+            </div>
+          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.ShowGeoModal}>
               Close

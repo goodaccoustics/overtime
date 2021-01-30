@@ -15,7 +15,7 @@ export const FIREBASE_REF = firebase.database().ref();
 export const FIREBASE_AUTH = firebase.auth;
 export const FIREBASE_PROVIDER = new firebase.auth.FacebookAuthProvider();
 export const FIREBASE_DB = firebase.firestore();
-
+export const GOOGLE_API_KEY = 'AIzaSyBpkXqKllr5_V9F5ntxLNuy1Vt0AaZ3hsE';
 export const CLOUDINARY_CLOUDNAME = 'goodaccoustics';
 
 export const CHAT_NUMBER = '85252243837';
