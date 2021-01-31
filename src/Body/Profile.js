@@ -7,6 +7,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import Button from 'react-bootstrap/Button';
 import { HideEmail } from '../Utilities/common';
+import { SERVICE_TEMPLATE } from '../Utilities/templates';
 import ProfileOtherUserInfo from './ProfileOtherUserInfo';
 import ProfileAddInventory from './ProfileAddInventory';
 import ProfileService from './ProfileService';
@@ -20,8 +21,9 @@ class Profile extends Component {
       inventory: null,
 
       selectedTab: "inventory",
-      addItem: null,
-      editItem: null
+      tabAddEditText: "Add",
+      selectedService: SERVICE_TEMPLATE,
+
     }
   }
 
@@ -34,6 +36,14 @@ class Profile extends Component {
     this.setState({
       selectedTab: key
     })
+
+    if (key === "inventory") {
+      this.setState({
+        tabAddEditText: "Add",
+        selectedService: SERVICE_TEMPLATE,
+      })
+    }
+
   }
 
   addItem = (item) => {
@@ -41,12 +51,27 @@ class Profile extends Component {
     this.onTabSelect("inventory");
   }
 
+  changeToEditTab = (item) => {
+    this.setState({
+      tabAddEditText: "Edit",
+      selectedService: item
+    });
+    this.onTabSelect("addEdit");
+  }
+
+  updateSelectedService = (item) => {
+    this.setState({
+      selectedService: item
+    });
+  }
+
   render() {
 
     let {
       user,
       userServices,
-      saveUserInfo
+      saveUserInfo,
+      saveItemInfo
     } = this.props
 
     return (
@@ -73,28 +98,18 @@ class Profile extends Component {
             <Tab eventKey="inventory" title="Your Services" style={{margin: 'auto'}}>
               {
                 userServices && userServices.length > 0?
-                  userServices.map(service =>
-                    <ProfileService key={service.id} service={service} />
+                  userServices.sort().map(service =>
+                    <ProfileService key={service.key} service={service} saveItemInfo={saveItemInfo} changeToEditTab={this.changeToEditTab} />
                   )
                   :
                   <div style={{margin: 'auto', width:'50%', padding: '2rem'}} align="center">
                     <span onClick={() => this.onTabSelect('Add')}>Start Building Your Inventory!</span>
                   </div>
               }
-
-
             </Tab>
-            <Tab eventKey="Add" title="Add" style={{margin: 'auto'}}>
-              <ProfileAddInventory saveItemInfo={this.addItem} />
+            <Tab eventKey="addEdit" title={this.state.tabAddEditText} style={{margin: 'auto'}}>
+              <ProfileAddInventory item={this.state.selectedService} saveItemInfo={this.addItem} updateSelectedService={this.updateSelectedService}/>
             </Tab>
-            {
-              this.state.editItem?
-                <Tab eventKey="Edit" title="Edit">
-
-                </Tab>
-                :
-                ""
-            }
           </Tabs>
         </div>
 

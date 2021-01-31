@@ -6,23 +6,36 @@ import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 class ProfileService extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      service: this.props.service
+    }
   }
 
-  componentDidMount() {
+  onChangeDisabledStatus = () => {
+    let updatedService = this.state.service;
+    updatedService.disabled = !updatedService.disabled;
+
+    this.setState({
+      service: updatedService
+    });
+
+    this.props.saveItemInfo(updatedService);
   }
 
   render() {
 
     let {
-      service
+      key,
+      changeToEditTab
     } = this.props;
 
     return (
-      <div key={service.id} className={"profile-service"}>
-        <span>{service.category}</span>
+      <div key={key} className={"profile-service"}>
+        <span onClick={() => changeToEditTab(this.state.service)}>{this.state.service.category}</span>
         <BootstrapSwitchButton
-          checked={!service.disabled}
+          checked={!this.state.service.disabled}
           onlabel={"Live"}
+          onChange={() => this.onChangeDisabledStatus()}
         />
       </div>
     );

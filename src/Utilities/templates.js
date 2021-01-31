@@ -53,6 +53,20 @@ export let SERVICE_TEMPLATE = {
   disabled: false
 };
 
+export function SortServicesByKey(serviceA, serviceB) {
+  var keyA = serviceA.key.toUpperCase(); // ignore upper and lowercase
+  var keyB = serviceB.key.toUpperCase(); // ignore upper and lowercase
+  if (keyA < keyB) {
+    return -1;
+  }
+  if (keyA > keyB) {
+    return 1;
+  }
+
+  // keys must be equal
+  return 0;
+}
+
 /**
  export let ITEM_TEMPLATE = {
   userEmail: null,

@@ -30,12 +30,7 @@ class FormField extends Component {
 
       geoLoading: false,
       geoModal: false,
-      //geoLocation : {
-      //  lat: 0,
-      //  lng: 0,
-      //}
       geoLocation: [0, 0]
-
 
     }
 
@@ -361,12 +356,13 @@ class FormField extends Component {
           <div>
             {
               this.state.value.map(feature =>
-                <Badge key={feature} variant="light" className={'hashTag'}
-                       style={{backgroundColor: '#e3e3e3'}}
-                >
-                  {'• ' + feature}
-                </Badge>
-
+                <div key={feature}>
+                  <Badge key={feature} variant="light" className={'hashTag'}
+                         style={{backgroundColor: '#e3e3e3'}}
+                  >
+                    {'• ' + feature}
+                  </Badge>
+                </div>
               )
             }
           </div>

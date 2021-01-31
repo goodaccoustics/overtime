@@ -10,37 +10,42 @@ import Button from "react-bootstrap/Button";
 class Faq extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      item: null
+    /**
+     this.state = {
+      item: SERVICE_TEMPLATE
+     }
+    **/
+
+  }
+
+  /**
+    componentWillMount() {
+      console.log("this.props.service: " + this.props.service);
+      this.setState({
+        item: this.props.service? this.props.service : SERVICE_TEMPLATE
+      });
     }
-  }
 
-  componentWillMount() {
-    this.setState({
-      item: SERVICE_TEMPLATE
-    });
-  }
-
-  componentWillUnmount() {
-    this.setState({
-      item: SERVICE_TEMPLATE
-    });
-  }
+    componentDidUpdate(prevProps) {
+      console.log(prevProps);
+      console.log(this.props);
+      this.setState({
+        item: this.props.service? this.props.service : SERVICE_TEMPLATE
+      });
+    }
+  **/
 
   updateItem = (key, value) => {
-    let editedItem = this.state.item;
+    let editedItem = this.props.item;
     editedItem[key] = value;
-
-    this.setState({
-      item: editedItem
-    });
+    this.props.updateSelectedService(editedItem);
   }
 
   render() {
 
     let {
       item
-    } = this.state;
+    } = this.props;
 
     return (
       <div style={{marginTop:'1rem'}}>
@@ -63,7 +68,18 @@ class Faq extends Component {
         {
           item.serviceCatalog && (item.serviceCatalog.length > 0)?
             <div align="center">
-              <Button variant="danger" onClick={() => this.props.saveItemInfo(this.state.item)}>Save</Button>
+              {
+                item.key?
+
+                  <div style={{display: "flex"}} align="center">
+                    <Button variant="warning" onClick={() => this.props.saveItemInfo(item)}>Delete</Button>
+                    <span style={{marginLeft: "2px", marginRight: "2px"}} />
+                    <Button variant="success" onClick={() => this.props.saveItemInfo(item)}>Save</Button>
+                  </div>
+
+                  :
+                  <Button variant="success" onClick={() => this.props.saveItemInfo(item)}>Save</Button>
+              }
               {/**
                <FormField type={"tags"} id={"categoryTags"} label={"Category Tags"} value={item.categoryTags} placeholder={"max 24 char per hashtag"} saveObject={this.updateItem} required/>
                <FormField type={"tags"} id={"categoryTags"} label={"Category Tags"} value={item.categoryTags} placeholder={"max 24 char per hashtag"} saveObject={this.updateItem} required/>

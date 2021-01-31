@@ -11,7 +11,8 @@ import ShoppingCart from "./Body/ShoppingCart";
 import Footer from "./Footer/Footer";
 import './App.css';
 import { FIREBASE_PROVIDER, FIREBASE_AUTH, FIREBASE_DB } from './Utilities/constants';
-import { USER_TEMPLATE } from "./Utilities/templates";
+import { USER_TEMPLATE, SortServicesByKey } from "./Utilities/templates";
+import {Items} from "./Inventory/config";
 
 class App extends Component {
 
@@ -73,11 +74,8 @@ class App extends Component {
           snapshot.forEach(doc => {
             retrievedUserServices.push(doc.data())
           });
-          console.log("retrievedUserServices");
-          console.log(retrievedUserServices);
-
           this.setState({
-            userServices: retrievedUserServices
+            userServices: retrievedUserServices.sort((a, b) => SortServicesByKey(a, b))
           });
         }
       });
@@ -116,21 +114,32 @@ class App extends Component {
   saveItemInfo = (itemObj) => {
     let editedUserObj = this.state.user;
 
-    console.log("in saveItemInfo", itemObj);
+    if (itemObj.key) {
+      // update item
+      const servicesRef = FIREBASE_DB.collection('services').doc(itemObj.key);
+      const res = servicesRef.update(itemObj);
 
-    let servicesRef = FIREBASE_DB.collection('services').doc();
+      let filteredUserServices = this.state.userServices.filter(x => x.key !== itemObj.key);
+      filteredUserServices.push(itemObj);
+      this.setState({
+        userServices: filteredUserServices.sort((a, b) => SortServicesByKey(a, b))
+      });
 
-    itemObj['userEmail'] = editedUserObj.email;
-    itemObj['key'] = servicesRef.id;
+    } else {
+      // add item
+      let servicesRef = FIREBASE_DB.collection('services').doc();
+      itemObj['userEmail'] = editedUserObj.email;
+      itemObj['key'] = servicesRef.id;
+      const addServiceResult = servicesRef.set(itemObj);
+      let newUserServices = this.state.userServices;
+      newUserServices.push(itemObj);
+      this.setState({
+        userServices: newUserServices.sort((a, b) => SortServicesByKey(a, b))
+      });
+    }
 
-    const addServiceResult = servicesRef.set(itemObj);
-    console.log("in addService", addServiceResult);
 
-    let newUserServices = this.state.userServices;
-    newUserServices.push(itemObj);
-    this.setState({
-      userServices: newUserServices
-    });
+
   }
 
   addToCart = (item) => {
