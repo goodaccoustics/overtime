@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import { HideEmail } from '../Utilities/common';
 import ProfileOtherUserInfo from './ProfileOtherUserInfo';
 import ProfileAddInventory from './ProfileAddInventory';
+import ProfileService from './ProfileService';
 
 
 class Profile extends Component {
@@ -18,7 +19,7 @@ class Profile extends Component {
     this.state = {
       inventory: null,
 
-      selectedTab: "Inventory",
+      selectedTab: "inventory",
       addItem: null,
       editItem: null
     }
@@ -26,6 +27,7 @@ class Profile extends Component {
 
   componentWillMount() {
     console.log(this.props.user);
+    this.props.setUserServices(this.props.user);
   }
 
   onTabSelect = (key) => {
@@ -34,12 +36,17 @@ class Profile extends Component {
     })
   }
 
+  addItem = (item) => {
+    this.props.saveItemInfo(item);
+    this.onTabSelect("inventory");
+  }
+
   render() {
 
     let {
       user,
-      saveUserInfo,
-      saveItemInfo
+      userServices,
+      saveUserInfo
     } = this.props
 
     return (
@@ -63,10 +70,12 @@ class Profile extends Component {
         <div style={{ marginTop: '10px', backgroundColor: '#fcfcfc', padding:'1rem'}}>
 
           <Tabs activeKey={this.state.selectedTab} className={'profile-tabs'} onSelect={this.onTabSelect}>
-            <Tab eventKey="Inventory" title="Inventory" style={{margin: 'auto'}}>
+            <Tab eventKey="inventory" title="Your Services" style={{margin: 'auto'}}>
               {
-                this.state.inventory && this.state.inventory.length > 0?
-                  ""
+                userServices && userServices.length > 0?
+                  userServices.map(service =>
+                    <ProfileService key={service.id} service={service} />
+                  )
                   :
                   <div style={{margin: 'auto', width:'50%', padding: '2rem'}} align="center">
                     <span onClick={() => this.onTabSelect('Add')}>Start Building Your Inventory!</span>
@@ -76,7 +85,7 @@ class Profile extends Component {
 
             </Tab>
             <Tab eventKey="Add" title="Add" style={{margin: 'auto'}}>
-              <ProfileAddInventory saveItemInfo={saveItemInfo} />
+              <ProfileAddInventory saveItemInfo={this.addItem} />
             </Tab>
             {
               this.state.editItem?

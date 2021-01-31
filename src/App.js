@@ -20,7 +20,8 @@ class App extends Component {
 
     this.state = {
       shoppingCart: [],
-      user: null
+      user: null,
+      userServices: []
     }
   }
 
@@ -56,14 +57,38 @@ class App extends Component {
       .catch(err => {
         console.log('Error getting user', err);
       });
-
   };
+
+  setUserServices = (user) =>{
+    const servicesRef = FIREBASE_DB.collection('services');
+    const snapshot = servicesRef.where('userEmail', '==', user.email).get()
+      .then(snapshot => {
+        if (snapshot.empty) {
+          this.setState({
+            userServices: []
+          });
+        }
+        else {
+          let retrievedUserServices = [];
+          snapshot.forEach(doc => {
+            retrievedUserServices.push(doc.data())
+          });
+          console.log("retrievedUserServices");
+          console.log(retrievedUserServices);
+
+          this.setState({
+            userServices: retrievedUserServices
+          });
+        }
+      });
+  }
 
   login = () => {
     FIREBASE_AUTH().signInWithPopup(FIREBASE_PROVIDER)
       .then(({ user }) => {
         console.log("user", user)
         this.setProfileUser(user);
+        this.setUserServices(user);
       })
   };
 
@@ -89,7 +114,23 @@ class App extends Component {
   }
 
   saveItemInfo = (itemObj) => {
+    let editedUserObj = this.state.user;
+
     console.log("in saveItemInfo", itemObj);
+
+    let servicesRef = FIREBASE_DB.collection('services').doc();
+
+    itemObj['userEmail'] = editedUserObj.email;
+    itemObj['key'] = servicesRef.id;
+
+    const addServiceResult = servicesRef.set(itemObj);
+    console.log("in addService", addServiceResult);
+
+    let newUserServices = this.state.userServices;
+    newUserServices.push(itemObj);
+    this.setState({
+      userServices: newUserServices
+    });
   }
 
   addToCart = (item) => {
@@ -140,7 +181,7 @@ class App extends Component {
             path={['/', '/Profile/']}
             render={(props) => {
               if (this.state.user) {
-                return <Profile {...props} user={this.state.user} logout={this.logout} saveUserInfo={this.saveUserInfo} saveItemInfo={this.saveItemInfo()} />;
+                return <Profile {...props} user={this.state.user} userServices={this.state.userServices} logout={this.logout} saveUserInfo={this.saveUserInfo} setUserServices={this.setUserServices} saveItemInfo={this.saveItemInfo} />;
               } else {
                 return <Redirect to="/About/" />;
               }

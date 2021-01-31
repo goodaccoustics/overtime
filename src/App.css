@@ -72,6 +72,17 @@
   margin: 5px;
 }
 
+.profile-service {
+  font-family: 'Avenir';
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .profile-form-label {
   font-family: 'Avenir';
   marginLeft: 10px;

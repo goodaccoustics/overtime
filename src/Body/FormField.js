@@ -10,11 +10,12 @@ import Col from 'react-bootstrap/Col';
 import EditIcon from '@material-ui/icons/Edit';
 import SaveIcon from '@material-ui/icons/Save';
 import AddLocationIcon from '@material-ui/icons/AddLocation'
+import AddIcon from '@material-ui/icons/Add';
 import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
 import '../App.css';
 import {COUNTRIES, GOOGLE_API_KEY} from "../Utilities/constants";
 import Badge from 'react-bootstrap/Badge';
-import RadioButtonUncheckedIcon from "./ProductDescription";
+//import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUncheckedIcon';
 import GoogleMapReact from 'google-map-react';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
@@ -47,24 +48,21 @@ class FormField extends Component {
   }
 
   removeMeFromArray = (value) => {
-    console.log("hello world!")
-
     let editedArray = this.state.value;
-    console.log("hello world!", editedArray)
-
     editedArray = editedArray.filter(x => x!==value);
     this.setState({
       value: editedArray
     });
-
-    console.log("hello world!", editedArray);
   }
 
 
   toggleToEditMode = (reset) => {
 
     if (this.state.isEditMode && !reset) {
-      if (this.state.value) {
+      if (this.props.type === "text") {
+        this.props.saveObject(this.props.id, this.state.value);
+      }
+      else if (this.state.value) {
         this.props.saveObject(this.props.id, this.state.value);
       }
     }
@@ -81,7 +79,15 @@ class FormField extends Component {
     });
   }
 
+  onChangeForText = (e) => {
+    //console.log(this.props.id, e.target.value);
+    this.setState({
+      value: e.target.value.trim() === "" ? null : e.target.value
+    });
+  }
+
   onChangeForArray = (e) => {
+    console.log(e.target.value);
     let input = e.target.value.trimLeft();
     if (input.indexOf(' ') > 0) {
       let existingTags = this.state.value;
@@ -94,6 +100,19 @@ class FormField extends Component {
       });
       this.inputText.value = "";
     }
+  }
+
+  addItemToArray = () => {
+    let input = this.inputText.value.trim();
+
+    let existingTags = this.state.value;
+    if (!existingTags.includes(input)) {
+      existingTags.push(input);
+    }
+    this.setState({
+      value: existingTags
+    });
+    this.inputText.value = "";
   }
 
   FindLocation = () => {
@@ -218,7 +237,7 @@ class FormField extends Component {
     }
     if (this.props.type === "text") {
       return (
-        <Form.Control type="text" defaultValue={this.props.value} placeholder={this.props.placeholder} onChange={this.onChange} />
+        <Form.Control type="text" defaultValue={this.props.value} placeholder={this.props.placeholder} onChange={this.onChangeForText} />
       )
     }
     if (this.props.type === "select") {
@@ -265,21 +284,28 @@ class FormField extends Component {
             {
               this.state.value && this.state.value.length > 0?
                 this.state.value.map(feature =>
-                  <div>
-                    <RadioButtonUncheckedIcon
-                      style={{fontSize: 10, marginRight: '2px', marginBottom: '4px', backgroundColor: '#92cffb'}}
-                      color="primary"
-                      onClick={() => this.removeMeFromArray(feature)}
-                    />{feature + " X"}
+                  <div key={feature} >
+                    <Badge variant="light" className={'hashTag'}
+                           style={{backgroundColor: '#92cffb'}}
+                           onClick={() => this.removeMeFromArray(feature)}
+                    >
+                      {'• ' + feature + "  X"}
+                    </Badge>
                   </div>
                 )
                 :
                 <div>None</div>
             }
           </div>
-          <Form.Control
-            ref={input => this.inputText = input}
-            type="text" defaultValue={""} placeholder={this.props.placeholder} onChange={this.onChangeForArray} />
+          <div style={{display: 'flex'}}>
+            <Form.Control
+              ref={input => this.inputText = input}
+              type="text" defaultValue={""}
+              placeholder={this.props.placeholder}
+            />
+            <AddIcon onClick={() => this.addItemToArray()}  />
+          </div>
+
         </div>
 
       )
@@ -335,12 +361,11 @@ class FormField extends Component {
           <div>
             {
               this.state.value.map(feature =>
-                <div>
-                  <RadioButtonUncheckedIcon
-                    style={{fontSize: 10, marginRight: '2px', marginBottom: '4px', backgroundColor: '#e3e3e3'}}
-                    color="primary"
-                  />{feature}
-                </div>
+                <Badge key={feature} variant="light" className={'hashTag'}
+                       style={{backgroundColor: '#e3e3e3'}}
+                >
+                  {'• ' + feature}
+                </Badge>
 
               )
             }

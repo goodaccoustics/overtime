@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ITEM_TEMPLATE } from '../Utilities/templates';
+import { SERVICE_TEMPLATE } from '../Utilities/templates';
 import FormField from './FormField';
 import {COUNTRIES} from "../Utilities/constants";
 import { CATEGORIES } from "../Utilities/templates"
+import Button from "react-bootstrap/Button";
 
 class Faq extends Component {
   constructor(props) {
@@ -16,7 +17,13 @@ class Faq extends Component {
 
   componentWillMount() {
     this.setState({
-      item: ITEM_TEMPLATE
+      item: SERVICE_TEMPLATE
+    });
+  }
+
+  componentWillUnmount() {
+    this.setState({
+      item: SERVICE_TEMPLATE
     });
   }
 
@@ -41,30 +48,29 @@ class Faq extends Component {
         {
           item.category?
             <div>
-              <FormField type={"text"} id={"title"} label={"Title"} value={item.title} placeholder={""} saveObject={this.updateItem} required/>
-              <FormField type={"text"} id={"subTitle"} label={"SubTitle"} value={item.subTitle} placeholder={""} saveObject={this.updateItem}/>
-            </div>
-            :
-            ""
-        }
-        {
-          item.title?
-            <div>
-              <FormField type={"tags"} id={"categoryTags"} label={"Category Tags"} value={item.categoryTags} placeholder={"max 24 char per hashtag"} saveObject={this.updateItem} required/>
+              <FormField type={"bullets"} id={"serviceCatalog"} label={"Service Catalog"} value={item.serviceCatalog} placeholder={"max 50 char per bullet point"} saveObject={this.updateItem} required/>
+              <FormField type={"text"} id={"serviceDescription"} label={"Service Description"} value={item.serviceDescription} placeholder={""} saveObject={this.updateItem}/>
               {/**
-              <FormField type={"tags"} id={"popularTags"} label={"Popular Tags"} value={item.popularTags} placeholder={""} saveObject={this.updateItem}/>
-              <FormField type={"tags"} id={"styleTags"} label={"Style Tags"} value={item.styleTags} placeholder={""} saveObject={this.updateItem}/>
-              <FormField type={"tags"} id={"placeTags"} label={"Place Tags"} value={item.placeTags} placeholder={""} saveObject={this.updateItem}/>
-              **/}
+               <FormField type={"bullets"} id={"serviceCatalog"} label={"Service Catalog"} value={item.serviceCatalog} placeholder={"max 50 char per bullet point"} saveObject={this.updateItem} required/>
+               <FormField type={"text"} id={"title"} label={"Title"} value={item.title} placeholder={""} saveObject={this.updateItem} required/>
+               <FormField type={"text"} id={"subTitle"} label={"SubTitle"} value={item.subTitle} placeholder={""} saveObject={this.updateItem}/>
+               **/}
+
             </div>
             :
             ""
         }
         {
-          item.categoryTags && item.categoryTags.length > 1?
-            <div>
-              <FormField type={"bullets"} id={"productFeatures"} label={"Product Features"} value={item.productFeatures} placeholder={"max 50 char per point"} saveObject={this.updateItem} required/>
-              <FormField type={"text"} id={"productDescription"} label={"Product Description"} value={item.productDescription} placeholder={""} saveObject={this.updateItem} required/>
+          item.serviceCatalog && (item.serviceCatalog.length > 0)?
+            <div align="center">
+              <Button variant="danger" onClick={() => this.props.saveItemInfo(this.state.item)}>Save</Button>
+              {/**
+               <FormField type={"tags"} id={"categoryTags"} label={"Category Tags"} value={item.categoryTags} placeholder={"max 24 char per hashtag"} saveObject={this.updateItem} required/>
+               <FormField type={"tags"} id={"categoryTags"} label={"Category Tags"} value={item.categoryTags} placeholder={"max 24 char per hashtag"} saveObject={this.updateItem} required/>
+               <FormField type={"tags"} id={"popularTags"} label={"Popular Tags"} value={item.popularTags} placeholder={""} saveObject={this.updateItem}/>
+               <FormField type={"tags"} id={"styleTags"} label={"Style Tags"} value={item.styleTags} placeholder={""} saveObject={this.updateItem}/>
+               <FormField type={"tags"} id={"placeTags"} label={"Place Tags"} value={item.placeTags} placeholder={""} saveObject={this.updateItem}/>
+              **/}
             </div>
             :
             ""

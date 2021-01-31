@@ -38,9 +38,12 @@ class ProfileOtherUserInfo extends Component {
         {/**
           <FormField type={"select"} options={COUNTRIES.map(x => x.name)} id={"userLocation"} label={"Location"} value={user.userLocation} placeholder={""} saveObject={saveUserInfo} required/>
          **/}
-        <FormField type={"geoLocation"} id={"geoLocation"} label={"Geo Location"} value={user.geoLocation} placeholder={""} saveObject={saveUserInfo} disallowClickEdit={true} required/>
+        <FormField type={"geoLocation"} id={"geoLocation"} label={"Your Location"} value={user.geoLocation} placeholder={""} saveObject={saveUserInfo} disallowClickEdit={true} required/>
         <FormField type={"text"} id={"whatsapp"} label={"WhatsApp"} value={user.whatsapp} placeholder={""} saveObject={saveUserInfo} required/>
-        <FormField type={"text"} id={"deliveryPolicy"} label={"Delivery Policy"} value={user.deliveryPolicy} placeholder={""} saveObject={saveUserInfo} required/>
+        {/**
+         <FormField type={"text"} id={"deliveryPolicy"} label={"Delivery Policy"} value={user.deliveryPolicy} placeholder={""} saveObject={saveUserInfo} required/>
+         **/}
+        <FormField type={"text"} id={"servicePolicy"} label={"Service Policy"} value={user.servicePolicy} placeholder={""} saveObject={saveUserInfo} required/>
       </div>
     );
   }

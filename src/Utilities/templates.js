@@ -37,12 +37,24 @@ export let USER_TEMPLATE = {
   geoLocation: null,
   userLocation: "Singapore",
   deliveryPolicy: null,
+  servicePolicy: null,
   whatsapp: null,
   joinedOn: null,
   lastLogin: null
 };
 
-export let ITEM_TEMPLATE = {
+export let SERVICE_TEMPLATE = {
+  key: null,
+  userEmail: null,
+  category: null,
+  serviceCatalog: [],
+  serviceDescription: null,
+  imagesUrl: [],
+  disabled: false
+};
+
+/**
+ export let ITEM_TEMPLATE = {
   userEmail: null,
   key: null,
   category: null,
@@ -59,6 +71,8 @@ export let ITEM_TEMPLATE = {
     price: null,
     newPrice: null
   },
+  serviceCatalog: [],
+  serviceDescription: null,
   productFeatures: [],
   productSelectors: {
     quantity: {
@@ -78,3 +92,6 @@ export let ITEM_TEMPLATE = {
   officialProductUrl: null,
   disabled: true
 };
+**/
+
+
