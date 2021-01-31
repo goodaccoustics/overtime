@@ -65,6 +65,11 @@ class Profile extends Component {
     });
   }
 
+  deleteItem = (item) => {
+    this.props.deleteItem(item);
+    this.onTabSelect("inventory");
+  }
+
   render() {
 
     let {
@@ -108,7 +113,7 @@ class Profile extends Component {
               }
             </Tab>
             <Tab eventKey="addEdit" title={this.state.tabAddEditText} style={{margin: 'auto'}}>
-              <ProfileAddInventory item={this.state.selectedService} saveItemInfo={this.addItem} updateSelectedService={this.updateSelectedService}/>
+              <ProfileAddInventory item={this.state.selectedService} saveItemInfo={this.addItem} deleteItem={this.deleteItem} updateSelectedService={this.updateSelectedService} />
             </Tab>
           </Tabs>
         </div>

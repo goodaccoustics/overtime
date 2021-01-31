@@ -137,9 +137,14 @@ class App extends Component {
         userServices: newUserServices.sort((a, b) => SortServicesByKey(a, b))
       });
     }
+  }
 
-
-
+  deleteItem = (itemObj) => {
+    let deleteServiceRef = FIREBASE_DB.collection('services').doc(itemObj.key).delete()
+    let filteredUserServices = this.state.userServices.filter(x => x.key !== itemObj.key);
+    this.setState({
+      userServices: filteredUserServices.sort((a, b) => SortServicesByKey(a, b))
+    });
   }
 
   addToCart = (item) => {
@@ -190,7 +195,15 @@ class App extends Component {
             path={['/', '/Profile/']}
             render={(props) => {
               if (this.state.user) {
-                return <Profile {...props} user={this.state.user} userServices={this.state.userServices} logout={this.logout} saveUserInfo={this.saveUserInfo} setUserServices={this.setUserServices} saveItemInfo={this.saveItemInfo} />;
+                return <Profile {...props}
+                                user={this.state.user}
+                                userServices={this.state.userServices}
+                                logout={this.logout}
+                                saveUserInfo={this.saveUserInfo}
+                                setUserServices={this.setUserServices}
+                                saveItemInfo={this.saveItemInfo}
+                                deleteItem={this.deleteItem}
+                        />;
               } else {
                 return <Redirect to="/About/" />;
               }
