@@ -71,10 +71,12 @@ class Faq extends Component {
               {
                 item.key?
 
-                  <div style={{display: "flex"}} align="center">
+                  <div style={{display: "block", marginLeft: "auto", marginRight: "auto"}}>
                     <Button variant="warning" onClick={() => this.props.deleteItem(item)}>Delete</Button>
-                    <span style={{marginLeft: "2px", marginRight: "2px"}} />
-                    <Button variant="success" onClick={() => this.props.saveItemInfo(item)}>Save</Button>
+                    {/**
+                     <span style={{marginLeft: "2px", marginRight: "2px"}} />
+                     <Button variant="success" onClick={() => this.props.saveItemInfo(item)}>Save</Button>
+                     **/}
                   </div>
 
                   :

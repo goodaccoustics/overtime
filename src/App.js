@@ -61,6 +61,7 @@ class App extends Component {
   };
 
   setUserServices = (user) =>{
+    console.log("setUserServicesIsCalled");
     const servicesRef = FIREBASE_DB.collection('services');
     const snapshot = servicesRef.where('userEmail', '==', user.email).get()
       .then(snapshot => {

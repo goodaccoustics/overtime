@@ -38,6 +38,7 @@ class Profile extends Component {
     })
 
     if (key === "inventory") {
+      this.props.setUserServices(this.props.user);
       this.setState({
         tabAddEditText: "Add",
         selectedService: SERVICE_TEMPLATE,
@@ -63,6 +64,7 @@ class Profile extends Component {
     this.setState({
       selectedService: item
     });
+    this.props.saveItemInfo(item);
   }
 
   deleteItem = (item) => {
