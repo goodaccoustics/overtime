@@ -13,10 +13,10 @@ import AddLocationIcon from '@material-ui/icons/AddLocation'
 import AddIcon from '@material-ui/icons/Add';
 import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
 import '../App.css';
-import {COUNTRIES, GOOGLE_API_KEY} from "../Utilities/constants";
 import Badge from 'react-bootstrap/Badge';
+import GoogleApiWrapper from './Map';
 //import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUncheckedIcon';
-import GoogleMapReact from 'google-map-react';
+//import GoogleMapReact from 'google-map-react';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -30,7 +30,7 @@ class FormField extends Component {
 
       geoLoading: false,
       geoModal: false,
-      geoLocation: [0, 0]
+      geoLocation: [0,0]
 
     }
 
@@ -183,20 +183,8 @@ class FormField extends Component {
           <Modal.Header closeButton>
             <Modal.Title>Your Location</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <div style={{ height: '50vh', width: '100%' }}>
-              <GoogleMapReact
-                bootstrapURLKeys={{ key: GOOGLE_API_KEY}}
-                center={this.state.geoLocation}
-                defaultZoom={100}
-              >
-                <AnyReactComponent
-                  lat={this.state.geoLocation[0]}
-                  lng={this.state.geoLocation[1]}
-                  text="My Marker"
-                />
-              </GoogleMapReact>
-            </div>
+          <Modal.Body style={{padding: "0px"}}>
+            <GoogleApiWrapper myLocation={this.state.geoLocation}/>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.ShowGeoModal}>

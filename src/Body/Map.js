@@ -1,0 +1,41 @@
+import React, {Component} from 'react';
+import '../App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {GOOGLE_API_KEY} from "../Utilities/constants";
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+
+
+class MapContainer extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+  }
+
+
+  render() {
+
+    const mapStyles = {
+      width: '100%',
+      height: '100%',
+    };
+
+
+    return (
+      <div style={{width: "500px", height: "500px"}}>
+        <Map
+          google={this.props.google}
+          zoom={16}
+          style={mapStyles}
+          initialCenter={{ lat: this.props.myLocation[0] , lng: this.props.myLocation[1] }}
+        >
+          <Marker position={{ lat: this.props.myLocation[0], lng: this.props.myLocation[1]}} />
+        </Map>
+      </div>
+
+    );
+  }
+}
+
+export default GoogleApiWrapper({apiKey: GOOGLE_API_KEY})(MapContainer);
