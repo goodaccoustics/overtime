@@ -46,6 +46,7 @@ export let USER_TEMPLATE = {
 export let SERVICE_TEMPLATE = {
   key: null,
   userEmail: null,
+  userObject: null,
   category: null,
   serviceCatalog: [],
   serviceDescription: null,

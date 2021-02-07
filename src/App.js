@@ -114,6 +114,7 @@ class App extends Component {
 
   saveItemInfo = (itemObj) => {
     let editedUserObj = this.state.user;
+    itemObj['userObject'] = editedUserObj;
 
     if (itemObj.key) {
       // update item
