@@ -17,8 +17,7 @@ class MapContainer extends Component {
   render() {
 
     const mapStyles = {
-      width: '100%',
-      height: '100%',
+      width: '100%'
     };
 
 
@@ -26,13 +25,14 @@ class MapContainer extends Component {
       <div style={{width: "500px", height: "500px"}}>
         <Map
           google={this.props.google}
-          zoom={16}
+          draggable={false}
+          zoom={14}
           style={mapStyles}
           initialCenter={{ lat: this.props.myLocation[0] , lng: this.props.myLocation[1] }}
         >
           <Marker position={{ lat: this.props.myLocation[0], lng: this.props.myLocation[1]}} />
           {
-            this.props.servicesAroundMe.map(service =>
+            this.props.servicesAroundMe && this.props.servicesAroundMe.map(service =>
               <Marker position={{ lat: service.userObject.geoLocation.split(",")[0], lng: service.userObject.geoLocation.split(",")[1]}} />
             )
           }

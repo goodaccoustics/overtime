@@ -53,7 +53,7 @@ class About extends Component {
       }
     )
     //console.log("FindLocationSuccess: " + this.state.myLocation);
-    setTimeout(this.DisplayServicesAroundMe, 1000)
+    setTimeout(this.DisplayServicesAroundMe, 200)
   }
 
   DisplayServicesAroundMe() {
@@ -76,7 +76,7 @@ class About extends Component {
           <p>Around You</p>
           {/** <Button onClick={() => this.displayServicesAroundMe()}>Show On Map</Button> **/}
         </div>
-        <div style={{justifyContent: 'center'}}>
+        <div style={{justifyContent: 'center', height: '700px'}}>
           {
             this.state.isGeoEnabled?
               this.state.isGeoSearching?
@@ -86,7 +86,6 @@ class About extends Component {
               :
               <span style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>Enable your location to discover hustlers around you.</span>
           }
-
         </div>
         {
           /**
@@ -95,6 +94,9 @@ class About extends Component {
            </div>
           **/
         }
+        <div>
+          <CardsDisplay category={this.state.category} servicesAroundMe={this.props.servicesAroundMe} />
+        </div>
       </div>
     );
   }

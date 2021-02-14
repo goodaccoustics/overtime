@@ -8,6 +8,7 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import { CLOUDINARY_CLOUDNAME } from '../Utilities/constants';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {default as BootStrapImage} from "react-bootstrap/Image";
 
 class CardsDisplay extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class CardsDisplay extends Component {
     return (
       <div style={{paddingLeft: "20px", paddingRight: "20px"}}>
         <CardDeck align={"center"} style={{justifyContent:'center'}}>
-          {
+          {/**
             InventoryItems(this.props.category, this.props.hashTag).map((item, i) =>
               <Card key={i} className={'card-display'}  style={{minWidth: '15rem', maxWidth:'15rem', marginBottom: '20px'}}>
                 <Card.Body style={{minHeight: '15rem', padding: '10px'}}>
@@ -35,12 +36,7 @@ class CardsDisplay extends Component {
                       pathname: "/" + item.category,
                       itemKey: item.key
                     }} >
-
-                    {/**
-                     <Card.Img variant="top" src={require('../Inventory/Electronics/' + item.imagesUrl[0].imageUrl)} />
-                     **/}
                     <Image cloudName={CLOUDINARY_CLOUDNAME} publicId={item.imagesUrl[0].imageUrl} width="200" crop="scale" />
-
                   </Link>
                 </Card.Body>
 
@@ -50,17 +46,25 @@ class CardsDisplay extends Component {
                     <PriceDisplay priceSettings={item.priceSettings}/>
                   </Card.Text>
                   <Card.Text>
-                    {/**
-                      this.props.itemInCart(item) ?
-                        <Button className={'card-display-negative-button'} onClick={() => this.props.removeFromCart(item)}>
-                          Remove
-                        </Button>
-                        :
-                        <Button className={'card-display-button'} onClick={() => this.props.addToCart(item)}>
-                          Add
-                        </Button>
-                    **/}
+
                   </Card.Text>
+                </Card.Body>
+              </Card>
+            )
+          **/}
+          {
+            this.props.servicesAroundMe.map((service, i) =>
+              <Card key={i} className={'card-display'}  style={{minWidth: '15rem', maxWidth:'5rem'}}>
+                <Card.Body style={{minHeight: '5rem'}}>
+                  <div style={{display:'flex'}}>
+                    <div style={{marginRight: '5px'}}>
+                      <BootStrapImage src={service.userObject.photoURL} roundedCircle />
+                    </div>
+                    <div >
+                      <div>{service.category}</div>
+                      <div>{service.userObject.displayName}</div>
+                    </div>
+                  </div>
                 </Card.Body>
               </Card>
             )
