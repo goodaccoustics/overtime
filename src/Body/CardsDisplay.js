@@ -54,15 +54,15 @@ class CardsDisplay extends Component {
           **/}
           {
             this.props.servicesAroundMe.map((service, i) =>
-              <Card key={i} className={'card-display'}  style={{minWidth: '15rem', maxWidth:'5rem'}}>
+              <Card key={i} className={'card-display'}  style={{minWidth: '15rem', maxWidth:'5rem', marginBottom: '10px'}}>
                 <Card.Body style={{minHeight: '5rem'}}>
                   <div style={{display:'flex'}}>
-                    <div style={{marginRight: '5px'}}>
+                    <div style={{marginRight: '15px'}}>
                       <BootStrapImage src={service.userObject.photoURL} roundedCircle />
                     </div>
-                    <div >
-                      <div>{service.category}</div>
-                      <div>{service.userObject.displayName}</div>
+                    <div>
+                      <div style={{fontWeight: 'bold'}}>{service.category}</div>
+                      <div style={{marginLeft: '0px', textAlign: "left"}}>{service.userObject.displayName.trim()}</div>
                     </div>
                   </div>
                 </Card.Body>
