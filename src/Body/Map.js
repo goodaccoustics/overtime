@@ -31,6 +31,11 @@ class MapContainer extends Component {
           initialCenter={{ lat: this.props.myLocation[0] , lng: this.props.myLocation[1] }}
         >
           <Marker position={{ lat: this.props.myLocation[0], lng: this.props.myLocation[1]}} />
+          {
+            this.props.servicesAroundMe.map(service =>
+              <Marker position={{ lat: service.userObject.geoLocation.split(",")[0], lng: service.userObject.geoLocation.split(",")[1]}} />
+            )
+          }
         </Map>
       </div>
 

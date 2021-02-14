@@ -22,8 +22,11 @@ class App extends Component {
     this.state = {
       shoppingCart: [],
       user: null,
-      userServices: []
+      userServices: [],
+      servicesAroundMe:[]
     }
+
+    this.searchAroundMe = this.searchAroundMe.bind(this);
   }
 
   setProfileUser = (user) => {
@@ -168,6 +171,33 @@ class App extends Component {
     })
   }
 
+  searchAroundMe(myLocation, category) {
+    console.log("searchAroundMeIsCalled");
+    const servicesRef = FIREBASE_DB.collection('services');
+
+    let services = [];
+    //const snapshot = servicesRef.where('userEmail', '!=', user.email).get()
+    const snapshot = servicesRef.get()
+      .then(snapshot => {
+        if (snapshot.empty) {
+          // do nothing
+        }
+        else {
+          snapshot.forEach(doc => {
+            // [TODO] Find by location distance
+            services.push(doc.data())
+          });
+        }
+      }).then( () => {
+        this.setState({
+          servicesAroundMe: services
+        });
+      }).finally(() =>{
+        console.log("Results of SearchAroundMe:");
+        console.log(this.state.servicesAroundMe);
+      });
+  }
+
   componentDidMount = () =>  {
     FIREBASE_AUTH().onAuthStateChanged(user => {
       if (user) {
@@ -176,7 +206,7 @@ class App extends Component {
       else {
         this.setState({
           user: null
-        })  ;
+        });
       };
     });
   }
@@ -190,7 +220,7 @@ class App extends Component {
           <Route
             exact
             path={['/', '/About/']}
-            render={(props) => <About {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} />}
+            render={(props) => <About {...props} addToCart={this.addToCart} removeFromCart={this.removeFromCart} itemInCart={this.itemInCart} searchAroundMe={this.searchAroundMe} servicesAroundMe={this.state.servicesAroundMe}/>}
           />
           <Route
             exact

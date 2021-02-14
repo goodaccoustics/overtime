@@ -9,6 +9,7 @@ import { CATEGORIES } from "../Utilities/templates";
 import Button from "react-bootstrap/Button";
 import Map from "./Map";
 import GoogleApiWrapper from './Map';
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 class About extends Component {
   constructor(props) {
@@ -16,16 +17,20 @@ class About extends Component {
 
     this.state = {
       category: null,
+
       isGeoEnabled: false,
       myLocation: null
     }
+    this.FindLocation = this.FindLocation.bind(this);
+    this.FindLocationSuccess = this.FindLocationSuccess.bind(this);
+    this.DisplayServicesAroundMe = this.DisplayServicesAroundMe.bind(this);
   }
 
   componentDidMount() {
     this.FindLocation();
   }
 
-  FindLocation = () => {
+  FindLocation() {
     this.setState({
       isGeoEnabled:false,
       myLocation: null
@@ -40,17 +45,20 @@ class About extends Component {
     }
   }
 
-  FindLocationSuccess = (location) => {
-    console.log("FindLocationSuccess: " + location);
+  FindLocationSuccess(location){
     this.setState(
       {
         isGeoEnabled:true,
         myLocation: [location.coords.latitude.toFixed(8), location.coords.longitude.toFixed(8)]
       }
     )
-    console.log("FindLocationSuccess: " + this.state.myLocation);
+    //console.log("FindLocationSuccess: " + this.state.myLocation);
+    setTimeout(this.DisplayServicesAroundMe, 1000)
   }
 
+  DisplayServicesAroundMe() {
+    this.props.searchAroundMe(this.state.myLocation, this.state.category);
+  }
 
   render() {
     return (
@@ -66,20 +74,27 @@ class About extends Component {
         <hr/>
         <div style={{paddingLeft: "20px", paddingRight: "20px"}}>
           <p>Around You</p>
+          {/** <Button onClick={() => this.displayServicesAroundMe()}>Show On Map</Button> **/}
         </div>
-        <div>
+        <div style={{justifyContent: 'center'}}>
           {
             this.state.isGeoEnabled?
-              <GoogleApiWrapper myLocation={this.state.myLocation}/>
+              this.state.isGeoSearching?
+                <ProgressBar striped variant="info" now={20} />
+                :
+                <GoogleApiWrapper myLocation={this.state.myLocation} category={this.state.category} servicesAroundMe={this.props.servicesAroundMe}/>
               :
-              <span>Enable your location to discover hustlers around you.</span>
+              <span style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>Enable your location to discover hustlers around you.</span>
           }
 
         </div>
-        <div>
-          <CardsDisplay category={"All"} addToCart={this.props.addToCart}  itemInCart={this.props.itemInCart} removeFromCart={this.props.removeFromCart} />
-        </div>
-
+        {
+          /**
+           <div>
+           <CardsDisplay category={"All"} addToCart={this.props.addToCart}  itemInCart={this.props.itemInCart} removeFromCart={this.props.removeFromCart} />
+           </div>
+          **/
+        }
       </div>
     );
   }
