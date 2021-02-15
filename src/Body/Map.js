@@ -26,6 +26,9 @@ class MapContainer extends Component {
         <Map
           google={this.props.google}
           draggable={false}
+          mapTypeControl={false}
+          streetViewControl={false}
+          fullscreenControl={false}
           zoom={14}
           style={mapStyles}
           initialCenter={{ lat: this.props.myLocation[0] , lng: this.props.myLocation[1] }}

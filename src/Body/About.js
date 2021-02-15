@@ -63,19 +63,21 @@ class About extends Component {
   render() {
     return (
       <div>
-        <AboutCarousel />
-        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
-          {
-            CATEGORIES.map(x =>
-              <AboutCategory category={x} />
-            )
-          }
-        </div>
-        <hr/>
-        <div style={{paddingLeft: "20px", paddingRight: "20px"}}>
-          <p>Around You</p>
-          {/** <Button onClick={() => this.displayServicesAroundMe()}>Show On Map</Button> **/}
-        </div>
+        {/**
+         <AboutCarousel />
+           <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+           {
+              CATEGORIES.map(x =>
+                <AboutCategory category={x} />
+              )
+            }
+           </div>
+           <hr/>
+           <div style={{paddingLeft: "20px", paddingRight: "20px"}}>
+           <p>Around You</p>
+           </div>
+         **/}
+
         <div style={{justifyContent: 'center', height: '700px'}}>
           {
             this.state.isGeoEnabled?

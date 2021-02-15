@@ -28,11 +28,11 @@ class Navigation extends Component {
   render() {
     return (
       <div className={"header"}>
-        <Navbar collapseOnSelect="true" bg="white" expand="lg" style={{display: "flex"}}>
+        <Navbar collapseOnSelect="true" expand="lg" style={{display: "flex"}}>
 
           <Navbar.Brand className={"header-logo"} style={{display: 'flex'}}>
-            <span className={"header-logo-lg-view"}>The Good Concierge</span>
-            <span className={"header-logo-sm-view"}>TGC</span>
+            <span className={"header-logo-lg-view"}>At Your Service</span>
+            <span className={"header-logo-sm-view"}>AYS</span>
             {
               this.props.shoppingCart && this.props.shoppingCart.length > 0 ?
                 <span style={{marginLeft: '5px'}}>

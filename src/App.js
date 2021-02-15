@@ -216,7 +216,7 @@ class App extends Component {
       <Router history={history}>
         <div>
           <Navigation login={this.login} user={this.state.user} shoppingCart={this.state.shoppingCart}/>
-          <br /><br /><br />
+
           <Route
             exact
             path={['/', '/About/']}
@@ -227,15 +227,20 @@ class App extends Component {
             path={['/', '/Profile/']}
             render={(props) => {
               if (this.state.user) {
-                return <Profile {...props}
-                                user={this.state.user}
-                                userServices={this.state.userServices}
-                                logout={this.logout}
-                                saveUserInfo={this.saveUserInfo}
-                                setUserServices={this.setUserServices}
-                                saveItemInfo={this.saveItemInfo}
-                                deleteItem={this.deleteItem}
-                        />;
+                return (
+                  <div>
+                    <br/><br/><br/>
+                    <Profile {...props}
+                             user={this.state.user}
+                             userServices={this.state.userServices}
+                             logout={this.logout}
+                             saveUserInfo={this.saveUserInfo}
+                             setUserServices={this.setUserServices}
+                             saveItemInfo={this.saveItemInfo}
+                             deleteItem={this.deleteItem}
+                    />
+                  </div>
+                )
               } else {
                 return <Redirect to="/About/" />;
               }
