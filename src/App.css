@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Monoton');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 
 .App {
   text-align: center;
@@ -43,7 +43,7 @@
   z-index: 10;
 }
 .header-logo{
-  font-family: 'Monoton';
+  font-family: 'Lobster';
 }
 .header-logo-lg-view{
   display: inline-block;

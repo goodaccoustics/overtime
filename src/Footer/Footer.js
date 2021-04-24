@@ -12,7 +12,7 @@ class Footer extends Component {
   render() {
     return (
       <div className={"footer"} align="center">
-        <span style={{color: "#b4b4b4"}}>© The Good Concierge 2020</span>
+        <span style={{color: "#b4b4b4"}}>© OverTime 2021</span>
       </div>
     );
   }

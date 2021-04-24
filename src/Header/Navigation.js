@@ -31,7 +31,7 @@ class Navigation extends Component {
         <Navbar collapseOnSelect="true" expand="lg" style={{display: "flex"}}>
 
           <Navbar.Brand className={"header-logo"} style={{display: 'flex'}}>
-            <span className={"header-logo-lg-view"}>At Your Service</span>
+            <span className={"header-logo-lg-view"}>OverTime</span>
             <span className={"header-logo-sm-view"}>AYS</span>
             {
               this.props.shoppingCart && this.props.shoppingCart.length > 0 ?
